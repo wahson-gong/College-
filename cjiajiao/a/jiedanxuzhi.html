@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+<title>学员信息管理</title>
+
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link href="../templets/default/css/base.css" rel="stylesheet" type="text/css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script language="javascript" src="js/member.js"></script>
+<style type="text/css">
+.rb{ border-right:1px solid #666666 }
+.tb{ border-top:1px solid #666666 }
+</style>
+</head>
+<body background='images/allbg.gif' leftmargin='8' topmargin='8' style="font-family='微软雅黑'">
+<!-- 头部nav -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom:0px">
+  <div class="container-fluid" >
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/home.php">College家教首页</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/info_index.php">学员信息 <span class="sr-only">(current)</span></a></li>
+        <li><a href="/cadmin/viewArticle.php?aid=1&dopost=view">接单须知</a></li>
+        <li><a href="/help.php?aid=19">帮助中心</a></li>        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/member/index.php">用户中心</a></li>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- 头部nav -->
+ <!--  
+<div class="bs-docs-header" id="content" tabindex="-1">
+      <div class="container">
+        <h1>接单须知</h1>
+        <p>接单须知，接单必须知道的事情</p>
+      </div>
+    </div>  
+<div id="content">  
+<div id="ny-main">
+  <div class="row-search">
+    
+    <div id="ny-left-nr" style="padding:0px 10%;">
+      <div class="about-xueda" style="border: 0px; margin: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: 宋体, Arial, Helvetica, sans-serif; line-height: 20px;">
+	<p style="border: none; margin: 0px; padding: 0px 20px 0px 0px; list-style-image: none; list-style-type: none; font-size: 14px; text-indent: 2em; line-height: 28px;">
+		<br />
+		<strong><span style="color:#ff0000;">【教员接单流程】</span></strong><br />
+		<strong style="color: rgb(0, 0, 205); text-indent: 2em;">注册&rarr;查看接单须知&rarr;联系客服预约&rarr;缴纳信息费&rarr;获取学员信息&rarr;联系家长、反馈&rarr;试讲、反馈&rarr;成功</strong><br />
+		<span style="text-indent: 2em;">1、在网站上注册，填写个人简历，提交认证资料，注册后加入当地的教员QQ群并留意网站或者QQ群里信息的更新。</span><br />
+		<span style="text-indent: 2em;">2、看到有合适的学员信息，请把个人信息（学校+专业+年级+姓名+信息编号+教员编号+个人简介）发给客服，例如：北大+大二+英语+张三+8888+12345+有辅导经验，为更高效地接信息，个人简介请尽量详细。</span><br />
+		<span style="text-indent: 2em;">3、客服根据家长的要求审核、筛选老师，确定教员合适后会要求教员支付信息费，教员及时支付信息费，付款后把截图发给客服，客服收到截图后会立即给教员学员信息。</span><br />
+		<span style="text-indent: 2em;">4、获得学员联系方式后请立即联系家长，介绍自己的情况，与家长商定试讲时间、地点、内容，并在接单后2小时内在网站上提交反馈信息。</span><br />
+		<span style="text-indent: 2em;">5、按与家长的约定试讲，试讲结束后2小时内在网站提交反馈信息，若失败在网站上申请退款并反馈给接单客服。</span></p>
+	<p style="border: none; margin: 0px; padding: 0px 20px 0px 0px; list-style-image: none; list-style-type: none; font-size: 14px; text-indent: 2em; line-height: 28px;">
+		<br />
+		<span style="color:#ff0000;"><strong>【College</strong><strong>家教章程，教员接单前请详细查看】</strong></span><br />
+		1、信息费标准：一周辅导一次，收取一次课时费；一周辅导2次，收取一周课时费用80%；一周辅导3-4次，收取一周课时费用70%；一周辅导5次及以上，收取一周课时费用60%；短期家教（20天以内）收取总课时费15%作为信息费。信息费会因距离远近、要求、迫切程度等原因浮动，具体以网站公布为准。<br />
+		2、教员需保证注册时提交的个人信息准确无误，若提交虚假信息，因此导致的一切结果教员自行承担。教员需接单后需要及时、真实提供反馈信息，若未及时提交或提交虚假信息，因此导致的一切结果教员自行承担。<br />
+		3、教员首次上门授课应携个人学生证(教师证)、身份证等相关证件原件，并主动提供学生证（教师证）、身份证复印件各一份，并提供一小时免费试讲。<br />
+		4、教员辅导时应认真备课，为学员拟定配套的教学计划，并充分利用教学时间，教员不得在授课期间玩手机或者做其它与教学无关的事。<br />
+		5、以下原因接单失败可全额退款，教员无需承担任何责任：（1）信息错误（时间、价格、费用等），教员不愿接受调整；（2）教员联系家长时家长已经找到老师或因计划改变不再需要家教老师；（3）接单后48小时内未联系上家长或接单后2周内未开始上课，而教员不愿再等待。<br />
+		6、以下原因接单失败可以退款，但需支付部分服务费：（1）试教失败且未获得课时费用，收取20元服务费，即退款=信息费-20元，若信息为机构信息试讲失败不收取服务费；（2）教员已获得课时费用，则收取已取课时费用的50%作为服务费，即退款=信息费-已得课酬*50%，若所得课时费用高于2倍信息费，无论任何原因，不能退款；（3）由于教员自身原因（包括但不仅限于教员时间临时不可以协调，嫌距离不方便，价格低等）不愿意继续辅导，若college家教成功安排其它教员接替，仅收取20元服务费，即退款=信息费-20元，若客户流失则不能退款。<br />
+		7、以下情况失败也不能退款，请教员注意：（1）试讲前未准备导致失败；（2）试讲迟到导致失败；（3）与家长产生矛盾或被家长投诉；（4）注册时未真实提交个人资料；（5）接单、试讲或失败后没有按要求及时、真实地在网站上提交反馈信息；（6）未经college家教的允许私下给家长介绍其它的老师；（7）未经college家教同意，教员单方面要求变动辅导时间、价格、内容等；（8）主动要求家长联系college家教说明失败的原因；（9）做出有其它损college家教权益的行为。<br />
+		8、教员辅导过程需自备交通工具，往返路上注意安全，尤其是女同学要特别注意人身安全，第一次上门试讲，可请同学陪同试讲。辅导过程中，教员与家长（学员）产生任何矛盾，College家教将尽可能协助解决，但不代替任何一方承担责任。College家教仅负责提供家教信息，不承担家教信息以外的其它任何责任。</p>
+</div>
+<div>
+	<embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></embed><embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></embed><embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></embed><embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></embed><embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></embed></div>
+
+    </div>
+    
+    <div class="clear"></div>
+  </div>
+
+</div>  
+</div>
+-->
+<div class="container" style="width:1120px;margin:100px auto">
+	<div class="row single-post">
+		<div class="col-md-12 col">
+			<div class="panel panel-default panel-single-post">
+			 
+
+				<div class="panel-body">
+					<p style="text-align:center;font-weight:500;font-size:18px">接单须知</p>
+                    	<div class="entry">
+                    	<div class="about-xueda" style="border: 0px; margin: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: 宋体, Arial, Helvetica, sans-serif; line-height: 20px;">
+	<p style="border: none; margin: 0px; padding: 0px 20px 0px 0px; list-style-image: none; list-style-type: none; font-size: 14px; text-indent: 2em; line-height: 28px;">
+		<br />
+		<strong><span style="color:#ff0000;">【教员接单流程】</span></strong><br />
+		<strong style="color: rgb(0, 0, 205); text-indent: 2em;">注册&rarr;查看接单须知&rarr;联系客服预约&rarr;缴纳信息费&rarr;获取学员信息&rarr;联系家长、反馈&rarr;试讲、反馈&rarr;成功</strong><br />
+		<span style="text-indent: 2em;">1、在网站上注册，填写个人简历，提交认证资料，注册后加入当地的教员QQ群并留意网站或者QQ群里信息的更新。</span><br />
+		<span style="text-indent: 2em;">2、看到有合适的学员信息，请把个人信息（学校+专业+年级+姓名+信息编号+教员编号+个人简介）发给客服，例如：北大+大二+英语+张三+8888+12345+有辅导经验，为更高效地接信息，个人简介请尽量详细。</span><br />
+		<span style="text-indent: 2em;">3、客服根据家长的要求审核、筛选老师，确定教员合适后会要求教员支付信息费，教员及时支付信息费，付款后把截图发给客服，客服收到截图后会立即给教员学员信息。</span><br />
+		<span style="text-indent: 2em;">4、获得学员联系方式后请立即联系家长，介绍自己的情况，与家长商定试讲时间、地点、内容，并在接单后2小时内在网站上提交反馈信息。</span><br />
+		<span style="text-indent: 2em;">5、按与家长的约定试讲，试讲结束后2小时内在网站提交反馈信息，若失败在网站上申请退款并反馈给接单客服。</span></p>
+	<p style="border: none; margin: 0px; padding: 0px 20px 0px 0px; list-style-image: none; list-style-type: none; font-size: 14px; text-indent: 2em; line-height: 28px;">
+		<br />
+		<span style="color:#ff0000;"><strong>【College</strong><strong>家教章程，教员接单前请详细查看】</strong></span><br />
+		1、信息费标准：一周辅导一次，收取一次课时费；一周辅导2次，收取一周课时费用80%；一周辅导3-4次，收取一周课时费用70%；一周辅导5次及以上，收取一周课时费用60%；短期家教（20天以内）收取总课时费15%作为信息费。信息费会因距离远近、要求、迫切程度等原因浮动，具体以网站公布为准。<br />
+		2、教员需保证注册时提交的个人信息准确无误，若提交虚假信息，因此导致的一切结果教员自行承担。教员需接单后需要及时、真实提供反馈信息，若未及时提交或提交虚假信息，因此导致的一切结果教员自行承担。<br />
+		3、教员首次上门授课应携个人学生证(教师证)、身份证等相关证件原件，并主动提供学生证（教师证）、身份证复印件各一份，并提供一小时免费试讲。<br />
+		4、教员辅导时应认真备课，为学员拟定配套的教学计划，并充分利用教学时间，教员不得在授课期间玩手机或者做其它与教学无关的事。<br />
+		5、以下原因接单失败可全额退款，教员无需承担任何责任：（1）信息错误（时间、价格、费用等），教员不愿接受调整；（2）教员联系家长时家长已经找到老师或因计划改变不再需要家教老师；（3）接单后48小时内未联系上家长或接单后2周内未开始上课，而教员不愿再等待。<br />
+		6、以下原因接单失败可以退款，但需支付部分服务费：（1）试教失败且未获得课时费用，收取20元服务费，即退款=信息费-20元，若信息为机构信息试讲失败不收取服务费；（2）教员已获得课时费用，则收取已取课时费用的50%作为服务费，即退款=信息费-已得课酬*50%，若所得课时费用高于2倍信息费，无论任何原因，不能退款；（3）由于教员自身原因（包括但不仅限于教员时间临时不可以协调，嫌距离不方便，价格低等）不愿意继续辅导，若college家教成功安排其它教员接替，仅收取20元服务费，即退款=信息费-20元，若客户流失则不能退款。<br />
+		7、以下情况失败也不能退款，请教员注意：（1）试讲前未准备导致失败；（2）试讲迟到导致失败；（3）与家长产生矛盾或被家长投诉；（4）注册时未真实提交个人资料；（5）接单、试讲或失败后没有按要求及时、真实地在网站上提交反馈信息；（6）未经college家教的允许私下给家长介绍其它的老师；（7）未经college家教同意，教员单方面要求变动辅导时间、价格、内容等；（8）主动要求家长联系college家教说明失败的原因；（9）做出有其它损college家教权益的行为。<br />
+		8、教员辅导过程需自备交通工具，往返路上注意安全，尤其是女同学要特别注意人身安全，第一次上门试讲，可请同学陪同试讲。辅导过程中，教员与家长（学员）产生任何矛盾，College家教将尽可能协助解决，但不代替任何一方承担责任。College家教仅负责提供家教信息，不承担家教信息以外的其它任何责任。</p>
+</div>
+<div>
+	<embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></embed><embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></embed><embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></embed><embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></embed><embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></embed></div>
+				
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<footer class="footer ">
+<!-- 
+      <div class="container">
+        <div class="row footer-top">
+          <div class="col-sm-6 col-lg-6">
+            <h4>
+              College大学生家教网
+            </h4>
+            <p>College大学生家教网，最专业的大学生家教网</p>
+          </div>
+          <div class="col-sm-6  col-lg-5 col-lg-offset-1">
+            <div class="row about">
+              <div class="col-xs-3">
+                <h4>关于</h4>
+                <ul class="list-unstyled">
+                  <li><a href="">关于我们</a></li>
+                  <li><a href="">合作建议</a></li>
+                </ul>
+              </div>
+              <div class="col-xs-3">
+                <h4>联系方式</h4>
+                <ul class="list-unstyled">
+                  <li><a href="" target="_blank">联系我们</a></li>
+                </ul>
+              </div>
+              <div class="col-xs-3">
+                <h4>招贤纳士</h4>
+                <ul class="list-unstyled">
+                  <li><a href="" target="_blank">招贤纳士</a></li>
+                 
+                </ul>
+              </div>
+              <div class="col-xs-3">
+                <h4>帮助中心</h4>
+                <ul class="list-unstyled">
+                  <li><a href="" target="_blank">帮助中心</a></li>
+                  
+                </ul>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+        <hr>
+        <div class="row footer-bottom">
+          <ul class="list-inline text-center">
+            <li><a href="" target="_blank">闽ICP备11008151号</a></li><li>闽公网安备11010802014853</li>
+          </ul>
+        </div>
+      </div>-->
+      <div class="container">
+			<div class="row">
+				<div class="col-lg-12" style="text-align:center">
+					<a href="/help.php?aid=2">关于我们</a>&nbsp;&nbsp;<a href="/help.php?aid=4">联系我们</a><br/>
+					Copyright &copy; 2016.凌致教育 All rights reserved.
+				</div>
+			</div>
+	</div>
+    </footer>
+</body>
+</html>

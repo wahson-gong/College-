@@ -1,0 +1,813 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>教师信息_Cjiajiao大学生家教网</title>
+<meta name="keywords" content="" />
+<meta name="description" content="我始终信奉一句话:兴趣是最好的老师,赏识是最好的教育。" />
+<!--<meta http-equiv="mobile-agent" content="format=xhtml;url=/m/view.php?aid=180">
+<script type="text/javascript">if(window.location.toString().indexOf('pref=padindex') != -1){}else{if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){if(window.location.href.indexOf("?mobile")<0){try{if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){window.location.href="/m/view.php?aid=180";}else if(/iPad/i.test(navigator.userAgent)){}else{}}catch(e){}}}}</script>-->
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	function CheckLogin(){
+	  var taget_obj = document.getElementById('_ajax_feedback');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_feedback.php");
+	  DedeXHTTP = null;
+	}
+	function postBadGood(ftype,fid)
+	{
+		var taget_obj = document.getElementById(ftype+fid);
+		var saveid = GetCookie('badgoodid');
+		if(saveid != null)
+		{
+			 var saveids = saveid.split(',');
+			 var hasid = false;
+			 saveid = '';
+			 j = 1;
+			 for(i=saveids.length-1;i>=0;i--)
+			 {
+			 	  if(saveids[i]==fid && hasid) continue;
+			 	  else {
+			 	  	if(saveids[i]==fid && !hasid) hasid = true;
+			 	  	saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+			 	  	j++;
+			 	  	if(j==10 && hasid) break;
+			 	  	if(j==9 && !hasid) break;
+			 	  }
+			 }
+	     if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+	     else saveid += ','+fid;
+			 SetCookie('badgoodid',saveid,1);
+		}
+		else
+		{
+			SetCookie('badgoodid',fid,1);
+		}
+		//document.write("feedback.php?action="+ftype+"&fid="+fid);
+		//return;
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+
+
+<link href="/templets/default/style/div.css" rel="stylesheet" type="text/css" />
+
+<link href="/templets/default/style/IN365hls2.9.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="/templets/default/style/header2_9.css"></head>
+
+
+
+</head>
+
+<body>
+
+<div id="content">
+
+<!--------------------------------------->
+ <div id="header">
+    <div id="header-nr"> 
+<div>你好！欢迎光临Cjiajiao大学生家教服务平台！
+<a class="login-button" href="/member/index.php">张东明</a> |<a class="join-button" href="/member/index_do.php?fmdo=login&amp;dopost=exit#">退出登录</a></div>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+
+ <div id="top">
+    <div id="top-nr">
+      <div id="logo"><a href="/" title="Cjiajiao大学生家教官网" target="_self" ><img src="/templets/default/images/logo.jpg" /></a></div>
+      <div id="top-search">
+      
+              <form action="/plus/advancedsearch.php" method="post">
+       <div id="search">
+      <input type="hidden" name="mid" value="6" class="search-keyword"  />
+      <input type="hidden" name="dopost"  value="search" /><img src="/templets/default/images/ss.jpg" /><input type="text" name="q" placeholder="请输入您感兴趣的老师姓名或选择您感兴趣的课程" class="search-keyword" id="search-keyword" /> | 
+      选择课程 : <select name="lx" class="search-option" id="search-option">
+      <option value="">请选择</option>
+      <option value="语文">语文</option>
+      <option value="数学">数学</option>
+      <option value="英语">英语</option>
+      <option value="物理">物理</option>
+      <option value="化学">化学</option>
+      <option value="生物">生物</option>
+      <option value="历史">历史</option>
+      <option value="地理">地理</option>
+      <option value="政治">政治</option>
+      <option value="音乐">音乐</option>
+      <option value="体育">体育</option>
+      <option value="美术">美术</option>
+      <option value="计算机">计算机</option>
+      <option value="心理辅导">心理辅导</option>
+      <option value="舞蹈">舞蹈</option>
+      <option value="瑜伽">瑜伽</option>
+      <option value="书法">书法</option>
+      <option value="钢琴">钢琴</option>
+      </select>
+   
+      <input type="submit" name="submit" value="开始搜索" class="search-submit" />
+      </div>
+      </form>
+        
+         <div class="tags">
+          <h4>热门标签:</h4>
+          <ul>
+          
+          </ul>
+        </div>
+      </div>
+       <ul class="hls_stern">
+         <li><a href="#" class="stern_1">老师认证</a></li>
+         <li><a href="#" class="stern_2">真实评价</a></li>
+       </ul>
+      <div class="clear"></div>
+    </div>
+  </div>
+<div class="lanren-menu">
+<!--代码部分begin-->
+	<div class="lanren">
+		<div id="nav-2015">
+			<div id="category-2015" onMouseOver="this.className='on'" onmouseleave="this.className=''">
+				<div class="ld">
+				              <h2>全部课程分类<b></b></h2>
+				</div>
+				<div id="allsort">
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                  
+                        <span>小学、小升初</span>
+						<span><h3><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%D0%A1%D1%A7">数学</a><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%D0%A1%D1%A7">语文</a><a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%D0%A1%D1%A7">英语</a></h3></span>
+						<div class="i-mc">
+                              <span>小 &nbsp;&nbsp;&nbsp;学 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%D0%A1%D1%A7"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%D0%A1%D1%A7"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%D0%A1%D1%A7"> 英语</a>   <br />
+                             <span>小升初 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%D0%A1%C9%FD%B3%F5"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%D0%A1%C9%FD%B3%F5"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%D0%A1%C9%FD%B3%F5"> 英语</a>  <br />
+							  <span>六年级 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%C1%F9%C4%EA%BC%B6"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%C1%F9%C4%EA%BC%B6"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%C1%F9%C4%EA%BC%B6"> 英语</a>  <br />
+                             <span>五年级 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%CE%E5%C4%EA%BC%B6"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%CE%E5%C4%EA%BC%B6"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%CE%E5%C4%EA%BC%B6"> 英语</a>  <br />
+                             <span>四年级 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%CB%C4%C4%EA%BC%B6"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%CB%C4%C4%EA%BC%B6"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%CB%C4%C4%EA%BC%B6"> 英语</a> <br />
+                             <span>三年级 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%C8%FD%C4%EA%BC%B6"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%C8%FD%C4%EA%BC%B6"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%C8%FD%C4%EA%BC%B6"> 英语</a> <br />
+                             <span>二年级 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B6%FE%C4%EA%BC%B6"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B6%FE%C4%EA%BC%B6"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B6%FE%C4%EA%BC%B6"> 英语</a> <br />
+                             <span>一年级 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%D2%BB%C4%EA%BC%B6"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%D2%BB%C4%EA%BC%B6"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%D2%BB%C4%EA%BC%B6"> 英语</a></a>                  
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>初中、中考</span>
+						<span><h3><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B3%F5%D6%D0">数学</a><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B3%F5%D6%D0">语文</a><a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B3%F5%D6%D0">英语</a><a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B3%F5%D6%D0">化学</a></h3></span>
+						<div class="i-mc" style="top: 65px;">
+                        
+                        
+                         <span>初中 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B3%F5%D6%D0">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B3%F5%D6%D0"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B3%F5%D6%D0">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B3%F5%D6%D0">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B3%F5%D6%D0"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B3%F5%D6%D0">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B3%F5%D6%D0">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B3%F5%D6%D0"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B3%F5%D6%D0">地理</a> <br />
+                             <span>中考 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%D6%D0%BF%BC">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%D6%D0%BF%BC"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%D6%D0%BF%BC">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%D6%D0%BF%BC">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%D6%D0%BF%BC"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%D6%D0%BF%BC">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%D6%D0%BF%BC">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%D6%D0%BF%BC"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%D6%D0%BF%BC">地理</a> <br />
+                             <span>初三 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B3%F5%C8%FD">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B3%F5%C8%FD"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B3%F5%C8%FD">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B3%F5%C8%FD">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B3%F5%C8%FD"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B3%F5%C8%FD">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B3%F5%C8%FD">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B3%F5%C8%FD"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B3%F5%C8%FD">地理</a> <br />
+                             <span>初二 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B3%F5%B6%FE">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B3%F5%B6%FE"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B3%F5%B6%FE">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B3%F5%B6%FE">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B3%F5%B6%FE"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B3%F5%B6%FE">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B3%F5%B6%FE">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B3%F5%B6%FE"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B3%F5%B6%FE">地理</a> <br />
+                             <span>初一 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B3%F5%D2%BB">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B3%F5%D2%BB"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B3%F5%D2%BB">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B3%F5%D2%BB">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B3%F5%D2%BB"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B3%F5%D2%BB">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B3%F5%D2%BB">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B3%F5%D2%BB"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B3%F5%D2%BB">地理</a> 
+                            
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>高中、高考</span>
+						<span><h3><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B8%DF%D6%D0">数学</a><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B8%DF%D6%D0">语文</a><a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B8%DF%D6%D0">英语</a><a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B8%DF%D6%D0">化学</a></h3></span>
+						<div class="i-mc" style="top: 140px;">
+                        
+                        
+                        <span>高中 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B8%DF%D6%D0">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B8%DF%D6%D0"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B8%DF%D6%D0">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B8%DF%D6%D0">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B8%DF%D6%D0"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B8%DF%D6%D0">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B8%DF%D6%D0">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B8%DF%D6%D0"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B8%DF%D6%D0">地理</a> <br />
+                             <span>高考 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B8%DF%BF%BC">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B8%DF%BF%BC"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B8%DF%BF%BC">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B8%DF%BF%BC">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B8%DF%BF%BC"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B8%DF%BF%BC">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B8%DF%BF%BC">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B8%DF%BF%BC"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B8%DF%BF%BC">地理</a> <br />
+                             <span>高三 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B8%DF%C8%FD">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B8%DF%C8%FD"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B8%DF%C8%FD">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B8%DF%C8%FD">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B8%DF%C8%FD"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B8%DF%C8%FD">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B8%DF%C8%FD">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B8%DF%C8%FD"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B8%DF%C8%FD">地理</a> <br />
+                             <span>高二 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B8%DF%B6%FE">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B8%DF%B6%FE"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B8%DF%B6%FE">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B8%DF%B6%FE">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B8%DF%B6%FE"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B8%DF%B6%FE">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B8%DF%B6%FE">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B8%DF%B6%FE"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B8%DF%B6%FE">地理</a> <br />
+                             <span>高一 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B8%DF%D2%BB">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B8%DF%D2%BB"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B8%DF%D2%BB">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B8%DF%D2%BB">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B8%DF%D2%BB"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B8%DF%D2%BB">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B8%DF%D2%BB">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B8%DF%D2%BB"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B8%DF%D2%BB">地理</a> 
+                        
+                        
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                         <span>特色课程</span>
+						<span><h3><a href="list.php?tid=1&lx=%BC%C6%CB%E3%BB%FA">计算机</a><a href="list.php?tid=1&lx=%D0%C4%C0%ED%B8%A8%B5%BC">心理辅导</a><a href="list.php?tid=1&lx=%CE%E8%B5%B8">舞蹈</a><a href="list.php?tid=1&lx=%CA%E9%B7%A8">书法</a></h3></span>
+						<div class="i-mc" style="top: 210px;">
+                        
+                      
+                        
+                         <span>特色课程 |</span><a href="list.php?tid=1&lx=%D0%C4%C0%ED%B8%A8%B5%BC"> 心理辅导</a> <a href="list.php?tid=1&lx=%CE%E8%B5%B8"> 舞蹈</a>  <a href="list.php?tid=1&lx=%BC%C6%CB%E3%BB%FA"> 计算机</a>  <a href="list.php?tid=1&lx=%CA%E9%B7%A8"> 书法</a> <a href="list.php?tid=1&lx=%B8%D6%C7%D9"> 钢琴</a><a href="plus/list.php?tid=1&lx=%D2%F4%C0%D6"> 音乐</a><br />
+                        
+                        
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>咨询电话<br />
+                        0917-2668022</span>
+						
+						
+					</div>
+					
+					
+				</div>
+		  </div>
+			<div id="navitems-2015">
+				<li class="cur"><a href="/index.php" target="_self">首页</a></li>
+                <li><a href="/a/newfile6.html">老师入驻</a></li>
+                <li><a href="/plus/list.php?tid=12"">亲子教育</a></li>
+                <li><a href="/a/newfile1.html">关于我们</a></li>
+                <li><a href="/plus/list.php?tid=8">帮助中心</a></li>
+			
+			</div>
+		</div>
+	</div>
+
+<!--代码部分end-->
+</div>
+  
+  
+  
+  
+  
+
+<!--------------------------------------->
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+
+  <div id="ny-main">
+  <div id="wz">当前位置: <a href='http://www.tthls.cn/'>主页</a> > <a href='/plus/list.php?tid=1'>教师</a> >  翟老师</div>
+  <div id="ny-banner">
+    <div id="ls-top">
+      <div id="ls-top-l">
+        
+      
+   
+      
+      
+   
+      
+      
+           <h4>
+           
+           
+           
+           
+           ID:000180
+           </h4>
+      </div>
+      <div id="ls-top-m">
+      <h3>
+      
+  
+ 
+         
+                                 
+      </h3>  
+      <p>科目：初中数学    
+      <br />
+      教龄：4年    
+      <br />
+      授课区域：姜谭路,清姜路,新建路,经二路,中山路,西关,火炬路,石坝河区域<br />
+      
+    教学方式：一对一<br />
+      
+      授课方式：老师上门<br />
+      </p> 
+
+                <ul class="star_area" name="star-level" data-star="{&quot;starNums&quot;:&quot;5&quot;}">
+                
+                 
+                                    <li class="stuff"><img src="/templets/default/images/star-icon.png"></li>
+									<li class="stuff"><img src="/templets/default/images/star-icon.png"></li>
+									<li class="stuff"><img src="/templets/default/images/star-icon.png"></li>
+									<li class="stuff"><img src="/templets/default/images/star-icon.png"></li>
+									<li class="stuff"><img src="/templets/default/images/star-icon.png"></li>
+                                    <span class="anchor_other" data-anchor="#jzpj-anchor"><script type="text/javascript" src="/plus/feedcount.php?aid=180&type=c"></script>条评价</span>
+				<div class="clear"></div>
+            </ul>
+      </div>
+      <div id="ls-top-r">
+           <div class="approveimfor">
+				<div class="five_infor">
+                
+					<span class="idcard">身份认证</span>
+					<span class="t_approve">教师资格证</span>																			</div>
+				
+			</div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="row-search">
+    
+    <div id="ny-left-nr">
+    
+      <div class="jbzl">
+      
+						<h2>基本资料</h2>
+                        <div class="basic_infor">
+											<p><span>学历：</span>本科</p>							
+                                            <p><span>所学专业：</span>数学</p>	
+                                            <p><span>毕业院校：</span>宝鸡文理学院</p>						
+                        </div>
+						<div class="basic_infor">
+																	
+                                            <p><span>授课区域：</span>姜谭路,清姜路,新建路,经二路,中山路,西关,火炬路,石坝河区域</p>						
+                        </div>
+                        
+						<div class="keyword">
+														<p class="goodatstu">擅长的学生类型
+																<span>苦学无效型,贪玩厌学型,基础薄弱型</span>
+																
+															</p>
+																					<p class="specialway">教学特点
+																<span>亲切自然,富有情感,幽默诙谐,讲求技巧,亦师亦友,把握重点,互动性强,严厉认真,激发学习兴趣,培养学习习惯</span>
+																
+															</p>
+			               </div>
+						   <div>
+                           
+							
+							<div class="cutline"></div>
+						   </div>
+																																			
+      </div>
+      <div class="jbzl">
+      
+						<h2>自我简介</h2>
+                      
+						   <div>
+							<p>会学习才能学好习。</p>
+							<div class="cutline"></div>
+						   </div>
+																																			
+      </div>
+     
+      <div class="jbzl">
+      
+						<h2>教学经历</h2>
+                      
+						   <div>
+                           
+							<p style="color:#FF9900;"><span style="color: rgb(65, 74, 81); font-family: 'Microsoft Yahei', 'Hiragino Sans GB', 'Helvetica Neue', Helvetica, tahoma, arial, Verdana, sans-serif, 'WenQuanYi Micro Hei', 宋体; font-size: 14px; line-height: 24px;">我始终信奉一句话:兴趣是最好的老师,赏识是最好的教育。</span></p>
+							<div class="cutline"></div>
+						   </div>
+																																			
+      </div>
+      
+           <div class="jbzl">
+      
+						<h2>教学案例</h2>
+                      
+						   <div>
+                           
+							<p style="color:#FF9900;"><div class="mousehover" style="box-sizing: border-box; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; margin: 0px; padding: 0px 0px 0px 15px; border: 0px; outline: none 0px; font-family: 'Microsoft Yahei', 'Hiragino Sans GB', 'Helvetica Neue', Helvetica, tahoma, arial, Verdana, sans-serif, 'WenQuanYi Micro Hei', 宋体; font-size: 14px; line-height: 19px; vertical-align: baseline; background-image: url(http://www.365hls.com/img/teacher/teacherindex/radio.png); cursor: default; color: rgb(65, 74, 81); background-position: 1px 0px; background-repeat: no-repeat no-repeat;">
+	<div class="mousearea" style="box-sizing: border-box; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; margin: 0px; padding: 0px 0px 0px 15px; border: 0px; outline: none 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline; transition: all 0.24s; -webkit-transition: all 0.24s;">
+		<p class="gwjl_time" style="box-sizing: border-box; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; margin: 15px 0px 0px; padding: 0px; border: 0px; outline: none 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: bold; line-height: 24px; vertical-align: baseline;">
+			&nbsp;</p>
+	</div>
+</div>
+<p class="gwjl_time" style="color: rgb(65, 74, 81); font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; box-sizing: border-box; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; margin: 15px 0px 0px; padding: 0px; border: 0px; outline: none 0px; font-weight: bold; line-height: 24px; vertical-align: baseline;">
+	2015年3月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="box-sizing: border-box; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: none 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;">金同学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;某中学</span></p>
+<p class="gwjl_content" style="color: rgb(65, 74, 81); font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; box-sizing: border-box; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; margin: 0px; padding: 0px; border: 0px; outline: none 0px; line-height: 24px; vertical-align: baseline; word-wrap: break-word;">
+	比较活泼也比较马虎，不爱学习但是很聪明。辅导前期数学90分，做题有思路但是一做就错，经过十次课的辅导中考成绩为106.</p>
+<p class="gwjl_time" style="color: rgb(65, 74, 81); font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; box-sizing: border-box; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; margin: 15px 0px 0px; padding: 0px; border: 0px; outline: none 0px; font-weight: bold; line-height: 24px; vertical-align: baseline;">
+	&nbsp;</p>
+</p>
+							<div class="cutline"></div>
+						   </div>
+																																			
+      </div>
+    
+      <div class="jbzl">
+      
+						<h2>家长评价</h2>
+                      
+						   <div class="ny-pl">
+                           
+							<p>
+<!-- //AJAX评论区 -->
+<!-- //主模板必须要引入/include/dedeajax2.js -->
+
+
+
+
+
+
+           
+          
+          <iframe src="/plus/feedback.php?aid=180" id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="880" onLoad="iFrameHeight()" ></iframe>
+          
+          <script type="text/javascript" language="javascript"> 
+function iFrameHeight() { 
+var ifm= document.getElementById("iframepage"); 
+var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument; 
+if(ifm != null && subWeb != null) { 
+ifm.height = subWeb.body.scrollHeight; 
+} 
+} 
+</script> 
+<a name='postform'></a>
+<div class="mt1">
+  <dl class="tbox">
+    <dt> <strong></strong> <span class="more"></span> </dt>
+    <dd>
+      <div class="dede_comment_post">
+        <form action="#" method="post" name="feedback" onsubmit="return false;">
+          <input type="hidden" name="dopost" value="send" />
+          <input type="hidden" name="comtype" value="comments">
+          <input type="hidden" name="aid" value="180" />
+          <input type="hidden" name="fid" id='feedbackfid' value="0" />
+          <div class="dcmp-title">(请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。)</div>
+          <!-- /dcmp-title -->
+          <div class="dcmp-stand"> <strong>评价:</strong>
+            <input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu"  style="margin-left:10px;"/>
+            <label for="dcmp-stand-neu"><img src="/templets/default/images/cmt-neu.gif" />中立</label>
+            <input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good"  style="margin-left:10px;"/>
+            <label for="dcmp-stand-good"><img src="/templets/default/images/cmt-good.gif" />好评</label>
+            <input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" style="margin-left:10px;" />
+            <label for="dcmp-stand-bad"><img src="/templets/default/images/cmt-bad.gif" />差评</label>
+          </div>
+          <!-- /dcmp-stand -->
+		  
+
+          <div class="clr"></div>
+          <div class="dcmp-content">
+            <script type="text/javascript">
+					//<![CDATA[
+					window.CKEDITOR_BASEPATH='/include/ckeditor/';
+					//]]>
+                    </script>
+            <script type="text/javascript" src="/include/ckeditor/ckeditor.js?t=B8DJ5M3"></script>
+            <script type="text/javascript">//<![CDATA[
+CKEDITOR.config.ubb_smiley = {"高兴":"{s:1}","撇嘴":"{s:2}","抓狂":"{s:3}","汗":"{s:4}","惊恐":"{s:5}","奋斗":"{s:6}","疑问":"{s:7}","晕":"{s:8}","偷笑":"{s:9}","可爱":"{s:10}","疑惑":"{s:11}","酷":"{s:12}","暴汗":"{s:13}","呕吐":"{s:14}","大笑":"{s:15}","色":"{s:16}"}
+//]]></script>
+<textarea name="msg" rows="8" cols="60"></textarea>
+<script type="text/javascript">//<![CDATA[
+CKEDITOR.replace('msg', {"extraPlugins":"dedepage,multipic,addon,bbcode","fontSize_sizes":"30\/30%;50\/50%;100\/100%;120\/120%;150\/150%;200\/200%;300\/300%","disableObjectResizing":"true","smiley_path":"\/images\/smiley\/","smiley_images":["1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","16.gif"],"smiley_descriptions":["高兴","撇嘴","抓狂","汗","惊恐","奋斗","疑问","晕","偷笑","可爱","疑惑","酷","暴汗","呕吐","大笑","色"],"toolbar":[["Source","-","Bold","Italic","Underline","-"],["FontSize","TextColor"],["Link","Unlink","Smiley"]],"height":100,"skin":"kama"});
+//]]></script>
+ </div>
+          <!-- /dcmp-content -->
+          <div class="dcmp-post">
+            <!--未登陆-->
+            <div class="dcmp-userinfo" id="_ajax_feedback"> 用户名:
+              <input type="text" name="username" size="16" class="ipt-txt" style="text-transform: uppercase; border:#CCCCCC 1px solid; margin-right:5px;"/>
+              
+              验证码:
+              <input type="text" name="validate" size="4" class="ipt-txt" style="text-transform:uppercase;border:#CCCCCC 1px solid; margin-right:5px;"/>
+              <img src= "/include/vdimgck.php" id="validateimg" style="cursor:pointer" onclick="this.src=this.src+'?'" title="点击我更换图片" alt="点击我更换图片"  class="vdimg"/>
+              <input type="checkbox" name="notuser" id="dcmp-submit-guest" />
+              <label for="dcmp-submit-guest" />
+              匿名?
+              </label>
+            </div>
+            
+            <script language="javascript" type="text/javascript">CheckLogin();</script>
+            
+            <div class="dcmp-submit" align="center">
+              <button type="button" onClick='PostComment()'class="button2">发表评论</button>
+           
+            </div>
+          </div>
+        </form>
+      </div>
+    </dd>
+  </dl>
+</div>
+<!-- //评论表单区结束 -->
+<!-- //评论内容区 -->
+<a name='commettop'></a>
+<div class="mt1">
+  <dl class="tbox">
+   <dt  class="tbox-tit"style="line-height:35px;"> <span class="more"></span>
+   
+    <dd id='commetcontentNew'></dd>
+    <dd id='commetcontent'></dd>
+  </dl>
+</div>
+<!--
+//由于评论载入时使用异步传输，因此必须在最后一步加载（DIGG和评论框须放在评论内容前面）
+//如果一定需要提前的把myajax.SendGet改为myajax.SendGet2，但可能会引起页面阻滞
+-->
+<script language='javascript'>
+function LoadCommets(page)
+{
+		/*var taget_obj = document.getElementById('commetcontent');
+		var waithtml = "<div style='line-height:50px'><img src='/images/loadinglit.gif' />评论加载中...</div>";
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+		myajax.SendGet2("/plus/feedback_ajax.php?dopost=getlist&aid=180&page="+page);
+		DedeXHTTP = null;*/
+}
+function PostComment()
+{
+		var f = document.feedback;
+		var msg = CKEDITOR.instances.msg.getData();
+		var nface = '6';
+		var nfeedbacktype = 'feedback';
+		var nvalidate = '';
+		var nnotuser = '';
+		var nusername = '';
+		var npwd = '';
+		var taget_obj = $DE('commetcontentNew');
+		var waithtml = "<div style='line-height:30px'><img src='/images/loadinglit.gif' />正在发送中...</div>";
+		if(msg=='')
+		{
+			alert("评论内容不能为空！");
+			return;
+		}
+		if(f.validate)
+		{
+			if(f.validate.value=='') {
+				alert("请填写验证码！");
+				return;
+			}
+			else {
+				nvalidate = f.validate.value;
+			}
+		}
+		if(msg.length > 500)
+		{
+			alert("你的评论是不是太长了？请填写500字以内的评论。");
+			return;
+		}
+		if(f.feedbacktype) {
+			for(var i=0; i < f.feedbacktype.length; i++)
+				if(f.feedbacktype[i].checked) nfeedbacktype = f.feedbacktype[i].value;
+		}
+		/*
+		if(f.face) {
+			for(var j=0; j < f.face.length; j++)
+				if(f.face[j].checked) nface = f.face[j].value;
+		}
+		*/
+		if(f.notuser.checked) nnotuser = '1';
+		if(f.username) nusername = f.username.value;
+		if(f.pwd) npwd = f.pwd.value;
+		
+		var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+		myajax.sendlang = 'gb2312';
+		myajax.AddKeyN('dopost', 'send');
+		myajax.AddKeyN('aid', '180');
+		myajax.AddKeyN('fid', f.fid.value);
+		myajax.AddKeyN('face', nface);
+		myajax.AddKeyN('feedbacktype', nfeedbacktype);
+		myajax.AddKeyN('validate', nvalidate);
+		myajax.AddKeyN('notuser', nnotuser);
+		myajax.AddKeyN('username', nusername);
+		myajax.AddKeyN('pwd', npwd);
+		myajax.AddKeyN('msg', msg);
+		myajax.SendPost2('/plus/feedback_ajax.php');
+		//msg = '';
+		CKEDITOR.instances.msg.setData('');
+		//taget_obj.removeAttribute('id');
+		f.fid.value = 0;
+		if(f.validate)
+		{
+			if($DE('validateimg')) $DE('validateimg').src = "/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+}
+function quoteCommet(fid)
+{
+	    document.feedback.fid.value = fid;
+}
+  
+function ajaxFeedback(aid, fid, type)
+{
+	
+	var taget_obj = $DE('ajaxfeedback_'+fid);
+	if(taget_obj.innerHTML == '')
+	{
+		var myajax = new DedeAjax(taget_obj, true, true, '', 'x');
+		myajax.SendGet2("/plus/feedback.php?aid="+aid+"&fid="+fid+"&action=quote&type=ajax");
+		eval('var result = typeof CKEDITOR.instances.msg_'+fid);
+		if(result != 'undefined')
+		{
+			// 删除实例
+			eval('var edit = CKEDITOR.instances.msg_'+fid);
+			CKEDITOR.remove(edit);
+		}
+		CKEDITOR.replace(document.getElementById('msg_'+fid) , CKEDITOR.instances.msg.config);
+		scroll(0, taget_obj.offsetTop - 120);
+		var formname = 'f = document.ajaxfeedback_'+fid;
+		eval(formname);
+		if(f.validate)
+		{
+			if($DE('vdimg_'+fid)) $DE('vdimg_'+fid).src = "/include/vdimgck.php?"+f.validate.value;
+			f.validate.value = '';
+		}
+		
+		DedeXHTTP = null;
+	}
+}
+
+
+
+function ajaxQuotePost(fid)
+{
+	var formname = 'f = document.ajaxfeedback_'+fid;
+	eval(formname);
+	//var f = document.formname;
+	//var f = f[0];
+	var nvalidate = '';
+	var nnotuser = '';
+	var nusername = '';
+	var npwd = '';
+	var taget_obj = $DE('commetcontentNew');
+	var waithtml = "<div style='line-height:30px'><img src='/images/loadinglit.gif' />正在发送中...</div>";
+	eval('var msg = CKEDITOR.instances.msg_'+fid+'.getData()');
+
+	if(f.validate)
+	{
+		if(f.validate.value=='') {
+			alert("请填写验证码！");
+			return;
+		}
+		else {
+			nvalidate = f.validate.value;
+		}
+	}
+	var myajax = new DedeAjax(taget_obj, false, true, '', '', waithtml);
+	
+	if(f.notuser.checked) nnotuser = '1';
+	if(f.username) nusername = f.username.value;
+	if(f.pwd) npwd = f.pwd.value;
+	
+	myajax.sendlang = 'gb2312';
+	myajax.AddKeyN('dopost', 'send');
+	myajax.AddKeyN('aid', '180');
+	myajax.AddKeyN('fid', f.fid.value);
+	myajax.AddKeyN('type', 'ajax');
+	myajax.AddKeyN('comtype', f.comtype.value);
+	myajax.AddKeyN('isconfirm','yes');
+	
+	myajax.AddKeyN('typeid', f.typeid.value);
+	myajax.AddKeyN('quotemsg', f.quotemsg.value);
+	myajax.AddKeyN('validate', nvalidate);
+	myajax.AddKeyN('notuser', nnotuser);
+	myajax.AddKeyN('username', nusername);
+	myajax.AddKeyN('pwd', npwd);
+	myajax.AddKeyN('msg', msg);
+	myajax.SendPost2('/plus/feedback_ajax.php');
+	//alert(f.quotemsg.value);
+	if($DE('ajaxfeedback_'+fid).innerHTML != null)
+	{
+		$DE('ajaxfeedback_'+fid).innerHTML = '';
+	}
+	scroll(0, taget_obj.offsetTop);
+}
+LoadCommets(1);
+</script>
+<!-- //评论内容区结束 -->
+</p>
+							<div class="cutline"></div>
+						   </div>
+																																			
+      </div>
+    
+    </div>
+    
+    <div id="search-right">
+      <div id="search-r-top">
+       <p class="gg"><strong>30</strong>元/时起</p>
+        <div class="search-r-top-tel"> </div>
+      
+        <span class="after_pay">先试听后付费/试听不满意不付费</span>
+      </div>
+      <div id="search-r-m01">
+       
+        <div class="teacher_calendar">
+				<h3>可授课时间</h3>
+				<div class="calendar" cellpadding="1" cellspacing="1">
+                 
+					<table class="lesson_time">
+						<thead>
+							<tr>
+								<th>一</th>
+								<th>二</th>
+								<th>三</th>
+								<th>四</th>
+								<th>五</th>
+								<th>六</th>
+								<th>日</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>   
+                                    上 </td>
+                                    <td>
+                                    上
+                                    </td>
+								<td>上</td>
+								<td>上</td>
+								<td>上</td>
+								<td>上</td>
+								<td>上</td>
+							</tr>
+							<tr>
+								<td>   
+                                    下 </td>
+                                    <td>
+                                    下
+                                    </td>
+								<td>下</td>
+								<td>下</td>
+								<td>下</td>
+								<td>下</td>
+								<td>下</td>
+							</tr>
+							<tr>
+								<td>   
+                                    晚 </td>
+                                    <td>
+                                    晚
+                                    </td>
+								<td>晚</td>
+								<td>晚</td>
+								<td>晚</td>
+								<td>晚</td>
+								<td>晚</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+        </div>
+      <div id="search-r-b">
+                 <h4>常见问题</h4>
+         <ul><li>
+         <a href='/plus/view.php?aid=33'>Cjiajiao大学生家教平台操作流</a>
+         <span>09-22</span>
+
+        </li>
+
+         </ul>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+</div>  
+  
+    </div> 
+ <div style=" width:0px; overflow:hidden">
+ 
+ <script src="/plus/count.php?view=yes&aid=180&mid=182" type='text/javascript' language="javascript"></script>
+ </div>
+
+ <!-- //底部模板 -->
+
+  <div id="foot">
+    <div id="foot-nr">
+      <div id="foot-nr-top">
+        <div class="tel"><i class="icon icon-phone"><img src="/templets/default/images/tel-icon.jpg" /></i><h4>0917-2668022</h4>
+        <span>周一至周日&nbsp;8:00-23:00</span></div>
+        <div class="foot-list">
+        <h3>关于Cjiajiao大学生家教</h3>
+        <a href="/a/newfile1.html">了解我们</a><br />
+        <a href="/a/newfile3.html">特色与优势</a> <br />       
+        <a href="/a/newfile2.html">网站条款</a> <br />
+        <a href="/a/newfile4.html">加入我们 </a><br />
+         <a href="/a/newfile5.html">联系我们 </a> 
+        </div>
+        <div class="foot-list">
+        <h3>老师指南</h3>
+        <a href="/a/newfile6.html">为什么入驻我们</a><br />
+        <a href="/a/newfile7.html">入驻流程</a> <br />       
+        <a href="/a/newfile8.html">收入保障</a> <br />
+        <a href="/a/newfile9.html">淘汰机制</a><br />
+        
+        </div>
+        <div class="foot-list">
+        <h3>家长帮助</h3>
+        <a href="/a/newfile10.html">为什么选择我们</a><br />
+        <a href="/a/newfile11.html">免费试听</a> <br />       
+        <a href="/a/newfile12.html">师资保证</a> <br />
+        <a href="/a/newfile13.html">支付方式</a><br />
+         <a href="/a/newfile14.html">资金保障 </a> 
+        </div>
+        <div class="foot-list">
+        <h3>信息中心</h3>
+        <a href="/plus/list.php?tid=7">网站公告</a><br />
+        <a href="/plus/list.php?tid=9">教育新闻</a> <br />       
+        <a href="/plus/list.php?tid=10">师生互动</a> <br />
+		 <a href="/plus/list.php?tid=8">使用帮助</a> <br />
+
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div id="foot-nr-foot">
+      
+<span class="STYLE1">Copyright &copy; 2014 - 2016 Cjiajiao大学生家教网 版权所有. 陕ICP备15009479号 技术支持：<a href="http://www.huoban.cc">伙伴网络</a></span><br />
+      <a href="#"><img src="/templets/default/images/hd01.gif" /></a>     
+      </div>
+    </div>
+  </div>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256503324'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256503324%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+</div>
+
+</body>
+</html>

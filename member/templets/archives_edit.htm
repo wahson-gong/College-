@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>修改<?php echo $cInfos['typename']; ?> - 会员中心 - <?php echo $cfg_webname; ?></title>
+<link href="templets/style/base.css" rel="stylesheet" type="text/css" />
+<link href="templets/style/div.css" rel="stylesheet" type="text/css" />
+<link href="templets/style/IN365hls2.9.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="templets/style/header2_9.css"></head>
+
+
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="templets/js/j.js"></script>
+<script type="text/javascript" src="templets/js/main.js"></script>
+<script type="text/javascript" src="templets/js/leftmenu.js"></script>
+<script type="text/javascript" src="templets/js/load.js"></script>
+<script type="text/javascript" src="templets/js/checkSubmit.js"></script>
+</head>
+<body>
+<?php include("../templets/default/header_nav.htm"); ?>
+
+<div id="main container"  style="margin-top:70px">
+<div class="row">
+	<div class="col-lg-8 col-lg-offset-2 col">
+		<ul class="nav nav-pills">
+  			<li role="presentation"><a href="../member/index.php">个人中心</a></li>
+ 			<li role="presentation" ><a href="../member/edit_baseinfo.php">帐号及密码</a></li>
+  			<li role="presentation"><a href="../member/ac_record.php">接单记录</a></li>
+  			<li role="presentation"><a href="../member/try_feed_back.php">试讲记录</a></li>
+ 			<li role="presentation"><a href="../member/fee_back.php">退款申请</a></li>
+  			<li role="presentation" class="active"><a href="javascript:void">完善个人资料</a></li>
+  			<li role="presentation"><a href="../member/index_do.php?fmdo=login&dopost=exit#">退出登录</a></li>
+		</ul>
+	</div>
+	<div class="col-lg-8 col-lg-offset-2 col" style="margin-top:50px">
+		<form class="form-horizontal" name="addcontent" action="archives_edit.php?aid=<?php echo $aid;?>" method="post" enctype="multipart/form-data" onsubmit="return checkSubmit();">
+          <input type="hidden" name="dopost" value="save" />
+          <input type="hidden" name="channelid" value="<?php echo $channelid; ?>" />
+          <input type="hidden" name="idhash" value="<?php echo md5($aid.$cfg_cookie_encode); ?>" />
+     	<div class="form-group">
+    		<label for="title" class="col-sm-3 control-label">真实姓名</label>
+    		<div class="col-sm-6">
+      			<?php echo $row['title']?>
+            	<input name="title" type="hidden" id="title" value="<?php echo $row['title']?>" maxlength="100" class="intxt" readOnly="true" style="width:400px;"/>
+    		</div>
+  		</div>
+  		<input type="hidden" name="typeid" value="2" />
+  		<div class="form-group">
+    		<label for="litpic" class="col-sm-3 control-label">修改头像</label>
+    		<div class="col-sm-6">
+      			<input class="file" name="litpic" type="file"  id="litpic" onchange="SeePicNew('divpicview',this);"  />
+            	<input class="file" name="ppic" type="hidden" value="<?php  echo $row['litpic'];  ?>"   />
+    		</div>
+  		</div>
+  		<?php
+              if($row['litpic']!=''){
+           ?>
+         <div class="form-group">
+    		<label for="nlitpic" class="col-sm-3 control-label">您现在的头像</label>
+    		<div class="col-sm-6">
+      			<div id=''  style=" clear:both"> <img name="nlitpic"  id="nlitpic" src='<?php  echo $row['litpic'];  ?>'  /></div>
+    		</div>
+  		</div>
+           <?php
+           }
+         ?>
+  		<div class="form-group">
+    		<label for="" class="col-sm-3 control-label">身份证</label>
+    		<div class="col-sm-6">
+      			<input type="hidden" name="sfz" id="sfz"  class="intxt" value="<?php  echo $row['sfz'];  ?>" style=" width:300px;">
+				<iframe src="uppic.php?id=sfz" width="380" height="auto" frameborder="0" scrolling="no" ></iframe>
+				<img src="<?php  echo $row['sfz']; ?>" width="150" style=" float:right"/>
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="" class="col-sm-3 control-label">学生证</label>
+    		<div class="col-sm-6">
+      			<input type="hidden" name="zgz" id="zgz" class="intxt" value="<?php  echo $row['zgz'];  ?>" style=" width:300px;">
+				<iframe src="uppic.php?id=zgz" width="380" height="auto" frameborder="0" scrolling="no"></iframe>
+				<img src="<?php  echo $row['zgz']; ?>" width="150" style=" float:right"/>
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="work_experience" class="col-sm-3 control-label">家教及学生工作经历</label>
+    		<div class="col-sm-6">
+      			<textarea id='work_experience' name="work_experience" style="width:100%;height:100px"><?php  echo $row['work_experience'];  ?></textarea>
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="prize_good" class="col-sm-3 control-label">擅长的技能及获奖经历</label>
+    		<div class="col-sm-6">
+      			<textarea id='prize_good' name="prize_good" style="width:100%;height:100px"><?php  echo $row['prize_good'];  ?></textarea>
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="description" class="col-sm-3 control-label">个人简介</label>
+    		<div class="col-sm-6">
+      			<textarea id='description' name="description" style="width:100%;height:100px" placeholder="请尽可能多的展示自已"><?php  echo $row['description'];  ?></textarea>
+    		</div>
+  		</div>
+  		
+         <!-- 
+          <p class="cellBg">
+            <label>其他证件：</label>
+           <input type="hidden" name="qtzj" id="qtzj" class="intxt" value="<?php  echo $row['qtzj'];  ?>" style=" width:300px;">
+           
+<iframe src="uppic.php?id=qtzj" width="380" height="auto" frameborder="0" scrolling="no">
+
+</iframe> 
+	<img src="<?php  echo $row['qtzj']; ?>" width="150" style=" float:right"/>		
+          </p>
+           -->
+
+      	 <div class="form-group">
+    		<label for="vdcode" class="col-sm-3 control-label">验证码</label>
+    		<div class="col-sm-6">
+      			<input class="intxt" name="vdcode" type="text" id="vdcode" size="10" style='width:100px;text-transform:uppercase;' />
+            	<img src="../include/vdimgck.php" width="70" height="25" alt="看不清？点击更换" align="absmiddle" style="cursor:pointer" onclick="this.src=this.src+'?'" />
+    		</div>
+  		</div>
+      	   <div class="form-group">
+    		<div class="col-sm-6 col-sm-offset-3">
+      			<button class="button2 btn btn-default" type="submit">提交</button>
+            	<button class="button2 ml10 btn btn-default" type="reset" onclick="location.reload();">重置</button> 
+    		</div>
+  		</div>
+  </form>
+	</div>
+</div>
+</div>
+
+<?php include("../templets/default/footer.htm"); ?>
+
+</body>
+</html>

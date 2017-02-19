@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+<title>学员信息管理</title>
+
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link href="../templets/default/css/base.css" rel="stylesheet" type="text/css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script language="javascript" src="js/member.js"></script>
+<style type="text/css">
+.rb{ border-right:1px solid #666666 }
+.tb{ border-top:1px solid #666666 }
+</style>
+</head>
+<body background='images/allbg.gif' leftmargin='8' topmargin='8' style="font-family='微软雅黑'">
+<!-- 头部nav -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom:0px">
+  <div class="container-fluid" >
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/home.php">College家教首页</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/info_index.php">学员信息 <span class="sr-only">(current)</span></a></li>
+        <li><a href="/cadmin/viewArticle.php?aid=1&dopost=view">接单须知</a></li>
+        <li><a href="/help.php?aid=19">帮助中心</a></li>        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/member/index.php">用户中心</a></li>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- 头部nav -->
+ <!--  
+<div class="bs-docs-header" id="content" tabindex="-1">
+      <div class="container">
+        <h1>关于我们</h1>
+        <p>college家教，专业的大学生家教</p>
+      </div>
+    </div>  
+<div id="content">  
+<div id="ny-main">
+  <div class="row-search">
+    
+    <div id="ny-left-nr" style="padding:0px 10%;">
+      <p class="p" style="margin: 6pt 0pt; text-indent: 0pt; padding: 0pt; word-break: break-all; line-height: 18pt; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">
+	<span style="font-size:14px;">&nbsp; &nbsp; &nbsp; &nbsp; College家教是厦门凌致教育咨询有限公司旗下，全国连锁的大学生家教品牌，在北京、上海、成都、杭州、武汉、厦门、沈阳、西安、天津、大连等二十多个城市，有超过10W教员。College家教致力于打造最大、最专业的大学生家教平台，更高效、更合理地利用大学生教育资源，为家长、学员、机构提供优质的大学生教师资源。<br />
+	&nbsp; &nbsp; &nbsp; &nbsp; College家教专注于大学生家教，我们坚信教员数量是质量的前提保证，已在全国各重点高校（985、211、重点师范院校）建立完善校园渠道体系，做到所有高校的全覆盖，大学生数量全国第一。<br />
+	&nbsp;<br />
+	<span style="color:#0000ff;"><strong>我们的愿景：</strong></span><br />
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&mdash;&mdash;更高效、更合理地利用大学生资源<br />
+	&nbsp;<br />
+	<span style="color:#0000ff;"><strong>我们的目标：</strong></span><br />
+	&nbsp; &nbsp; &nbsp; &nbsp; &mdash;&mdash;做最专业的大学生家教；对于学员，我们希望给学员树立学习榜样，教会学习方法，培养学习习惯，提高学生成绩；对于教员，我们希望为每位教员提供合适的家教工作。<br />
+	&nbsp;<br />
+	&nbsp;<br />
+	<span style="color:#ff0000;"><strong>平台优势：</strong></span><br />
+	<span style="color:#0000ff;"><strong>1、找老师更便捷，服务更加人性化</strong></span><br />
+	学员免注册，只需电话预约，沟通好学员情况以及对老师的要求，即会安排老师上门辅导，提供免费试讲，不满意可更换老师，满意为止。客服7*24小时在线服务，随时了解安排进度，college家教为您提供贴心服务。<br />
+	&nbsp;<br />
+	<span style="color:#0000ff;"><strong>2、找老师更高效，把好老师送到家</strong></span><br />
+	College家教专注于大学生家教，建立完善的校园渠道体系，拥有全国最多的大学生教员，遍及全国各大985、211、师范及部分其它优秀院校，教员数量保证教员质量、服务质量。庞大的师资队伍，保证每个预约都为您找到合适的家教，让您无需为找好老师而四处奔波。<br />
+	&nbsp;<br />
+	<span style="color:#0000ff;">3、<strong>优化老师资源，全面提高辅导效果</strong></span><br />
+	College家教老师来自各大重点院校，自己成绩优异，辅导过程会培养学员的学习习惯，教会学习方法，提高学习成绩。College家教为教员提供了完善的培训资料，有效地提高教员的教员学质量。建立教员淘汰机制，优胜劣汰，定期回访，监督辅导过程，全面提升辅导效果。<br />
+	&nbsp;<br />
+	<span style="color:#0000ff;"><strong>4、老师身份认证，服务安全有保障</strong></span><br />
+	College家教全国连锁直营，老师皆由college家教直接选派，老师资料都经过严格的审核认证，老师上门辅导皆会携带证件原件及复印件，教员信息可上学校教务系统查询，杜绝二中介行为，学员信息严格保密，不向教员外的其它任何人透露学员信息。<br />
+	&nbsp;<br />
+	<span style="color:#0000ff;">5、<strong>专业运营团队，品质</strong><strong>化标准</strong><strong>服务</strong></span><br />
+	College家教是专业的大学生家教品牌，团队成员均为在教育、互联网行业有多年经验的全职人员，无论在产品开发还是市场拓展，均拥有领先于同行业竞争对手的综合实力，品牌化、专业化、标准化运营，全国直营，提供更优质的服务。</span><br />
+	&nbsp;</p>
+<embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></embed>
+    </div>
+    
+    <div class="clear"></div>
+  </div>
+
+</div>  
+</div>
+-->
+<div class="container" style="margin:100px auto">
+	<div class="row single-post">
+		<div class="col-md-12 col">
+			<div class="panel panel-default panel-single-post">
+			 
+
+				<div class="panel-body">
+					<p style="text-align:center;font-weight:500;font-size:18px">关于我们</p>
+                    	<div class="entry">
+                    	<p class="p" style="margin: 6pt 0pt; text-indent: 0pt; padding: 0pt; word-break: break-all; line-height: 18pt; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">
+	<span style="font-size:14px;">&nbsp; &nbsp; &nbsp; &nbsp; College家教是厦门凌致教育咨询有限公司旗下，全国连锁的大学生家教品牌，在北京、上海、成都、杭州、武汉、厦门、沈阳、西安、天津、大连等二十多个城市，有超过10W教员。College家教致力于打造最大、最专业的大学生家教平台，更高效、更合理地利用大学生教育资源，为家长、学员、机构提供优质的大学生教师资源。<br />
+	&nbsp; &nbsp; &nbsp; &nbsp; College家教专注于大学生家教，我们坚信教员数量是质量的前提保证，已在全国各重点高校（985、211、重点师范院校）建立完善校园渠道体系，做到所有高校的全覆盖，大学生数量全国第一。<br />
+	&nbsp;<br />
+	<span style="color:#0000ff;"><strong>我们的愿景：</strong></span><br />
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&mdash;&mdash;更高效、更合理地利用大学生资源<br />
+	&nbsp;<br />
+	<span style="color:#0000ff;"><strong>我们的目标：</strong></span><br />
+	&nbsp; &nbsp; &nbsp; &nbsp; &mdash;&mdash;做最专业的大学生家教；对于学员，我们希望给学员树立学习榜样，教会学习方法，培养学习习惯，提高学生成绩；对于教员，我们希望为每位教员提供合适的家教工作。<br />
+	&nbsp;<br />
+	&nbsp;<br />
+	<span style="color:#ff0000;"><strong>平台优势：</strong></span><br />
+	<span style="color:#0000ff;"><strong>1、找老师更便捷，服务更加人性化</strong></span><br />
+	学员免注册，只需电话预约，沟通好学员情况以及对老师的要求，即会安排老师上门辅导，提供免费试讲，不满意可更换老师，满意为止。客服7*24小时在线服务，随时了解安排进度，college家教为您提供贴心服务。<br />
+	&nbsp;<br />
+	<span style="color:#0000ff;"><strong>2、找老师更高效，把好老师送到家</strong></span><br />
+	College家教专注于大学生家教，建立完善的校园渠道体系，拥有全国最多的大学生教员，遍及全国各大985、211、师范及部分其它优秀院校，教员数量保证教员质量、服务质量。庞大的师资队伍，保证每个预约都为您找到合适的家教，让您无需为找好老师而四处奔波。<br />
+	&nbsp;<br />
+	<span style="color:#0000ff;">3、<strong>优化老师资源，全面提高辅导效果</strong></span><br />
+	College家教老师来自各大重点院校，自己成绩优异，辅导过程会培养学员的学习习惯，教会学习方法，提高学习成绩。College家教为教员提供了完善的培训资料，有效地提高教员的教员学质量。建立教员淘汰机制，优胜劣汰，定期回访，监督辅导过程，全面提升辅导效果。<br />
+	&nbsp;<br />
+	<span style="color:#0000ff;"><strong>4、老师身份认证，服务安全有保障</strong></span><br />
+	College家教全国连锁直营，老师皆由college家教直接选派，老师资料都经过严格的审核认证，老师上门辅导皆会携带证件原件及复印件，教员信息可上学校教务系统查询，杜绝二中介行为，学员信息严格保密，不向教员外的其它任何人透露学员信息。<br />
+	&nbsp;<br />
+	<span style="color:#0000ff;">5、<strong>专业运营团队，品质</strong><strong>化标准</strong><strong>服务</strong></span><br />
+	College家教是专业的大学生家教品牌，团队成员均为在教育、互联网行业有多年经验的全职人员，无论在产品开发还是市场拓展，均拥有领先于同行业竞争对手的综合实力，品牌化、专业化、标准化运营，全国直营，提供更优质的服务。</span><br />
+	&nbsp;</p>
+<embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></embed>				
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<footer class="footer ">
+<!-- 
+      <div class="container">
+        <div class="row footer-top">
+          <div class="col-sm-6 col-lg-6">
+            <h4>
+              College大学生家教网
+            </h4>
+            <p>College大学生家教网，最专业的大学生家教网</p>
+          </div>
+          <div class="col-sm-6  col-lg-5 col-lg-offset-1">
+            <div class="row about">
+              <div class="col-xs-3">
+                <h4>关于</h4>
+                <ul class="list-unstyled">
+                  <li><a href="">关于我们</a></li>
+                  <li><a href="">合作建议</a></li>
+                </ul>
+              </div>
+              <div class="col-xs-3">
+                <h4>联系方式</h4>
+                <ul class="list-unstyled">
+                  <li><a href="" target="_blank">联系我们</a></li>
+                </ul>
+              </div>
+              <div class="col-xs-3">
+                <h4>招贤纳士</h4>
+                <ul class="list-unstyled">
+                  <li><a href="" target="_blank">招贤纳士</a></li>
+                 
+                </ul>
+              </div>
+              <div class="col-xs-3">
+                <h4>帮助中心</h4>
+                <ul class="list-unstyled">
+                  <li><a href="" target="_blank">帮助中心</a></li>
+                  
+                </ul>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+        <hr>
+        <div class="row footer-bottom">
+          <ul class="list-inline text-center">
+            <li><a href="" target="_blank">闽ICP备11008151号</a></li><li>闽公网安备11010802014853</li>
+          </ul>
+        </div>
+      </div>-->
+      <div class="container">
+			<div class="row">
+				<div class="col-lg-12" style="text-align:center">
+					<a href="/help.php?aid=2">关于我们</a>&nbsp;&nbsp;<a href="/help.php?aid=4">联系我们</a><br/>
+					Copyright &copy; 2016.凌致教育 All rights reserved.
+				</div>
+			</div>
+	</div>
+    </footer>
+</body>
+</html>

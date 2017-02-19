@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>更改帐号基本资料 - 会员中心 - <?php echo $cfg_webname; ?></title>
+<link href="../member/templets/style/base.css" rel="stylesheet" type="text/css" />
+<link href="../member/templets/style/div.css" rel="stylesheet" type="text/css" />
+<link href="../member/templets/style/IN365hls2.9.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="../member/templets/style/header2_9.css"></head>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../member/templets/js/j.js"></script>
+<script type="text/javascript" language='javascript'src='../member/templets/js/main.js'></script>
+<script type="text/javascript" src="../member/templets/js/load.js"></script>
+<script type="text/javascript" src="../member/templets/js/leftmenu.js"></script>
+<script type="text/javascript">  
+  function checkSubmit()
+{
+	if(document.form2.user_name.value=='')
+	{
+		document.form2.user_name.focus();
+		alert("姓名必须填写！");
+		return false;
+	}
+	if(document.form2.tel.value=='')
+	{
+		document.form2.tel.focus();
+		alert("联系电话必须填写！");
+		return false;
+	}
+	if(document.form2.info_bianhao.value=='')
+	{
+		document.form2.info_bianhao.focus();
+		alert("信息编号必须填写！");
+		return false;
+	}
+	if(document.form2.back_fee.value=='')
+	{
+		document.form2.back_fee.focus();
+		alert("退款额度必须填写！");
+		return false;
+	}
+	if(document.form2.alipay_num.value=='')
+	{
+		document.form2.alipay_num.focus();
+		alert("支付宝账号必须填写！");
+		return false;
+	}
+	if(document.form2.reason.value=='')
+	{
+		document.form2.reason.focus();
+		alert("退款理由必须填写！");
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<div id="main">
+<?php include("../templets/default/header_nav.htm"); ?>
+<div id="main container" style="margin-top:70px">
+<div class="row">
+	<div class="col-lg-8 col-lg-offset-2 col">
+		<ul class="nav nav-pills">
+  			<li role="presentation"><a href="../member/index.php">个人中心</a></li>
+ 			<li role="presentation"><a href="../member/edit_baseinfo.php">帐号及密码</a></li>
+  			<li role="presentation"><a href="../member/ac_record.php">接单记录</a></li>
+  			<li role="presentation"><a href="../member/try_feed_back.php">试讲记录</a></li>
+ 			<li role="presentation" class="active"><a href="../member/fee_back.php">退款申请</a></li>
+  			<li role="presentation"><a href="../member/archives_edit.php?channelid=6&aid=<?php echo $sid ?>">修改教师资料</a></li>
+  			<li role="presentation"><a href="../member/index_do.php?fmdo=login&dopost=exit#">退出登录</a></li>
+		</ul>
+	</div>
+	<div class="col-lg-8 col-lg-offset-2 col" style="margin-top:50px">
+		
+		<form class="form-horizontal"  action="fee_back.php" method="post" enctype="multipart/form-data" name="form2" onsubmit="return checkSubmit();">
+     <input type="hidden" name="dopost" value="add" />
+      	<div class="form-group">
+    			<label for="user_name" class="col-sm-3 control-label">姓名</label>
+    			<div class="col-sm-6">
+      				<input name="user_name" type="text" id="user_name" class="intxt form-control" /> <span style="color:red;">*</span>
+    			</div>
+  		</div>   
+  		<div class="form-group">
+    			<label for="tel" class="col-sm-3 control-label">联系电话</label>
+    			<div class="col-sm-6">
+      				<input name="tel" type="text" id="tel" class="intxt form-control" /> <span style="color:red;">*</span>
+    			</div>
+  		</div>   
+  		<div class="form-group">
+    			<label for="info_bianhao" class="col-sm-3 control-label">信息编号</label>
+    			<div class="col-sm-6">
+      				<input name="info_bianhao" type="text" id="info_bianhao" class="intxt form-control" /> <span style="color:red;">*</span>
+    			</div>
+  		</div>
+  		<div class="form-group">
+    			<label for="back_fee" class="col-sm-3 control-label">退款额度</label>
+    			<div class="col-sm-6">
+      				<input name="back_fee" type="text" id="back_fee" class="intxt form-control" /> <span style="color:red;">*</span>
+    			</div>
+  		</div> 
+  		<div class="form-group">
+    			<label for="alipay_num" class="col-sm-3 control-label">支付宝账号</label>
+    			<div class="col-sm-6">
+      				<input name="alipay_num" type="text" id="alipay_num" class="intxt form-control" /> <span style="color:red;">*</span>
+    			</div>
+  		</div>   
+  		<div class="form-group">
+    			<label for="weixin" class="col-sm-3 control-label">微信号</label>
+    			<div class="col-sm-6">
+      				<input name="weixin" type="text" id="weixin" class="intxt form-control" /> <span style="color:red;">*</span>
+    			</div>
+  		</div>   
+  		<div class="form-group">
+    			<label for="reason" class="col-sm-3 control-label">退款原因</label>
+    			<div class="col-sm-6">
+      				 <textarea name="reason" id="reason" class="form-control" style="width:100%;height:100px"></textarea><span style="color:red;">*</span>
+    			</div>
+  		</div>   
+         <div class="form-group">
+    			
+    			<div class="col-sm-6 col-sm-offset-3">
+      				 <button class="button2 btn btn-default" type="submit">更新</button>
+            		<button class="button2 ml10 btn btn-default" type="reset">重设</button>
+    			</div>
+  		</div> 
+  		<div class="alert alert-danger" role="alert">更新退款申请，只需输入相同的信息编号，及修改后的申请内容提交</div>
+  		      <!-- 申请退款记录 -->
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+     	 <?php
+           		foreach($fee_back as $one)
+           		{
+		?>
+           	<div class="panel panel-default">
+    			<div class="panel-heading" role="tab" id="<?php echo $one['mid']; ?>">
+      			<h4 class="panel-title">
+        			<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $one['mid']; ?>" aria-expanded="false" aria-controls="collapseTwo">
+          				信息编号为<?php echo $one['info_bianhao'];?>的退款申请[<?php echo date("Y-m-d h:i:s", $one[apply_time]);?>]
+          				
+        			</a>
+      			</h4>
+    			</div>
+    		<div id="collapse<?php echo $one['mid']; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?php echo $one['mid']; ?>">
+      		<div class="panel-body">
+        			退款金额:<?php echo $one[back_fee];?><br/>
+        			联系电话:<?php echo $one[tel];?><br/>
+        			支付宝账号:<?php echo $one[alipay_num];?><br/>
+        			微信号:<?php echo $one[weixin];?><br/>
+        			退款理由:<?php echo $one[reason];?><br/>
+        			申请时间:<?php echo date("Y-m-d h:i:sa", $one[apply_time]);?><br/>
+        			
+        			<span style="color:red">处理结果:<?php if($one[deal_result]==""||empty($one[deal_result])) echo "暂无处理结果"; else echo $one[deal_result];?></span>
+      		</div>
+    </div>
+  </div>
+           <?php
+           		}
+           	   ?>
+  
+</div>       
+      </form>
+	</div>
+</div>
+</div>
+
+</div>
+<?php include("../templets/default/footer.htm"); ?>
+</body>
+</html>

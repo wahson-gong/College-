@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+<title>College家教—管理后台登录</title>
+
+
+
+
+<link href="css/div.css" rel="stylesheet" type="text/css" />
+
+<link href="css/IN365hls2.9.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="css/header2_9.css"></head>
+
+
+
+
+
+
+
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<link href="css/login.css" rel="stylesheet" type="text/css" />
+<script src="../include/js/jquery/jquery.js" language="javascript" type="text/javascript"></script>
+<script type="text/javascript">
+$ = jQuery;
+function changeAuthCode() {
+	var num = 	new Date().getTime();
+	var rand = Math.round(Math.random() * 10000);
+	num = num + rand;
+	$('#ver_code').css('visibility','visible');
+	if ($("#vdimgck")[0]) {
+		$("#vdimgck")[0].src = "../include/vdimgck.php?tag=" + num;
+	}
+	return false;	
+}
+</script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+<div id="content">
+
+  <div id="header">
+    <div id="header-nr">
+      <div id="header-nr-l">你好！欢迎光临College家教！ <a href="/member/index.php">登录</a> <a href="/member/index_do.php?fmdo=user&dopost=regnew">免费注册</a> </div>
+      <div id="header-nr-r"><a href="../info_index.php" target="_blank" title="返回网站主页">College家教首页</a> </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div id="ny-main">   
+  
+<div id="ny-member-nr">
+  <div class="ny-member-query">
+    <h3>管理登录</h3>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="login-logo"></div>
+    
+    
+    
+    
+    
+    <div id="login-box">
+   <div class="login-top"><a href="../info_index.php" target="_blank" title="返回网站主页">返回网站主页</a></div>
+ <!--  <?php echo $redmsg; ?>   -->
+   <div class="login-main">
+    <form name="form1" method="post" action="login.php">
+      <input type="hidden" name="gotopage" value="<?php if(!empty($gotopage)) echo RemoveXSS($gotopage);?>" />
+      <input type="hidden" name="dopost" value="login" />
+      <input name='adminstyle' type='hidden' value='newdedecms' />
+      <dl>
+	   <dt>用户名：</dt>
+	   <dd><input type="text" name="userid"/></dd>
+	   <dt>密&nbsp;&nbsp;码：</dt>
+	   <dd><input type="password" class="alltxt" name="pwd"/></dd>
+	   <?php
+        	if(preg_match("/6/",$safe_gdopen))
+        	{
+        ?>
+	   <dt>验证码：</dt>
+	   <dd><input id="vdcode" type="text" name="validate" style="text-transform:uppercase;"/><img id="vdimgck" align="absmiddle" onclick="this.src=this.src+'?'" style="cursor: pointer;" alt="看不清？点击更换" src="../include/vdimgck.php"/>
+          <a href="#" onClick="changeAuthCode();">换一张？ </a></dd>
+		<?php
+       		}
+		?>
+		<dt>&nbsp;</dt>
+		<dd>
+        
+        <button type="submit" name="sm1" class="login-btn" onclick="this.form.submit();">登 录</button>
+        </dd>
+	 </dl>
+	</form>
+   </div>
+    </div>
+  </div>
+</div>  
+  
+  
+</div>  
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

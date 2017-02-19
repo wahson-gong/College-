@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+<title>新增需求</title>
+<link href="css/base.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript" src="/js/My97DatePicker/WdatePicker.js"></script>
+<script language='javascript'src='../data/enums/area.js'></script>
+<script>
+function checkSubmit()
+{
+  
+  if(document.form2.city.value=="")
+  {
+    document.form2.city.focus();
+    alert("城市不能为空！");
+    return false;
+  }
+  if(document.form2.requirement.value=="")
+  {
+    document.form2.requirement.focus();
+    alert("需求信息不能为空！");
+    return false;
+  }
+  if(document.form2.bus_stop.value=="")
+  {
+    document.form2.bus_stop.focus();
+    alert("公交站点不能为空！");
+    return false;
+  }
+  if(document.form2.info_fee.value=="")
+  {
+    document.form2.info_fee.focus();
+    alert("信息费不能为空");
+    return false;
+  }
+  if(document.form2.contact_name1.value=="")
+  {
+    document.form2.contact_name1.focus();
+    alert("联系人1不能为空！");
+    return false;
+  }
+  if(document.form2.tel1.value=="")
+  {
+    document.form2.tel1.focus();
+    alert("联系电话1不能为空！");
+    return false;
+  }
+  if(document.form2.status.value=="")
+  {
+    document.form2.status.focus();
+    alert("信息状态不能为空！");
+    return false;
+  }
+}
+</script>
+</head>
+<body background='images/allbg.gif' leftmargin='8' topmargin='8'>
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#D6D6D6">
+  <tr>
+    <td height="19" background="images/tbg.gif" style="padding-left:10px;"><a href='<?php echo $ENV_GOBACK_URL; ?>'><b>学员信息管理</b></a> &gt;&gt; 查看学员信息</td>
+</tr>
+<tr>
+<td height="200" bgcolor="#FFFFFF" align='center'>
+	
+	<table width="98%" border="0" cellspacing="0" cellpadding="6" >
+        <tr> 
+          <td colspan="2" height="10" ></td>
+        </tr>
+        <form name="form2" action="info_do.php" method="post" onSubmit="return checkSubmit();">
+          <input type="hidden" name="dopost" value="addInfo" />
+         
+           <tr> 
+            <td align="right" class='bline'>城市：</td>
+            <td class='bline'  style="text-align:left;">
+            <?php
+            $City = '';
+             $dsql->SetQuery("Select mid,city_name From `#@__city` where mid>0");
+             $dsql->Execute('n');
+             while($nrow = $dsql->GetObject('n')){
+	              $City[$nrow->mid] = $nrow->city_name;
+             }
+             $options = "<select name='city' style='width:80px'>\r\n";
+			 $options .= "<option value=''>--请选择城市--</option>";
+             foreach($City as $k=>$v)
+             {
+  	            $options .= "<option value='$v'>$v</option>\r\n";
+             }
+             $options .= "</select>\r\n";
+			 echo $options;
+			?>
+            </td>
+          </tr>
+           <tr> 
+            <td align="right" class='bline'>需求信息：</td>
+            <td class='bline'  style="text-align:left;">
+            <textarea row="5" col="20" style="width:400px;height:100px;" type="text" name="requirement" id="requirement" value=""></textarea>
+            </td>
+          </tr>
+          <tr> 
+            <td align="right" class='bline'>公交站：</td>
+            <td class='bline'  style="text-align:left;">
+            <input type="text" name="bus_stop" id="bus_stop" value=""/>
+            </td>
+          </tr>
+          <tr> 
+            <td align="right" class='bline'>要求：</td>
+            <td class='bline'  style="text-align:left;">
+            
+            <textarea style="width:400px;height:100px;" name="info_cond" id="info_cond"></textarea>
+            </td>
+          </tr>
+          <tr> 
+            <td align="right" class='bline'>信息费：</td>
+            <td class='bline'  style="text-align:left;">
+            <input type="text" name="info_fee" id="info_fee" value=""/>
+            </td>
+          </tr>
+          <tr> 
+            <td align="right" class='bline'>来源：</td>
+            <td class='bline'  style="text-align:left;">
+            <?php
+             $From_Source = '';
+             $dsql->SetQuery("Select mid,source_name From `#@__from_source` where mid>0");
+             $dsql->Execute('n');
+             while($nrow = $dsql->GetObject('n')){
+	              $From_Source[$nrow->mid] = $nrow->source_name;
+             }
+             $options = "<select name='from_source' style='width:80px'>\r\n";
+				$options .= "<option value=''>--请选择信息来源--</option>";
+             foreach($From_Source as $k=>$v)
+             {
+  	            $options .= "<option value='$v'>$v</option>\r\n";
+             }
+             $options .= "</select>\r\n";
+			 echo $options;
+			?>
+            </td>
+          </tr>
+           <tr> 
+            <td align="right" class='bline'>联系人1：</td>
+            <td class='bline'  style="text-align:left;">
+            <input type="text" name="contact_name1" id="contact_name1" value=""/>
+            </td>
+          </tr>
+           <tr> 
+            <td align="right" class='bline'>电话1：</td>
+            <td class='bline'  style="text-align:left;">
+            <input type="text" name="tel1" id="tel1" value=""/>
+            </td>
+          </tr>
+           <tr> 
+            <td align="right" class='bline'>联系人2：</td>
+            <td class='bline'  style="text-align:left;">
+            <input type="text" name="contact_name2" id="contact_name2" value=""/>
+            </td>
+          </tr> <tr> 
+            <td align="right" class='bline'>电话2：</td>
+            <td class='bline'  style="text-align:left;">
+            <input type="text" name="tel2" id="tel2" value=""/>
+            </td>
+          </tr>
+          <tr> 
+            <td align="right" class='bline'>备注：</td>
+            <td class='bline'  style="text-align:left;">
+            <textarea row="5" col="20" style="width:400px;height:100px;" type="text" name="remark" id="remark" value=""></textarea>
+            </td>
+          </tr>
+          <!-- 
+          <tr> 
+            <td align="right" class='bline'>状态：</td>
+            <td class='bline' style="text-align:left;"><?php
+             $Status = '';
+             $dsql->SetQuery("Select mid,status_name From `#@__status` where mid>0");
+             $dsql->Execute('n');
+             while($nrow = $dsql->GetObject('n')){
+	              $Status[$nrow->mid] = $nrow->status_name;
+             }
+             $options = "<select name='status' style='width:80px'>\r\n";
+				$options .= "<option value=''>--请选择状态--</option>";
+             foreach($Status as $k=>$v)
+             {
+  	            $options .= "<option value='$v'>$v</option>\r\n";
+             }
+             $options .= "</select>\r\n";
+			 echo $options;
+			?></td>
+          </tr>
+           -->
+          
+          <tr> 
+            <td height="67" align="right" >&nbsp;</td>
+            <td height="67" align="left">
+            <input type="submit" name="Submit" value="确定提交" class='coolbg' /> 
+            </td>
+          </tr>
+        </form>
+    </table>
+    </td>
+</tr>
+</table>
+</body>
+</html>

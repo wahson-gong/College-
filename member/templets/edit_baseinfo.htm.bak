@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>更改帐号基本资料 - 会员中心 - <?php echo $cfg_webname; ?></title>
+<link href="../member/templets/style/base.css" rel="stylesheet" type="text/css" />
+<link href="../member/templets/style/div.css" rel="stylesheet" type="text/css" />
+<link href="../member/templets/style/IN365hls2.9.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="../member/templets/style/header2_9.css"></head>
+
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../member/templets/js/j.js"></script>
+<script type="text/javascript" language='javascript'src='../member/templets/js/main.js'></script>
+<script type="text/javascript" src="../member/templets/js/load.js"></script>
+<script type="text/javascript" src="../member/templets/js/leftmenu.js"></script>
+<script type="text/javascript">  
+  function checkSubmit()
+{
+	if(document.form2.oldpwd.value=='')
+	{
+		document.form2.oldpwd.focus();
+		alert("旧密码必须填写！");
+		return false;
+	}
+	if(document.form2.userpwdok.value!=document.form2.userpwd.value)
+	{
+		document.form2.userpwdok.focus();
+		alert("两次密码不一致！");
+		return false;
+	}
+	if(document.form2.email.value=="")
+	{
+		document.form2.email.focus();
+		alert("Email不能为空！");
+		return false;
+	}
+	if(document.form2.uname.value=="")
+	{
+		document.form2.uname.focus();
+		alert("用户昵称不能为空！");
+		return false;
+	}
+	if(document.form2.vdcode.value=="")
+	{
+		document.form2.vdcode.focus();
+		alert("验证码不能为空！");
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+
+<?php include("../templets/default/header_nav.htm"); ?>
+
+<div id="main container"  style="margin-top:70px">
+<div class="row">
+	<div class="col-lg-8 col-lg-offset-2 col">
+		<ul class="nav nav-pills">
+  			<li role="presentation"><a href="../member/index.php">个人中心</a></li>
+ 			<li role="presentation"   class="active"><a href="../member/edit_baseinfo.php">帐号及密码</a></li>
+  			<li role="presentation"><a href="../member/ac_record.php">接单记录</a></li>
+  			<li role="presentation"><a href="../member/try_feed_back.php">试讲记录</a></li>
+ 			<li role="presentation"><a href="../member/fee_back.php">退款申请</a></li>
+  			<li role="presentation"><a href="../member/archives_edit.php?channelid=6&aid=<?php echo $sid ?>">修改教师资料</a></li>
+  			<li role="presentation"><a href="../member/index_do.php?fmdo=login&dopost=exit#">退出登录</a></li>
+		</ul>
+	</div>
+	<div class="col-lg-8 col-lg-offset-2 col" style="margin-top:50px">
+			 <form class="form-horizontal" action="edit_baseinfo.php" method="post" enctype="multipart/form-data" name="form2" onsubmit="return checkSubmit();">
+     <input type="hidden" name="dopost" value="save" />
+      <!-- <div id="mainCp"> -->
+    
+        <!-- <div class="postForm"> -->
+         <div class="form-group">
+    		<label for="accountType" class="col-sm-3 control-label">帐号类型</label>
+    		<div class="col-sm-6">
+      			<span id="accountType"><?php echo $row['mtype']; ?></span>
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="txtUsername" class="col-sm-3 control-label">用户名</label>
+    		<div class="col-sm-6">
+      			<span id="txtUsername"><?php echo $cfg_ml->M_LoginID; ?></span>
+    		</div>
+  		</div>
+  		<!-- 
+          <p class="cellBg">
+            <label>帐号类型：</label>
+            <?php echo $row['mtype']; ?></p>
+          <p>
+            <label>用户名：</label>
+            <?php echo $cfg_ml->M_LoginID; ?>
+             
+          </p>
+           -->
+           
+            <input name="uname" type="hidden" id="uname" value="<?php echo $row['uname']; ?>" class="intxt" style="width:100px"/>
+          <div class="form-group">
+    		<label for="oldpwd" class="col-sm-3 control-label">原密码</label>
+    		<div class="col-sm-6">
+      			<input name="oldpwd" type="password" id="oldpwd" class="intxt form-control"  /> <span style="color:red;">*</span>
+    		</div>
+  		  </div>
+  		  <div class="form-group">
+    		<label for="userpwd" class="col-sm-3 control-label">新密码</label>
+    		<div class="col-sm-6">
+      			<input name="userpwd" type="password" id="userpwd" class="intxt form-control" />
+            	<span id="_userpwdok">(不修改密码请保留此项为空)</span>
+    		</div>
+  		  </div>
+  		  <div class="form-group">
+    		<label for="userpwdok" class="col-sm-3 control-label">确认新密码</label>
+    		<div class="col-sm-6">
+      			<input name="userpwdok" type="password" id="userpwdok" value="" class="intxt form-control" />
+            	<span id="_userpwdok2">(不修改密码请保留此项为空)</span> </span>
+    		</div>
+  		  </div>
+  		  <!-- 
+          <p>
+            <label>原登陆密码：</label>
+            <input name="oldpwd" type="password" id="oldpwd" class="intxt" /> <span style="color:red;">*</span>
+          </p>
+          <p class="cellBg">
+            <label>新密码：</label>
+            <input name="userpwd" type="password" id="userpwd" class="intxt" />
+            <span id="_userpwdok">(不修改密码请保留此项为空)</span>
+          </p>
+          <p>
+            <label>确认新密码：</label>
+            <input name="userpwdok" type="password" id="userpwdok" value="" class="intxt" />
+            <span id="_userpwdok2">(不修改密码请保留此项为空)</span> </span>
+          </p>
+           -->
+            <div class="form-group">
+    			<label for="" class="col-sm-3 control-label">原安全问题</label>
+    			<div class="col-sm-6">
+      				<?php
+      					require(DEDEDATA.'/safequestions.php');
+      					echo GetSafequestion($row['safequestion'],'safequestion');
+     		 		?>
+                	<span id="_safequestion">(忘记密码时重设密码用)</span>
+    			</div>
+  		  	</div>
+  		  	<div class="form-group">
+    			<label for="safeanswer" class="col-sm-3 control-label">原问题答案</label>
+    			<div class="col-sm-6">
+      				<input name="safeanswer" type="text" id="safeanswer" value="" class="intxt form-control" />
+    			</div>
+  		  	</div>
+  		  	<div class="form-group">
+    			<label for="" class="col-sm-3 control-label">新安全问题</label>
+    			<div class="col-sm-6">
+      				<?php
+      					echo GetSafequestion(0,'newsafequestion');
+      				?>
+               		<span id="_safequestionnew">(不修改不用填写)</span>
+    			</div>
+  		  	</div>
+  		  	<div class="form-group">
+    			<label for="newsafeanswer" class="col-sm-3 control-label">新问题答案</label>
+    			<div class="col-sm-6">
+      				<input name="newsafeanswer" type="text" id="newsafeanswer" class="intxt form-control"/>
+    			</div>
+  		  	</div>
+  		  	<div class="form-group">
+    			<label for="email" class="col-sm-3 control-label">电子邮箱</label>
+    			<div class="col-sm-6">
+      				<input name="email" type="text" id="email" value="<?php echo $row['email']; ?>" class="intxt form-control"/><br>
+            		<span id="_email" > <span style="color:red;">*</span> (每个电子邮邮箱只能注册一个帐号，要修改电子邮箱必须填写正确安全问题的答案)</span> 
+    			</div>
+  		  	</div>
+  		  	<div class="form-group">
+    			<label for="sex" class="col-sm-3 control-label">性别</label>
+    			<div class="col-sm-6">
+      				<input type="radio" name="sex" value="男" <?php if($row['sex']=='男') echo " checked='checked' "; ?>/>
+           			  男 &nbsp;
+            		<input type="radio" name="sex" value="女" <?php if($row['sex']=='女') echo " checked='checked' "; ?>/>
+             		女 &nbsp;
+            		<input type="radio" name="sex" value="保密'" <?php if($row['sex']=='保密') echo " checked='checked' "; ?>/>
+             		保密 
+    			</div>
+  		  	</div>
+  		  	<div class="form-group">
+    			<label for="vdcode" class="col-sm-3 control-label">验证码</label>
+    			<div class="col-sm-6">
+      				<input name="vdcode" type="text" id="vdcode" style='width:100px;text-transform:uppercase;' class="intxt form-control" />
+           			<img src="../include/vdimgck.php" align="absmiddle" alt="看不清？点击更换" style="cursor:pointer" onclick="this.src=this.src+'?'" />
+    			</div>
+  		  	</div>
+  		  	<div class="form-group">
+    			<div class="col-sm-6 col-sm-offset-3">
+      				<button class="button2 btn btn-default" type="submit">更新</button>
+            		<button class="button2 ml10 btn btn-default" type="reset">重设</button>
+    			</div>
+  		  	</div>
+         
+          <!-- 
+    </div>
+      </div> -->
+      </form>
+	</div>
+	</div>
+</div>
+<?php include("../templets/default/footer.htm"); ?>
+</body>
+</html>

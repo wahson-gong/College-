@@ -1,0 +1,60 @@
+{dede:config.pagesize value="10"/}
+{dede:include filename="header.htm"/}
+<div class="container">
+	<div class="row post-list">
+		<div class="col-sm-12 col" style="min-height:500px;">
+				{dede:datalist} 
+				<div class="post-667 post mb-20">
+					<a class="pull-left img-div" href="javascript:void" style="width:100px;height:100px;border-radius:100px">
+					{dede:if $fields['sex']=='男'}
+					{dede:field.litpic function="userPic(@me,'男')"/}
+					{else}
+					{dede:field.litpic function="userPic(@me,'女')"/}
+					{/dede:if}
+					
+						<!-- <img src="http://mao10.qiniudn.com/201605181602324467.jpg" style="margin-top: 0px;"> -->
+					</a>
+					<div class="post-right">
+						<h2 class="title">
+							<a class="wto" href="">
+								{dede:field.uname function="getFirst(@me)"/}教员	
+							</a>
+						</h2>
+						<!--  
+						<div class="author mb-10">
+							<a>{dede:field.sex/}-{dede:field.school/}-{dede:field.zhuanye/}-{dede:field.nianji/}</a>
+							<div class="clearfix"></div>
+						</div>
+						-->
+	
+						<ul class="list-inline mb-0">
+							<li><i class="glyphicon glyphicon-list-alt"></i> &nbsp;&nbsp;<a>{dede:field.sex/}-{dede:field.school/}-{dede:field.zhuanye/}-{dede:field.nianji/}</a></li><br/><br/>
+								
+							<li style="float:left"><i class="glyphicon glyphicon-tag"></i> &nbsp;&nbsp;</li>
+							{dede:field.biaoqian function="biaoqian(@me)"/}
+							
+							<br/>
+						</ul>
+
+						
+						<!-- 自我介绍 -->
+						<div class="entry mb-10">
+						{dede:field.introduction function="emptyConvert(@me)"/}
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				{/dede:datalist}
+		</div>
+	</div>
+	<p style="text-align:center">{dede:pagelist listsize='6' /}</p>
+</div>
+
+{dede:include filename="footer.html"/}
+</body>
+<script type="text/javascript">
+	window.onload=function(){
+		$('.pagelistbox>span').html('');
+	}
+</script>
+</html>

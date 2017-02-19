@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>更改帐号基本资料 - 会员中心 - <?php echo $cfg_webname; ?></title>
+<link href="../member/templets/style/base.css" rel="stylesheet" type="text/css" />
+<link href="../member/templets/style/div.css" rel="stylesheet" type="text/css" />
+<link href="../member/templets/style/IN365hls2.9.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="../member/templets/style/header2_9.css"></head>
+
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../member/templets/js/j.js"></script>
+<script type="text/javascript" language='javascript'src='../member/templets/js/main.js'></script>
+<script type="text/javascript" src="../member/templets/js/load.js"></script>
+<script type="text/javascript" src="../member/templets/js/leftmenu.js"></script>
+<script type="text/javascript">  
+  function checkSubmit()
+{
+	if(document.form2.bianhao.value=='')
+	{
+		document.form2.bianhao.focus();
+		alert("信息编号不能为空");
+		return false;
+	}
+	if(document.form2.try_status.value=='')
+	{
+		document.form2.try_status.focus();
+		alert("试讲反馈不能为空");
+		return false;
+	}
+	if(document.form2.try_feedback.value=='')
+	{
+		document.form2.try_feedback.focus();
+		alert("试讲反馈不能为空");
+		return false;
+	}
+
+}
+</script>
+</head>
+<body>
+
+<?php include("../templets/default/header_nav.htm"); ?>
+<div id="main container" style="margin-top:70px">
+<div class="row">
+	<div class="col-lg-8 col-lg-offset-2 col">
+		<ul class="nav nav-pills">
+  			<li role="presentation"><a href="../member/index.php">个人中心</a></li>
+ 			<li role="presentation"><a href="../member/edit_baseinfo.php">帐号及密码</a></li>
+  			<li role="presentation"><a href="../member/ac_record.php">接单记录</a></li>
+  			<li role="presentation"  class="active"><a href="../member/try_feed_back.php">试讲记录</a></li>
+ 			<li role="presentation"><a href="../member/fee_back.php">退款申请</a></li>
+  			<!--<li role="presentation"><a href="../member/archives_edit.php?channelid=6&aid=<?php echo $sid ?>">修改教师资料</a></li>-->
+  			<li role="presentation"><a href="../member/index_do.php?fmdo=login&dopost=exit#">退出登录</a></li>
+		</ul>
+	</div>
+	<div class="col-lg-8 col-lg-offset-2 col" style="margin-top:50px">
+		<div class="row">
+			<form class="form-horizontal" action="try_feed_back.php" method="post" enctype="multipart/form-data" name="form2" onsubmit="return checkSubmit();">
+     		<input type="hidden" name="dopost" value="add" />
+      		<div class="form-group">
+    			<label for="bianhao" class="col-sm-3 control-label">信息编号</label>
+    			<div class="col-sm-6">
+      				<input name="bianhao" type="text" id="bianhao" class="intxt form-control" /> <span style="color:red;">*</span>
+    			</div>
+  			</div>  
+			<div class="form-group">
+    			<label for="try_feedback" class="col-sm-3 control-label">试讲反馈</label>
+    			<div class="col-sm-6">
+      				<select name="try_status" id="try_status">
+						<option value="">--请选择试讲反馈--</option>
+						<option value="成功">成功</option>
+						<option value="失败">失败</option>
+						<option value="不确定">不确定</option>
+					</select><span style="color:red;">*</span>
+    			</div>
+  			</div>      
+  			<div class="form-group">
+    			<label for="try_feedback" class="col-sm-3 control-label">试讲说明</label>
+    			<div class="col-sm-6">
+      				<textarea name="try_feedback" id="try_feedback" style="width:100%;height:100px"></textarea><span style="color:red;">*</span>
+    			</div>
+  			</div>             
+         	<div class="form-group">
+    			
+    			<div class="col-sm-6 col-sm-offset-3">
+      				<button class="button2" class="btn btn-default" type="submit">更新</button>
+            		<button class="button2 ml10" class="btn btn-default" type="reset">重设</button>
+    			</div>
+  			</div>     
+            <div class="alert alert-danger" role="alert">更新试讲反馈，只需输入相同的信息编号，修改后的反馈内容提交</div>
+          </p>
+      </form>
+      <!-- 试讲反馈 -->
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+     	 <?php
+           		foreach($trylist as $one)
+           		{
+		?>
+           	<div class="panel panel-default">
+    			<div class="panel-heading" role="tab" id="<?php echo $one['mid']; ?>">
+      			<h4 class="panel-title">
+        			<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $one['mid']; ?>" aria-expanded="false" aria-controls="collapseTwo">
+          				信息编号为<?php echo $one['info_bianhao'];?>的反馈记录[<?php echo date("Y-m-d h:i:s", $one[try_time]);?>]
+          				
+        			</a>
+      			</h4>
+    			</div>
+    		<div id="collapse<?php echo $one['mid']; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?php echo $one['mid']; ?>">
+      		<div class="panel-body">
+        			<?php echo $one[try_feed_back];?><br/>
+        			反馈时间：<?php echo date("Y-m-d h:i:sa", $one[try_time]);?>
+      		</div>
+    </div>
+  </div>
+           <?php
+           		}
+           	   ?>
+  
+</div>
+      
+      
+		</div>
+	</div>
+</div>
+
+<?php include("../templets/default/footer.htm"); ?>
+
+</body>
+</html>

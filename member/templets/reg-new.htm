@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title><?php echo $cfg_webname; ?>- 老师入驻</title>
+
+
+<link href="templets/style/div.css" rel="stylesheet" type="text/css" />
+<link href="templets/style/IN365hls2.9.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="templets/style/header2_9.css"></head>
+
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="../member/templets/js/j.js" language="javascript" type="text/javascript"></script>
+<script src="../member/templets/js/base.js" language="javascript" type="text/javascript"></script>
+<script src='../member/templets/js/CheckPassStrength.js' type="text/javascript" language="javascript"></script>
+<script type="text/javascript" language="javascript" src='../member/templets/js/reg_new.js'></script>
+<script type="text/javascript" language="javascript">
+<!--
+var reMethod = "<?php echo ($cfg_soft_lang == 'utf-8') ? 'POST' : 'GET';?>",pwdmin = <?php echo $cfg_mb_pwdmin; ?>;
+
+function changeAuthCode() {
+	var num = 	new Date().getTime();
+	var rand = Math.round(Math.random() * 10000);
+	num = num + rand;
+	$('#ver_code').css('visibility','visible');
+	if ($("#vdimgck")[0]) {
+		$("#vdimgck")[0].src = "../include/vdimgck.php?tag=" + num;
+	}
+	return false;	
+}
+
+function hideVc()
+{
+	$('#ver_code').css('visibility','hidden');
+}
+
+
+$(document).ready(function(){ 
+	$("#passwordLevel").removeClass().addClass("rank r0");
+	$("#vdcode").focus(function(){
+	  var leftpos = $("#vdcode").position().left;
+	  var toppos = $("#vdcode").position().top - 42;
+	  $('#ver_code').css('left', leftpos+'px');
+	  $('#ver_code').css('top', toppos+'px');
+	  $('#ver_code').css('visibility','visible');
+	});
+	$("input[type='password']").click(function(){
+	  hideVc()
+	});
+	$("#txtUsername").click(function(){
+	  hideVc()
+	});
+	$("input[type='radio']").focus(function(){
+	  hideVc()
+	});
+	/*
+	$("#vdcode").blur(function(){
+		  $('#ver_code').css('visibility','hidden');
+	});
+	*/
+})
+
+-->
+</script>
+</head>
+<style type="text/css">
+.form-group{margin-bottom:0px};
+</style>
+<body>
+<!-- 头部nav -->
+
+<!-- 头部nav -->
+<div id="content" class="container">  
+<div class="row" id="ny-member-nr" style="margin:0 auto">
+	<div class="col-md-offset-3 col-md-6">
+	
+		<div class="panel panel-default" style="margin-top:30px">
+  		<div class="panel-heading">注册</div>
+  		<div class="panel-body">
+  		<div class="row" style="text-align:center;margin-bottom:20px">
+  			<img src="../templets/default/images/logo.jpg" style="width:300px;height:200px;"/>
+  			</div>
+    		 <form method="post" action="reg_new.php" id="regUser" name="form2" class="form-horizontal">
+      <input type="hidden" value="regbase" name="dopost"/>
+      <input type="hidden" value="1" name="step"/>
+      <input type="hidden" value="个人" name="mtype"/>
+      <div class="form-group">
+    	<label for="txtUsername" class="col-sm-3 control-label">用户名</label>
+    		<div class="col-sm-6">
+      			 <input type="text" class="intxt w200 form-control" id="txtUsername" name="userid" placeholder="建议输入电话号码方便记忆" style=" border:#ddd solid 2px;border-radius:6px;"/>
+      			  <i class="red">*</i> 
+				<em id="_userid">(登录用户名，建议使用电话号码方便记忆，但禁止除[@][.]以外的特殊符号)</em>
+    		</div>
+  	</div>
+  	<div class="form-group">
+    	<label for="uname" class="col-sm-3 control-label">真实姓名</label>
+    		<div class="col-sm-6">
+      			 <input type="text" class="intxt w200 form-control" size="20" id="uname" name="uname" style=" border:#ddd solid 2px;border-radius:6px;"/>
+          		<i class="red">*</i> <em id="_userid">（注册后不可修改，请如实填写）</em> </li>
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="txtPassword" class="col-sm-3 control-label">登陆密码</label>
+    		<div class="col-sm-6">
+      			<input type="password" onkeyup="setPasswordLevel(this, document.getElementById('passwordLevel'));" style="font-family: verdana;border:#ddd solid 2px;border-radius:6px;" class="intxt w200 form-control" size="20" id="txtPassword" name="userpwd"/>
+          		<i class="red">*</i> <em id="_txtPassword"></em> 
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="userpwdok" class="col-sm-3 control-label">确认密码</label>
+    		<div class="col-sm-6">
+      			<input type="password" class="intxt w200 form-control" size="20" value="" id="userpwdok" name="userpwdok" style=" border:#ddd solid 2px;border-radius:6px;"/>
+          		<i class="red">*</i>  <em id="_userpwdok"></em> 
+    		</div>
+  		</div>
+  		<!-- 
+  		<div class="form-group">
+    		<label for="email" class="col-sm-3 control-label">电子邮箱</label>
+    		<div class="col-sm-9">
+      			<input type="text" class="intxt w200 form-control" id="email" name="email" style=" border:#ddd solid 2px;border-radius:6px;"/>
+            	<i class="red">*</i> <em id="_email">(每个电子邮邮箱只能注册一个帐号)</em> 
+    		</div>
+  		</div>
+  		 -->
+  		<div class="form-group">
+    		<label for="mob" class="col-sm-3 control-label">手机号码</label>
+    		<div class="col-sm-6">
+      			<input type="text" class="intxt w200 form-control"   id="mob" name="mob" style=" border:#ddd solid 2px;border-radius:6px;" onkeyup="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
+          		<i class="red">*</i> <em id="_mob">(每个手机号码只能注册一个帐号，请您填写真实的手机号码)</em> 
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="11" class="col-sm-3 control-label">QQ</label>
+    		<div class="col-sm-6">
+      			<input type="text" class="intxt w200 form-control"   id="qq" name="qq" style=" border:#ddd solid 2px;border-radius:6px;" onkeyup="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
+          		<i class="red">*</i> 
+    		</div>
+  		</div>
+		<div class="form-group">
+    		<label for="nianji" class="col-sm-3 control-label">城市</label>
+    		<div class="col-sm-6">
+      			<?php
+            $City = '';
+             $dsql->SetQuery("Select mid,city_name From `#@__city` where mid>0");
+             $dsql->Execute('n');
+             while($nrow = $dsql->GetObject('n')){
+	              $City[$nrow->mid] = $nrow->city_name;
+             }
+             $options = "<select name='city' style='width:180px'>\r\n";
+			 $options .= "<option value=''>--请选择城市--</option>";
+             foreach($City as $k=>$v)
+             {
+  	            if($v!=$row['city']) $options .= "<option value='$v'>$v</option>\r\n";
+  	            else $options .= "<option value='$v' selected>$v</option>\r\n";
+             }
+             $options .= "</select>\r\n";
+			 echo $options;
+			?>
+          		<i class="red">*</i> 
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="school" class="col-sm-3 control-label">学校</label>
+    		<div class="col-sm-6">
+      			<input type="text" class="intxt w200 form-control"   id="school" name="school" style=" border:#ddd solid 2px;border-radius:6px;" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
+          		<i class="red">*</i> 
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="zhuanye" class="col-sm-3 control-label">专业</label>
+    		<div class="col-sm-6">
+      			<input type="text" class="intxt w200 form-control"   id="zhuanye" name="zhuanye" style=" border:#ddd solid 2px;border-radius:6px;" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
+          		<i class="red">*</i> 
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="nianji" class="col-sm-3 control-label">年级</label>
+    		<div class="col-sm-6">
+      			<input type="text" class="intxt w200 form-control"   id="nianji" name="nianji" style=" border:#ddd solid 2px;border-radius:6px;" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
+          		<i class="red">*</i> 
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="sex" class="col-sm-3 control-label">性别</label>
+    		<div class="col-sm-6">
+      			<input type="radio" value="男" name="sex"/>
+            男
+        <input type="radio" value="女" name="sex"/>
+            女
+    		</div>
+  		</div>
+  		<!-- 自我介绍 必填 -->
+  		<div class="form-group">
+    		<label for="introduction" class="col-sm-3 control-label">自我介绍</label>
+    		<div class="col-sm-6">
+      			<!--<input type="text" class="intxt w200 form-control"   id="zhuanye" name="zhuanye" style=" border:#ddd solid 2px;border-radius:6px;" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />-->
+      			<textarea rows=10 style="width:100%;border:#ddd solid 2px;border-radius:6px;" id="introduction" name="introduction" placeholder="请详细介绍自己，这是家长及工作人员筛选老师的重要依据"></textarea>
+          		<i class="red">*</i> 
+    		</div>
+  		</div>
+  		<!-- 标签 必填 -->
+  		<div class="form-group">
+    		<label for="biaoqian" class="col-sm-3 control-label">标签</label>
+    		<div class="col-sm-6">
+      			<!--<input type="text" class="intxt w200 form-control"   id="zhuanye" name="zhuanye" style=" border:#ddd solid 2px;border-radius:6px;" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />-->
+      			<textarea rows=5 style="width:100%;border:#ddd solid 2px;border-radius:6px;" id="biaoqian" name="biaoqian" placeholder="标签，如经验丰富 竞赛达人 必须以空格隔开"></textarea>
+          		<i class="red">*多个标签以空格隔开</i> 
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<label for="vdcode" class="col-sm-3 control-label">验证码</label>
+    		<div class="col-sm-6">
+      			<input type="text" class="intxt w200 form-control" style="width: 100px; text-transform: uppercase; border:#ddd solid 2px;border-radius:6px;" id="vdcode" name="vdcode"/><img id="vdimgck" align="absmiddle" onclick="this.src=this.src+'?'" style="cursor: pointer;" alt="看不清？点击更换" src="../include/vdimgck.php"/>
+           		<em id="_userid"> <a href="javascript:void(0)" onclick="changeAuthCode();">换一张</a></em>
+    		</div>
+  		</div>
+  		<div class="form-group">
+    		<div class="col-sm-6 col-sm-offset-3">
+      			<button type="submit" id="btnSignCheck" class="buttonGreen142 btn btn-default">提交信息</button>
+    		</div>
+    		<div class="col-sm-3">
+      			<a class="btn btn-default" href="index.php">登录</a>
+    		</div>
+  		</div>
+  </form>
+</div>  
+  <script language="javascript" type="text/javascript">
+	window.onload=function (){
+		setInterval("document.getElementById('time').innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
+	}
+</script>
+  
+</div>
+</div>
+</div>
+<?php include("../templets/default/footer.htm"); ?>
+</body>
+</html>

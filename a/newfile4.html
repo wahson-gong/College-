@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+<title>学员信息管理</title>
+
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link href="../templets/default/css/base.css" rel="stylesheet" type="text/css">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script language="javascript" src="js/member.js"></script>
+<style type="text/css">
+.rb{ border-right:1px solid #666666 }
+.tb{ border-top:1px solid #666666 }
+</style>
+</head>
+<body background='images/allbg.gif' leftmargin='8' topmargin='8' style="font-family='微软雅黑'">
+<!-- 头部nav -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom:0px">
+  <div class="container-fluid" >
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/home.php">College家教首页</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/info_index.php">学员信息 <span class="sr-only">(current)</span></a></li>
+        <li><a href="/cadmin/viewArticle.php?aid=1&dopost=view">接单须知</a></li>
+        <li><a href="/cadmin/viewArticle.php?aid=2&dopost=view">帮助中心</a></li>        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/member/index.php">用户中心</a></li>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- 头部nav -->
+<div class="bs-docs-header" id="content" tabindex="-1">
+      <div class="container">
+        <h1>联系我们</h1>
+        <p>联系我们</p>
+      </div>
+    </div>  
+<div id="content">  
+<div id="ny-main">
+  <div class="row-search">
+    
+    <div id="ny-left-nr" style="padding:0px 10%;">
+      <div style="text-align: center;">
+	&nbsp;</div>
+<span style="font-size:16px;">厦门凌致教育咨询有限公司<br />
+公司地址：厦门市思明区文屏一里2号1102室<br />
+服务热线：400-882-1008<br />
+客服 Q Q：2898428881<br />
+客服微信：collegejiajiao<br />
+客服邮箱：service@cjiajiao.com</span><br />
+<span style="font-size:16px;">人才简历：hr@cjiajiao.com<br />
+邮政编码：361005</span><br />
+<br />
+<embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></embed><embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></embed><embed height="0" id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd" type="application/thunder_download_plugin" width="0"></embed>
+    </div>
+    
+    <div class="clear"></div>
+  </div>
+
+</div>  
+</div>
+<footer class="footer ">
+<!-- 
+      <div class="container">
+        <div class="row footer-top">
+          <div class="col-sm-6 col-lg-6">
+            <h4>
+              College大学生家教网
+            </h4>
+            <p>College大学生家教网，最专业的大学生家教网</p>
+          </div>
+          <div class="col-sm-6  col-lg-5 col-lg-offset-1">
+            <div class="row about">
+              <div class="col-xs-3">
+                <h4>关于</h4>
+                <ul class="list-unstyled">
+                  <li><a href="">关于我们</a></li>
+                  <li><a href="">合作建议</a></li>
+                </ul>
+              </div>
+              <div class="col-xs-3">
+                <h4>联系方式</h4>
+                <ul class="list-unstyled">
+                  <li><a href="" target="_blank">联系我们</a></li>
+                </ul>
+              </div>
+              <div class="col-xs-3">
+                <h4>招贤纳士</h4>
+                <ul class="list-unstyled">
+                  <li><a href="" target="_blank">招贤纳士</a></li>
+                 
+                </ul>
+              </div>
+              <div class="col-xs-3">
+                <h4>帮助中心</h4>
+                <ul class="list-unstyled">
+                  <li><a href="" target="_blank">帮助中心</a></li>
+                  
+                </ul>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+        <hr>
+        <div class="row footer-bottom">
+          <ul class="list-inline text-center">
+            <li><a href="" target="_blank">闽ICP备11008151号</a></li><li>闽公网安备11010802014853</li>
+          </ul>
+        </div>
+      </div>-->
+      <div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<a href="#">关于我们</a>&nbsp;&nbsp;<a href="#">联系我们</a><br/>
+					Copyright &copy; 2016.凌志教育 All rights reserved.
+				</div>
+			</div>
+	</div>
+    </footer>
+</body>
+</html>

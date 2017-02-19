@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>2{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<meta http-equiv="mobile-agent" content="format=xhtml;url={dede:global.cfg_mobileurl/}/list.php?tid={dede:field.id/}">
+
+
+
+
+
+<link href="{dede:global.cfg_templets_skin/}/style/div.css" rel="stylesheet" type="text/css" />
+<link href="{dede:global.cfg_templets_skin/}/style/IN365hls2.9.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style/header2_9.css"></head>
+
+
+
+</head>
+
+<body>
+
+<div id="content">
+
+  <div id="header">
+    <div id="header-nr">
+      <div id="header-nr-l">你好！欢迎光临宝鸡好老师服务平台！ <a href="#">登录</a> <a href="#">免费注册</a> </div>
+      <div id="header-nr-r"><a href="#">宝鸡好老师首页</a> </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div id="top">
+    <div id="top-nr">
+      <div id="logo"><a href="#" title="宝鸡好老师官网" target="_self" ><img src="{dede:global.cfg_templets_skin/}/images/logo.jpg" /></a></div>
+      <div id="top-search">
+         <div id="search"><a href="#" id="search-anniu">搜 索</a></div>
+         <div id="hotsearch">
+        热门搜索：<a href="#">钢琴</a><a href="#">声乐</a><a href="#">绘画</a><a href="#">舞蹈</a><a href="#"> 升初</a> 
+         </div>
+      </div>
+       <ul class="hls_stern">
+         <li><a href="#" class="stern_1">老师认证</a></li>
+         <li><a href="#" class="stern_2">真实评价</a></li>
+       </ul>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div class="mian_nav">
+<div class="mycenter">
+<h2 class="navDown up">全部课程分类<span>▼</span>
+
+</h2>
+
+<div class="nav_box">
+<ul>
+<li class="cur"><a href="http://ceshi.bjhaolaoshi.com/index.php" target="_self">首页</a></li>
+{dede:channel type='top' row='10' currentstyle="<li class='hover'><a href='~typelink~' ~rel~><span>~typename~</span></a></li>"}
+<li><a href='[field:typeurl/]' [field:rel/]><span>[field:typename/]</span></a></li>
+{/dede:channel}
+</ul>
+<div class="nav-line" style="left:92px;width:64px;"></div>
+</div>
+<!-- 首页显示 -->
+<!-- 其他页面 login start-->
+</div>
+</div>
+
+
+  
+  
+<div id="ny-main">
+  <div id="wz">{dede:field name='position'/}</div>
+  <div id="ny-banner"></div>
+  <div class="row-search">
+    
+    <div id="ny-left-nr">
+    {dede:list pagesize='1'}
+      <div class="ny-news-query">
+        <div class="ny-news-query-l">
+        <h3><a href="[field:arcurl/]" class="title">[field:title/]</a></h3>
+        <p>
+        [field:description/]...
+        </p> 
+        <h5>[field:pubdate function="GetDateTimeMK(@me)"/]</h5>
+        </div>
+        <div class="ny-news-query-r"><a href="#"><img src="[field:litpic/]"  width="180" height="120"/></a></div>
+        <div class="clear"></div>
+      </div>
+      {/dede:list}
+ 
+ 
+  
+  
+  
+  
+  
+  
+        <div class="dede_pages">
+          <ul>
+        {dede:pagelist listitem="info,index,end,pre,next,pageno" listsize="5"/}
+          </ul>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+    <div id="search-right">
+      <div id="search-r-top">
+        <h3>400-400-0000</h3>
+        <a href="http://localhost/web/member/" target="_self" class="btn big">老师登陆</a>
+      </div>
+       <div id="search-r-lm">
+        <h3>400-400-0000</h3>
+        <a href="http://localhost/web/member/" target="_self" class="btn big">老师登陆</a>
+      </div>
+      <div id="search-r-m">
+        <h4>最新推荐</h4>
+        {dede:arclist row='5' flag='c' titlelen='24' addfields='sknj,jage,lx,ysxx,sex,price' orderby='pubdate' typeid='1' idlist='' channelid='6'}
+        <div class="r-tjls-query">
+          <div class="r-tjls-pic"><a href="/plus/view.php?aid=[field:id/]">
+          
+          
+          [field:array  runphp='yes']
+        $ys=@me['ysxx'];
+        $pic=@me['litpic'];
+        if(@me['ysxx']=='不显示真实姓名真实照片')  
+        {     
+       		if(@me['sex']=="男"){    
+                    @me="<img src='/templets/default/images/avatar_teacher_1_male_200.jpg'  width='60' height='75'/>";
+                    }
+                    
+                    if(@me['sex']=="女"){    
+                    @me="<img src='/templets/default/images/avatar_teacher_1_female_200.jpg'  width='60' height='75'/>";
+                    }
+                    
+         
+        }
+         if(@me['ysxx']=='显示真实姓名真实照片')  
+                {  
+                	
+                 @me ="<img src='$pic'  width='60' height='75'/>";
+                }      
+         [/field:array] 
+          
+          </a></div>
+          <div class="r-tjls-nr">
+          <h5><a href="/plus/view.php?aid=[field:id/]">
+          [field:array  runphp='yes'] 
+            	$tit=@me['title'];
+                if(@me['ysxx']=='不显示真实姓名真实照片')  
+                {  
+                   @me=cn_substr($tit,2)."老师";
+                }
+                
+                if(@me['ysxx']=='显示真实姓名真实照片')  
+                {  
+                	
+                 @me =$tit;
+                }           
+        [/field:array] 
+          </a></h5>
+          <p class="ny-ks">￥[field:price/]元/小时起</p>
+          <p class="course">[field:sknj/][field:lx/]&hellip;</p>
+          <p class="score"><span class="star-score"><i class="icon icon-star star-shine"><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /></i> </span>5.0分</p>
+          </div>
+          <div class="clear"></div>
+        </div>
+ {/dede:arclist}       
+        
+      </div>
+      <div id="search-r-b">
+         <h4>常见问题</h4>
+         <ul>
+           <li><a href="#">平台流程是怎样的 ？</a></li>
+           <li><a href="#">平台流程是怎样的 ？</a></li>
+           <li><a href="#">平台流程是怎样的 ？</a></li>
+           <li><a href="#">平台流程是怎样的 ？</a></li>
+           <li><a href="#">平台流程是怎样的 ？</a></li>
+           <li><a href="#">平台流程是怎样的 ？</a></li>
+         </ul>
+      </div>
+    </div>
+    
+    <div class="clear"></div>
+  </div>
+
+</div>  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  <div id="foot">
+    <div id="foot-nr">
+      <div id="foot-nr-top">
+        <div class="tel"><i class="icon icon-phone"><img src="images/tel-icon.jpg" /></i><h4>4000-910-910</h4><span>周一至周日&nbsp;8:00-23:00</span></div>
+        <div class="foot-list">
+        <h3>关注我们</h3>
+        <a href="#">平台流程</a><br />
+        <a href="#">老师入驻</a> <br />       
+        <a href="#">老师帮助</a> <br />
+        <a href="#">学生帮助</a><br />
+         <a href="#">机构帮助 </a> 
+        </div>
+        <div class="foot-list">
+        <h3>关于宝鸡好老师</h3>
+        <a href="#">平台流程</a><br />
+        <a href="#">老师入驻</a> <br />       
+        <a href="#">老师帮助</a> <br />
+        <a href="#">学生帮助</a><br />
+         <a href="#">机构帮助 </a> 
+        </div>
+        <div class="foot-list">
+        <h3>服务支持</h3>
+        <a href="#">平台流程</a><br />
+        <a href="#">老师入驻</a> <br />       
+        <a href="#">老师帮助</a> <br />
+        <a href="#">学生帮助</a><br />
+         <a href="#">机构帮助 </a> 
+        </div>
+        <div class="foot-list">
+        <h3>帮助中心</h3>
+        <a href="#">平台流程</a><br />
+        <a href="#">老师入驻</a> <br />       
+        <a href="#">老师帮助</a> <br />
+        <a href="#">学生帮助</a><br />
+         <a href="#">机构帮助 </a> 
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div id="foot-nr-foot">
+      合作伙伴：北京房产美联英语北京老师北京课程北京培训机构精华学校搜狐教育爱奇艺教育中国网教育央广网教育腾讯教育凤凰教育中国教育新闻网网易教育人民网教育更多<br />
+Copyright &copy; 2014 - 2016 宝鸡好老师有限公司版权所有. 陕ICP备000000000000号<br />
+      <a href="#"><img src="images/hd01.jpg" /></a>  <a href="#"><img src="images/hd01.jpg" /></a>   <a href="#"><img src="images/hd01.jpg" /></a>     
+      </div>
+    </div>
+  </div> 
+
+</div>
+
+</body>
+</html>

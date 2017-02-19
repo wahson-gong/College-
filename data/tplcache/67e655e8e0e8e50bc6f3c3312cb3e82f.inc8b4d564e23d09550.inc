@@ -1,0 +1,40 @@
+<?php
+$z[0]=Array("top","\r\n  \r\n  <m:item name='单页面管理' link='templets_one.php'  target='main' />\r\n  \r\n  <m:item name='所有教员档案列表' link='content_list.php' rank='a_List,a_AccList' target='main' />\r\n  <m:item name='等审核的教员档案' link='content_list.php?arcrank=-1' rank='a_Check,a_AccCheck' target='main' />\r\n",53,404);
+$z[0][4]['item']="1_";
+$z[0][4]['name']="常用操作";
+$z[0][4]['display']="block";
+$z[1]=Array("top","\r\n  <m:item name='附件数据管理' link='media_main.php' rank='sys_Upload,sys_MyUpload' target='main' />\r\n  <m:item name='文件式管理器' link='media_main.php?dopost=filemanager' rank='plus_文件管理器' target='main' />\r\n",406,724);
+$z[1][4]['item']="1_";
+$z[1][4]['name']="附件管理";
+$z[1][4]['display']="none";
+$z[1][4]['rank']="sys_Upload,sys_MyUpload,plus_文件管理器";
+$z[2]=Array("top","\r\n  <m:item name='采集节点管理' link='co_main.php' rank='co_ListNote' target='main' />\r\n  <m:item name='临时内容管理' link='co_url.php' rank='co_ViewNote' target='main' />\r\n  <m:item name='导入采集规则' link='co_get_corule.php' rank='co_GetOut' target='main'/>\r\n  <m:item name='监控采集模式' link='co_gather_start.php' rank='co_GetOut' target='main'/>\r\n  <m:item name='采集未下载内容' link='co_do.php?dopost=coall' rank='co_GetOut' target='main'/>\r\n",728,1295);
+$z[2][4]['item']="3_";
+$z[2][4]['name']="采集管理";
+$z[2][4]['display']="none";
+$z[2][4]['rank']="co_NewRule,co_ListNote,co_ViewNote,co_Switch,co_GetOut";
+$z[3]=Array("top","\r\n  <m:item name='一键更新网站' link='makehtml_all.php' rank='sys_MakeHtml' target='main' />\r\n  <m:item name='更新系统缓存' link='sys_cache_up.php' rank='sys_ArcBatch' target='main' />\r\n  \r\n",1303,1586);
+$z[3][4]['item']="5_";
+$z[3][4]['name']="自动任务";
+$z[3][4]['notshowall']="1";
+$z[3][4]['display']="block";
+$z[3][4]['rank']="sys_MakeHtml";
+$z[4]=Array("top","\r\n  <m:item name='更新主页HTML' link='makehtml_homepage.php' rank='sys_MakeHtml' target='main' />\r\n  <m:item name='更新栏目HTML' link='makehtml_list.php' rank='sys_MakeHtml' target='main' />\r\n  <m:item name='更新文档HTML' link='makehtml_archives.php' rank='sys_MakeHtml' target='main' />\r\n  <m:item name='更新网站地图' link='makehtml_map_guide.php' rank='sys_MakeHtml' target='main' />\r\n  <m:item name='更新RSS文件' link='makehtml_rss.php' rank='sys_MakeHtml' target='main' />\r\n  <m:item name='获取JS文件' link='makehtml_js.php' rank='sys_MakeHtml' target='main' />\r\n  <m:item name='更新专题HTML' link='makehtml_spec.php' rank='sys_MakeHtml' target='main' />\r\n",1590,2341);
+$z[4][4]['item']="5_";
+$z[4][4]['name']="HTML更新";
+$z[4][4]['notshowall']="1";
+$z[4][4]['display']="none";
+$z[4][4]['rank']="sys_MakeHtml";
+$z[5]=Array("top","\r\n  <m:item name='注册教师列表' link='member_main.php' rank='member_List' target='main' />\r\n \r\n",2345,2527);
+$z[5][4]['item']="6_";
+$z[5][4]['name']="会员管理";
+$z[5][4]['display']="none";
+$z[5][4]['rank']="member_List,member_Type";
+$z[6]=Array("top","\r\n  <m:item name='学员信息列表' link='info_list.php' rank='info_List' target='main' />\r\n  <m:item name='新增学员信息' link='info_add.php' rank='info_Add' target='main' />\r\n  <m:item name='退款申请记录' link='fee_back.php' rank='feeback_List' target='main' />\r\n  <m:item name='家长预约记录' link='yuyue.php' rank='yuyue_List' target='main' />\r\n",2539,2981);
+$z[6][4]['mapitem']="9";
+$z[6][4]['item']="9_";
+$z[6][4]['name']="学员信息管理";
+$z[6][4]['display']="block";
+$z[6][4]['rank']="info_List,info_Add";
+
+?>

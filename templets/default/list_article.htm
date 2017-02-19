@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<meta http-equiv="mobile-agent" content="format=xhtml;url={dede:global.cfg_mobileurl/}/list.php?tid={dede:field.id/}">
+
+<link href="{dede:global.cfg_templets_skin/}/style/div.css" rel="stylesheet" type="text/css" />
+<link href="{dede:global.cfg_templets_skin/}/style/IN365hls2.9.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style/header2_9.css"></head>
+
+
+
+</head>
+
+<body>
+
+<div id="content">
+
+    
+<!--------------------------------------->
+ {dede:include filename="head.htm"/}
+<!--------------------------------------->
+  
+<div id="ny-main">
+  <div id="wz">{dede:field name='position'/}</div>
+  <div id="ny-banner"></div>
+  <div class="row-search">
+    
+    <div id="ny-left-nr">
+    {dede:list pagesize='10'}
+      <div class="ny-news-query">
+        <div class="ny-news-query-l">
+        <h3><a href="[field:arcurl/]" class="title">[field:title/]</a></h3>
+        <p>
+        [field:description/]...
+        </p> 
+        <h5>[field:pubdate function="GetDateTimeMK(@me)"/]</h5>
+        </div>
+        <div class="ny-news-query-r"><a href="[field:arcurl/]"><img src="[field:litpic/]"  width="180" height="120"/></a></div>
+        <div class="clear"></div>
+      </div>
+      {/dede:list}
+ 
+ 
+  
+  
+  
+  
+  
+  
+        <div class="dede_pages">
+          <ul>
+        {dede:pagelist listitem="info,index,end,pre,next,pageno" listsize="5"/}
+          </ul>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+    <div id="search-right">
+      <div id="search-r-top">
+        <h3>0917-2668022</h3>
+        <a href="/member/" target="_self" class="btn big">老师登陆</a>
+      </div>
+      <div id="search-r-lm">
+        <div class="news-list-lm"><a href="/plus/list.php?tid=7">网站公告</a></div> 
+        <div class="news-list-lm"><a href="/plus/list.php?tid=9">教育新闻</a></div>  
+        <div class="news-list-lm"><a href="/plus/list.php?tid=10">师生互动</a></div> 
+        <div class="news-list-lm"><a href="/plus/list.php?tid=8">使用帮助</a></div>         
+      </div>
+      <div id="search-r-m">
+        <h4>最新推荐</h4>
+        {dede:arclist row='5' flag='c' titlelen='24' addfields='sknj,jage,lx,ysxx,sex,price' orderby='pubdate' typeid='1' idlist='' channelid='6'}
+        <div class="r-tjls-query">
+          <div class="r-tjls-pic"><a href="/plus/view.php?aid=[field:id/]">
+          
+          
+          [field:array  runphp='yes']
+        $ys=@me['ysxx'];
+        $pic=@me['litpic'];
+        if(@me['ysxx']=='不显示真实姓名真实照片')  
+        {     
+       		if(@me['sex']=="男"){    
+                    @me="<img src='/templets/default/images/avatar_teacher_1_male_200.jpg'  width='60' height='75'/>";
+                    }
+                    
+                    if(@me['sex']=="女"){    
+                    @me="<img src='/templets/default/images/avatar_teacher_1_female_200.jpg'  width='60' height='75'/>";
+                    }
+                    
+         
+        }
+         if(@me['ysxx']=='显示真实姓名真实照片')  
+                {  
+                	
+                 @me ="<img src='$pic'  width='60' height='75'/>";
+                }      
+         [/field:array] 
+          
+          </a></div>
+          <div class="r-tjls-nr">
+          <h5><a href="/plus/view.php?aid=[field:id/]">
+          [field:array  runphp='yes'] 
+            	$tit=@me['title'];
+                if(@me['ysxx']=='不显示真实姓名真实照片')  
+                {  
+                   @me=cn_substr($tit,2)."老师";
+                }
+                
+                if(@me['ysxx']=='显示真实姓名真实照片')  
+                {  
+                	
+                 @me =$tit;
+                }           
+        [/field:array] 
+          </a></h5>
+          <p class="ny-ks">￥[field:price/]元/小时起</p>
+          <p class="course">[field:sknj/][field:lx/]&hellip;</p>
+          <p class="score"><span class="star-score"><i class="icon icon-star star-shine"><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /></i> </span>5.0分</p>
+          </div>
+          <div class="clear"></div>
+        </div>
+ {/dede:arclist}    
+        
+      </div>
+      <div id="search-r-b">
+         <h4>常见问题</h4>
+         <ul>{dede:arclist typeid='8' row='10' titlelen='20'}
+         <li>
+         [field:textlink/]
+         <span>[field:pubdate function="MyDate('m-d',@me)"/]</span>
+
+        </li>
+{/dede:arclist}
+         </ul>
+      </div>
+    </div>
+    
+    <div class="clear"></div>
+  </div>
+
+</div>  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+ {dede:include filename="footer.htm"/}
+
+</div>
+
+</body>
+</html>

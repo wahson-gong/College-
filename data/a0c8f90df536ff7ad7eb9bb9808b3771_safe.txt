@@ -1,0 +1,5 @@
+127.0.0.1||/web/||SELECT a.title,b.aid FROM dede_archives AS a,dede_addonshop AS b where a.id=b.aid and b.aid in (SELECT aid from dede_addonshop WHERE sknj like '%初中%' or sknj like '%中 考%') limit 0,5||sub select detect
+127.0.0.1||/web/||SELECT a.title,b.aid FROM dede_archives AS a,dede_addonshop AS b where a.id=b.aid and b.aid in (SELECT aid from dede_addonshop WHERE sknj like '%初中%' or sknj like '%中 考%')||sub select detect
+127.0.0.1||/web/||SELECT a.title,b.aid FROM dede_archives AS a,dede_addonshop AS b where a.id=b.aid and b.aid in (SELECT aid from dede_addonshop WHERE sknj like '%初中%' or sknj like '%中 考%')||sub select detect
+127.0.0.1||/web/||SELECT a.title,b.aid FROM dede_archives AS a,dede_addonshop AS b where a.id=b.aid and b.aid in (SELECT aid from dede_addonshop WHERE sknj like '%初中%' or sknj like '%中 考%')||sub select detect
+127.0.0.1||/web/||SELECT a.title,b.aid FROM dede_archives AS a,dede_addonshop AS b where a.id=b.aid and b.aid in (SELECT aid from dede_addonshop WHERE sknj like||sub select detect

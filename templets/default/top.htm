@@ -1,0 +1,41 @@
+ <?php
+//未登录显示的head
+if(!$cfg_ml->IsLogin()) {
+?>
+      <div id="header-nr-l">你好！欢迎光临宝鸡好老师服务平台！ <a title="登录" href="../member/login.php">登录</a>
+       <a href="../member/index_do.php?fmdo=user&dopost=regnew">免费注册</a> </div>
+      <div id="header-nr-r"><a href="../index.php">宝鸡好老师首页</a></div>
+      
+<?php
+}else {
+//登录后显示的head
+
+?>
+ <script type="text/javascript">
+           	var now=(new Date()).getHours();
+			if(now>0&&now<=6){
+				document.write("午夜好，");
+			}else if(now>6&&now<=11){
+				document.write("早上好，");
+			}else if(now>11&&now<=14){
+				document.write("中午好，");
+			}else if(now>14&&now<=18){
+				document.write("下午好，");
+			}else{
+				document.write("晚上好，");
+			}
+			</script>
+  <a href="#" class="userName"><?php echo $cfg_ml->M_UserName?></a> <a href="../member/index_do.php?fmdo=login&dopost=exit#">[退出]</a>
+  <?php
+  
+   $pms = $dsql->GetOne("SELECT COUNT(*) AS nums FROM #@__member_pms WHERE toid='{$cfg_ml->M_ID}' AND `hasview`=0 AND folder = 'inbox'");
+		if($pms['nums'] > 0)
+		{
+			//echo "<a href='/member/pm.php' target='_blank'>短消息 [<font color='#FF0000'>{$pms['nums']}</font>]</a>";
+		}
+		elseif($pms['nums']==0)
+		{
+			//echo "<a href='/member/pm.php' target='_blank'>短消息</a>";
+		}
+  	}
+  ?>    

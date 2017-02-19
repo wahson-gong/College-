@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:global.cfg_webname/}</title>
+<meta name="description" content="{dede:global.cfg_description/}" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<meta http-equiv="mobile-agent" content="format=xhtml;url={dede:global.cfg_mobileurl/}/index.php">
+<link href="{dede:global.cfg_templets_skin/}/style/div.css" rel="stylesheet" type="text/css" />
+<link href="{dede:global.cfg_templets_skin/}/style/IN365hls2.9.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style/header2_9.css">
+
+</head>
+
+
+
+
+
+<link href="{dede:global.cfg_templets_skin/}/images/lick.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/images/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/images/lanrentuku.js"></script>
+
+
+
+
+
+</head>
+
+<body>
+
+<div id="content">
+
+  <div id="header">
+    <div id="header-nr">
+{dede:php}
+require_once(DEDEMEMBER."/config.php");
+$uid = $cfg_ml->M_LoginID;
+if(!$uid){
+echo '<div><a class="login-button" href="login.php">登录</a> | <a class="join-button" href="add.php">免费注册</a></div>';
+}else{
+echo '<div>
+<a class="login-button" href="#">'.$uid.'</a> |<a class="join-button" href="http://ceshi.bjhaolaoshi.com/index_do.php?fmdo=login&dopost=exit">登出</a></div>;';
+}
+{/dede:php}
+      <div class="clear"></div>
+    </div>
+  </div>
+<!--------------------------------------->
+ {dede:include filename="head.htm"/}
+<!--------------------------------------->
+
+
+
+
+<div id="main-home ">
+<div id="main-nr">
+
+<section class="hlsIn">
+<div class="Banner-and-Notice f">
+<article class="somebanners" id="playbanner" role="banner" style="overflow: hidden;">
+
+<div id="banner">
+
+
+
+
+<div id=imgPlay>
+<ul class=imgs id=actor>
+  <li><a href="{#SiteUrl#}" target=_blank><img src="{dede:global.cfg_templets_skin/}/images/banner.jpg" /></a></li>
+  <li><a href="{#SiteUrl#}" target=_blank><img src="{dede:global.cfg_templets_skin/}/images/banner01.jpg" /></a></li>
+  <li><a href="{#SiteUrl#}" target=_blank><img src="{dede:global.cfg_templets_skin/}/images/banner02.jpg" /></a></li>
+  
+</ul>
+<div class=num>
+<P class=lc></P>
+<P class=mc></P>
+<P class=rc></P></div>
+<div class=num id=numInner></div>
+<div class=prev>上一张</div>
+<div class=next>下一张</div></div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</article>
+
+
+<div id="banner-r">
+  <div id="banner-r-top">
+    <h3>Hi,欢迎来到宝鸡好老师！</h3>
+    <div class="inline">
+    <a href="/member/index_do.php?fmdo=user&dopost=regnew" target="_self" class="btn big">老师入驻</a>
+    <a href="/member/" target="_self" class="btn">老师登录</a></div>
+    </div>
+  <div id="banner-r-m">
+ <!-- tab代码begin --> 
+  <script>
+<!--
+function setTab(name,cursel,n){
+for(i=1;i<=n;i++){
+var menu=document.getElementById(name+i);
+var con=document.getElementById("con_"+name+"_"+i);
+menu.className=i==cursel?"hover":"";
+con.style.display=i==cursel?"block":"none";
+}
+}
+//-->
+</script>
+  
+  <div id="Tab">
+  <div class="Menubox">
+    <ul>
+      <li id="menu1" onmouseover="setTab('menu',1,3)" class="hover">网站公告</li>
+      <li id="menu2" onmouseover="setTab('menu',2,3)" >教育新闻</li>
+      <li id="menu3" onmouseover="setTab('menu',3,3)" >常见问题</li>
+    </ul>
+  </div>
+  <div class="Contentbox"> 
+    <div id="con_menu_1" class="hover">
+      <ul>
+        {dede:arclist row='5' titlelen='24' orderby='pubdate' typeid='7' idlist=''}
+            <li>·<a href="[field:arcurl/]">[field:title/]</a></li>
+        {/dede:arclist}
+      </ul>
+    </div>
+    <div id="con_menu_2" style="display:none">
+      <ul>
+        {dede:arclist row='5' titlelen='24' orderby='pubdate' typeid='9' idlist=''}
+            <li>·<a href="[field:arcurl/]">[field:title/]</a></li>
+        {/dede:arclist}
+
+      </ul>
+    </div>
+    <div id="con_menu_3" style="display:none">
+      <ul>
+        {dede:arclist row='5' titlelen='24' orderby='pubdate' typeid='8' idlist=''}
+            <li>·<a href="[field:arcurl/]">[field:title/]</a></li>
+        {/dede:arclist}
+      </ul>
+    </div>
+  </div>
+</div>
+ <!-- tab代码begin --> 
+  
+  </div>
+  <div id="banner-r-pic"><img src="{dede:global.cfg_templets_skin/}/images/banner-r-pic.jpg" /></div>
+</div>
+
+
+</div>
+</section>
+     
+     
+     
+     
+     
+     
+     
+      <div id="sy-tjls">
+        <div class="sy-tit"><span><a href="#">更多>></a></span>推荐老师</div>
+        <div id="sy-tjls-nr">
+        
+  
+
+        
+        {dede:arclist  row='5' addfields='sknj,jage,lx' channelid='6'  orderby='pubdate' flag='c'}
+        <DIV class="pic-nr01">
+        <span class="custom-frame aligncenter"><a href="[field:arcurl/]"><img src="[field:litpic/]" width="224" height="304" /></a></span>
+        <a class="title02" href="#">
+        <h3>[field:title/]</h3>
+        <span>[field:sknj/][field:lx/]</span><span>[field:jage/]教龄</span>
+        </a>    
+        
+        </DIV>
+        {/dede:arclist} 
+
+        
+        </div>
+      </div>
+      
+      
+      
+      <div id="sy-lsrz">
+        <div id="sy-lsrz-l">
+          <div class="sy-tit">老师入驻</div>
+          <div id="sy-lsrz-pic"><img src="{dede:global.cfg_templets_skin/}/images/lsrz-pic.jpg"  width="224" height="304"/></div>
+        </div>
+        <div id="sy-lsrz-m">
+          <div class="sy-ptys-tit"><a href="#">平台优势</a></div>
+          <div id="sy-ptys-nr">
+            <div class="sy-ptys-list">
+              <div class="sy-ptys-iocn"><img src="{dede:global.cfg_templets_skin/}/images/icon01.jpg" /></div>
+              <h3>1.搜索老师</h3>
+              <p>
+              根据自身需要按照多条
+件筛选（如课程、地理
+位置、学习阶段），找
+到心仪的老师。众多本
+地名师，总有一位适合
+您
+              </p>
+            </div>
+            <div class="sy-ptys-list">
+              <div class="sy-ptys-iocn"><img src="{dede:global.cfg_templets_skin/}/images/icon02.jpg" /></div>
+              <h3>2.平台认证</h3>
+              <p>
+              宝鸡好老师网严格筛选每位老师，通过实名认证，当面确认等方式保证每位老师的信息真实有效。保证高质量的服务，让您放心
+              </p>
+            </div>
+            <div class="sy-ptys-list">
+              <div class="sy-ptys-iocn"><img src="{dede:global.cfg_templets_skin/}/images/icon03.jpg" /></div>
+              <h3>3.课程丰富</h3>
+              <p>
+              我们的入驻老师涉及学校内教育的所有课程，并且吸纳了丰富多彩的课外特色课程类老师，让您足不出户找到适合您的老师。
+              </p>
+            </div>
+            <div class="sy-ptys-list">
+              <div class="sy-ptys-iocn"><img src="{dede:global.cfg_templets_skin/}/images/icon04.jpg" /></div>
+              <h3>4.课程评价</h3>
+              <p>
+              授课中或授课后，学生对老师和课程进行真实评价，帮助老师发现其优势与不足，提升自己的教学质量。同时为正在寻找老师的学生和家长提供参考。
+              </p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div id="sy-lsrz-r">
+          <div class="sy-ptys-tit"><a href="#">入驻流程</a></div>
+          <div id="sy-rzlc-nr">
+            <div id="sy-rzlc-tit"><font style="font-size: 1.3em;color: #3f3f3f;">老师入驻</font><a href="/member/index_do.php?fmdo=user&dopost=regnew" class="btn" target="_self">立即加入</a></div>
+            <div class="sy-rzlc-list">
+               <h4>实名认证</h4>
+               <p>真实姓名、身份证号、身份证扫描件</p>
+            </div>
+            <div class="sy-rzlc-list">
+               <h4>资格认证</h4>
+               <p>教师资格证或职称证扫描件</p>
+            </div>
+            <div class="sy-rzlc-list">
+               <h4>教龄认证</h4>
+               <p>教龄需3年以上</p>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      
+      
+      <div class="sy-ls-query">
+        <div class="sy-ls-tit"><span><a href="#">数学</a> - <a href="#">语文</a> - <a href="#">英语</a> - <a href="#">小升初</a></span>   小学&middot;初中 </div>
+        <div class="sy-ls-nr">
+     
+
+
+
+
+{dede:sql sql="SELECT a.id,a.title,a.litpic,a.goodpost,b.aid,b.area,b.jage,b.lx,b.sknj FROM dede_archives AS a,dede_addonshop AS b where a.id=b.aid  and b.aid in (SELECT aid from dede_addonshop WHERE   sknj  like '%小学%' or sknj like '%小升初%' or sknj like '%六年级%' or sknj like '%五年级%' or sknj like '%四年级%' or sknj like '%三年级%' or sknj like '%二年级%' or sknj like '%一年级%') limit 0,5" appname='default'}
+
+            <DIV class="pic-nr">
+            <span class="custom-frame aligncenter"><a href="plus/view.php?aid=[field:aid/]"><img src="[field:litpic/]"  width="218" height="318"/></a></span>
+            <a class="title01" href="plus/view.php?aid=[field:aid/]">
+            
+            <h3>[field:title/]</h3>
+            <span>[field:sknj/][field:lx/]</span>     <span>[field:jage/]教龄</span>
+            <h4><img src="/templets/default/images/icon-wz.png" />&nbsp;[field:area/]    &nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF921E"><script type="text/javascript" src="/plus/feedcount.php?aid=[field:id/]&type=c"></script>条评论数</font></h4>
+            
+            </a>      
+            </DIV>
+           
+           {/dede:sql} 
+            
+            
+           
+            <div class="clear"></div>
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      
+      <div class="sy-ls-query">
+        <div class="sy-ls-tit"><span><a href="#">数学</a> - <a href="#">语文</a> - <a href="#">英语</a> - <a href="#">小升初</a></span>   初中&middot;中考 </div>
+        <div class="sy-ls-nr">
+        
+         
+             {dede:sql sql="SELECT a.id,a.title,a.litpic,a.goodpost,b.aid,b.area,b.jage,b.lx,b.sknj FROM dede_archives AS a,dede_addonshop AS b where a.id=b.aid  and b.aid in (SELECT aid from dede_addonshop WHERE   sknj  like '%初一%' or sknj like '%中考%' or sknj like '%初中%' or sknj like '%初三%' or sknj like '%初二%' or sknj like '%初一%') limit 0,5" appname='default'}
+
+            <DIV class="pic-nr">
+            <span class="custom-frame aligncenter"><a href="plus/view.php?aid=[field:aid/]"><img src="[field:litpic/]"  width="218" height="318"/></a></span>
+            <a class="title01" href="plus/view.php?aid=[field:aid/]">
+            
+            <h3>[field:title/]</h3>
+            <span>[field:sknj/][field:lx/]</span>     <span>[field:jage/]教龄</span>
+            <h4><img src="/templets/default/images/icon-wz.png" />&nbsp;[field:area/]    &nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF921E"><script type="text/javascript" src="/plus/feedcount.php?aid=[field:id/]&type=c"></script>条评论数</font></h4>
+            
+            </a>      
+            </DIV>
+           
+           {/dede:sql} 
+            <div class="clear"></div>
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      <div class="sy-ls-query">
+        <div class="sy-ls-tit"><span><a href="#">数学</a> - <a href="#">语文</a> - <a href="#">英语</a> - <a href="#">小升初</a></span>   高中&middot;高考 </div>
+        <div class="sy-ls-nr">
+        
+         {dede:sql sql="SELECT a.id,a.title,a.litpic,a.goodpost,b.aid,b.area,b.jage,b.lx,b.sknj FROM dede_archives AS a,dede_addonshop AS b where a.id=b.aid  and b.aid in (SELECT aid from dede_addonshop WHERE   sknj  like '%高中%' or sknj like '%高考%' or sknj like '%高三%' or sknj like '%高二%' or sknj like '%高一%' ) limit 0,5" appname='default'} 
+
+            <DIV class="pic-nr">
+            <span class="custom-frame aligncenter"><a href="plus/view.php?aid=[field:aid/]"><img src="[field:litpic/]"  width="218" height="318"/></a></span>
+            <a class="title01" href="plus/view.php?aid=[field:aid/]">
+            
+            <h3>[field:title/]</h3>
+            <span>[field:sknj/][field:lx/]</span>     <span>[field:jage/]教龄</span>
+            <h4><img src="/templets/default/images/icon-wz.png" />&nbsp;[field:area/]    &nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF921E"><script type="text/javascript" src="/plus/feedcount.php?aid=[field:id/]&type=c"></script>条评论数</font></h4>
+            
+            </a>      
+            </DIV>
+           
+           {/dede:sql} 
+           
+            
+            
+            <div class="clear"></div>
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="sy-ls-query">
+        <div class="sy-ls-tit"><span><a href="#">舞蹈</a> - <a href="#">计算机</a> - <a href="#">书法</a> - <a href="#">钢琴</a></span>   特色课程 </div>
+        <div class="sy-ls-nr">
+        
+         
+          {dede:sql sql="SELECT a.id,a.title,a.litpic,a.goodpost,b.aid,b.area,b.jage,b.lx,b.sknj FROM dede_archives AS a,dede_addonshop AS b where a.id=b.aid  and b.aid in (SELECT aid from dede_addonshop WHERE   lx  like '%舞蹈%' or sknj like '%计算机%' or sknj like '%书法%' or sknj like '%钢琴%' or sknj like '%心理辅导%' ) limit 0,5" appname='default'} 
+          
+             <DIV class="pic-nr">
+            <span class="custom-frame aligncenter"><a href="plus/view.php?aid=[field:aid/]"><img src="[field:litpic/]"  width="218" height="318"/></a></span>
+            <a class="title01" href="plus/view.php?aid=[field:aid/]">
+            
+            <h3>[field:title/]</h3>
+            <span>[field:lx/]</span>     <span>[field:jage/]教龄</span>
+            <h4><img src="/templets/default/images/icon-wz.png" />&nbsp;[field:area/]    &nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF921E"><script type="text/javascript" src="/plus/feedcount.php?aid=[field:id/]&type=c"></script>条评论数</font></h4>
+            
+            </a>      
+            </DIV>
+           {/dede:sql}
+            <div class="clear"></div>
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      <div id="sy-rzjg">
+        <div id="sy-rzjg-tit"><a href="#">入驻机构</a></div>
+        <div id="sy-rzjg-nr">
+          <div id=demo style="overflow:hidden;" align=center>
+	<table border=0 align=center cellpadding=1 cellspacing=1 cellspace=0 >
+	  <tr>
+      <td valign=top bgcolor=ffffff id=marquePic1>
+	    <table width='100%' border='0' cellspacing='0'>
+          <tr>
+
+    {dede:arclist row='10' titlelen='24' orderby='pubdate' typeid='5' idlist='' channelid='17' type='image.'}
+        <td align=center><a href='[field:arcurl/]'><img src="[field:litpic/]"  width="100" height="100"/></a></td>
+        <td align=center><a href='[field:arcurl/]'><img src="[field:litpic/]"  width="100" height="100"/></a></td>
+        <td align=center><a href='[field:arcurl/]'><img src="[field:litpic/]"  width="100" height="100"/></a></td>
+        <td align=center><a href='[field:arcurl/]'><img src="[field:litpic/]"  width="100" height="100"/></a></td>
+        <td align=center><a href='[field:arcurl/]'><img src="[field:litpic/]"  width="100" height="100"/></a></td>
+        <td align=center><a href='[field:arcurl/]'><img src="[field:litpic/]"  width="100" height="100"/></a></td>
+    {/dede:arclist}
+         
+          </tr>
+        </table>
+		</td>
+        <td id=marquePic2 valign=top></td>
+      </tr>
+	</table>
+  </div>
+<script type="text/javascript">
+var speed=20<!-- 数值越大越慢 -->
+marquePic2.innerHTML=marquePic1.innerHTML 
+function Marquee(){ 
+if(demo.scrollLeft>=marquePic1.scrollWidth){ 
+demo.scrollLeft=0 
+}else{ 
+demo.scrollLeft++ 
+} 
+} 
+var MyMar=setInterval(Marquee,speed) 
+demo.onmouseover=function() {clearInterval(MyMar)} 
+demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)} 
+</script>
+
+
+
+
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      
+       
+    </div>
+  </div>
+
+ {dede:include filename="footer.htm"/}
+
+</div>
+
+</body>
+</html>

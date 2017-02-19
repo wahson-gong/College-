@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>搜索页_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+
+<link href="{dede:global.cfg_templets_skin/}/style/div.css" rel="stylesheet" type="text/css" />
+<link href="{dede:global.cfg_templets_skin/}/style/IN365hls2.9.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style/header2_9.css">
+<style type="text/css">
+<!--
+.STYLE3 {color: #FF921E}
+-->
+</style>
+</head>
+
+
+
+</head>
+
+<body>
+
+<div id="content">
+
+    
+<!--------------------------------------->
+ {dede:include filename="head.htm"/}
+<!--------------------------------------->
+ 
+<div id="ny-main">
+  <div id="wz">当前位置：搜索页面</div>
+  <div id="ny-banner"></div>
+  <div class="row-search">
+    <div id="search-left-nr">
+      
+      
+      
+         {dede:datalist}
+   <?php
+$fields['stime'] = GetDateTimeMk($fields['senddate']);
+$fields['arcurl'] = GetArcUrl($fields['aid'],$fields['typeid'],$fields['senddate'],$fields['title'],$fields['ismake'],$fields['arcrank'],$fields['namerule'],$fields['typedir'],
+
+$fields['money']);
+$fields['typeurl'] = GetTypeUrl($fields['typeid'],MfTypedir($fields['typedir']),$fields['isdefault'],$fields['defaultname'],
+			$fields['ispart'],$fields['namerule2'],$fields['moresite'],$fields['siteurl'],$fields['sitepath']);
+?>
+
+       
+        <div class="search-box">
+          <div class="search-pic"><a href="/plus/view.php?aid={dede:field.aid/}">
+          
+          
+         
+               
+       <?php
+       		$pic=$fields['litpic'];
+             $ys=$fields['ysxx'] ;
+            if($pic=="")
+            {
+            	?>
+                	<img src='../images/defaultpic.gif'  width='125' height='155'/>
+                <?php
+            }
+            
+           
+            
+            if($pic!=="")
+            {
+            	if($ys=="不显示真实姓名真实照片")
+                {
+                	if($fields['sex']=="男")
+                    { 
+            	?>
+                <img src='/templets/default/images/avatar_teacher_1_male_200.jpg'  width='125' height='155'/>
+                	
+                <?php
+                	}
+                    if($fields['sex']=="女")
+                    {
+                ?>
+                		<img src='/templets/default/images/avatar_teacher_1_female_200.jpg'  width='125' height='155'/>
+                <?php	
+                        
+                     
+                    }
+                }
+                
+                if($ys=="显示真实姓名真实照片")
+                {
+                	?>
+                     <img src='<?php echo $pic;?>'  width='125' height='155'/>	
+                    <?php  
+                }
+            }
+            
+       ?>
+          
+          
+          </a></div>
+          <div class="search-ls-nr">
+            <h3><a href="/plus/view.php?aid={dede:field.aid/}">
+           
+         
+         
+         <?php
+         	 $ys=$fields['ysxx'] ;
+             $tit=$fields['title'];
+             if($ys=="不显示真实姓名真实照片")
+             {
+             	echo  cn_substr($tit,2)."老师"; 
+             }
+             
+              if($ys=="显示真实姓名真实照片")
+             {
+             	echo  $tit;
+             }
+         ?>
+            
+            
+            </a>  <font size="-1" color="#999999" style="font-weight:normal;">&nbsp;最新认证</font></h3>
+            <div class="desc-90">
+            <span class="subject_logo">{dede:field.sknj/}{dede:field.lx/}</span>
+            <span class="teachage_logo">{dede:field.jage/}教龄</span>
+            <span class="age_logo">年龄：<strong>{dede:field.age/}</strong></span>
+            </div>
+            <p class="flaunt">{dede:field.jxtd/}</p>
+            <p class="saga t-adapter"> {dede:field.body/}...</p>
+          </div>
+          <div class="search-box-r">
+        
+						<div class="star-view">
+							<div class="view-g">
+								<p class="gg">
+																	<strong data-x="">{dede:field.price/}</strong>元/小时起
+								</p>
+						  </div>
+							<div class="flashstar u-l">
+								<ul >
+									<li class="stuff"><img src="/templets/default/images/star-icon.png" /></li>
+									<li class="stuff"><img src="/templets/default/images/star-icon.png" /></li>
+									<li class="stuff"><img src="/templets/default/images/star-icon.png" /></li>
+									<li class="stuff"><img src="/templets/default/images/star-icon.png" /></li>
+									<li class="stuff"><img src="/templets/default/images/star-icon.png" /></li>
+								</ul>
+								
+							</div>
+						</div>
+					
+          </div>
+          <div class="clear"></div>
+        </div>
+       {/dede:datalist}
+        
+        <div class="dede_pages">
+          <ul>
+        {dede:pagelist listsize='5'/}   
+          </ul>
+        </div>
+        
+        
+        
+        
+        
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    
+    
+    
+    
+    <div class="clear"></div>
+  </div>
+
+</div>  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+ {dede:include filename="footer.htm"/}
+
+</div>
+
+</body>
+</html>

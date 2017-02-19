@@ -1,0 +1,139 @@
+<div id="top">
+    <div id="top-nr">
+      <div id="logo"><a href="/" title="Cjiajiao大学生家教官网" target="_self" ><img src="{dede:global.cfg_templets_skin/}/images/logo.jpg" /></a></div>
+      <div id="top-search">
+      
+              <form action="/plus/advancedsearch.php" method="post">
+       <div id="search">
+      <input type="hidden" name="mid" value="6" class="search-keyword"  />
+      <input type="hidden" name="dopost"  value="search" /><img src="{dede:global.cfg_templets_skin/}/images/ss.jpg" /><input type="text" name="q" placeholder="请输入您感兴趣的老师姓名或选择您感兴趣的课程" class="search-keyword" id="search-keyword" />
+      课程类型 : <select name="lx" class="search-option" id="search-option">
+      <option value="">请选择</option>
+      <option value="语文">语文</option>
+      <option value="数学">数学</option>
+      <option value="英语">英语</option>
+      <option value="物理">物理</option>
+      <option value="化学">化学</option>
+      <option value="生物">生物</option>
+      <option value="历史">历史</option>
+      <option value="地理">地理</option>
+      <option value="政治">政治</option>
+      <option value="音乐">音乐</option>
+      <option value="体育">体育</option>
+      <option value="美术">美术</option>
+      <option value="计算机">计算机</option>
+      <option value="心理辅导">心理辅导</option>
+      <option value="舞蹈">舞蹈</option>
+      <option value="计算机">计算机</option>
+      <option value="书法">书法</option>
+      <option value="钢琴">钢琴</option>
+      </select>
+   
+      <input type="submit" name="submit" value="开始搜索" class="search-submit" />
+      </div>
+      </form>
+        
+         <div class="tags">
+          <h4>热门标签:</h4>
+          <ul>
+          {dede:tag row='10' getall='1' sort='month'}
+            <li><a href='[field:link/]'>[field:tag /]</a></li>
+          {/dede:tag}
+          </ul>
+        </div>
+      </div>
+       <ul class="hls_stern">
+         <li><a href="#" class="stern_1">老师认证</a></li>
+         <li><a href="#" class="stern_2">真实评价</a></li>
+       </ul>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="lanren-menu">
+<!--代码部分begin-->
+	<div class="lanren">
+		<div id="nav-2015">
+			<div id="category-2015" onMouseOver="this.className='on'" onmouseleave="this.className=''">
+				<div class="ld">
+					<h2>全部课程分类<b></b></h2>
+				</div>
+				<div id="allsort" style=" display:block">
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>小学、小升初</span>
+						<span><h3><a href="#">数学</a><a href="#">语文</a><a href="#">英语</a></h3></span>
+						<div class="i-mc">
+                              <span>小 &nbsp;&nbsp;&nbsp;学 |</span><a href="#"> 数学</a> <a href="#"> 语文</a>  <a href="#"> 英语</a>   <br />
+                             <span>小升初 |</span><a href="#"> 数学</a> <a href="#"> 语文</a>  <a href="#"> 英语</a>  <br />
+                             <span>五年级 |</span><a href="#"> 数学</a> <a href="#"> 语文</a>  <a href="#"> 英语</a>  <br />
+                             <span>四年级 |</span><a href="#"> 数学</a> <a href="#"> 语文</a>  <a href="#"> 英语</a> <br />
+                             <span>三年级 |</span><a href="#"> 数学</a> <a href="#"> 语文</a>  <a href="#"> 英语</a> <br />
+                             <span>二年级 |</span><a href="#"> 数学</a> <a href="#"> 语文</a>  <a href="#"> 英语</a> <br />
+                             <span>一年级 |</span><a href="#"> 数学</a> <a href="#"> 语文</a>  <a href="#"> 英语</a></a>                  
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>初中、中考</span>
+						<span><h3><a href="#">数学</a><a href="#">语文</a><a href="#">英语</a><a href="#">化学</a></h3></span>
+						<div class="i-mc" style="top: 65px;">
+                        
+                        
+                         <span>初中 |</span><a href="#">语文</a> <a href="#"> 数学</a>  <a href="#">英语</a>  <a href="#">物理</a> <a href="#"> 化学</a>  <a href="#">生物</a> <a href="#">政治</a> <a href="#"> 历史</a>  <a href="#">地理</a> <br />
+                             <span>中考 |</span><a href="#">语文</a> <a href="#"> 数学</a>  <a href="#">英语</a>  <a href="#">物理</a> <a href="#"> 化学</a>  <a href="#">生物</a> <a href="#">政治</a> <a href="#"> 历史</a>  <a href="#">地理</a> <br />
+                             <span>初三 |</span><a href="#">语文</a> <a href="#"> 数学</a>  <a href="#">英语</a>  <a href="#">物理</a> <a href="#"> 化学</a>  <a href="#">生物</a> <a href="#">政治</a> <a href="#"> 历史</a>  <a href="#">地理</a> <br />
+                             <span>初二 |</span><a href="#">语文</a> <a href="#"> 数学</a>  <a href="#">英语</a>  <a href="#">物理</a> <a href="#"> 化学</a>  <a href="#">生物</a> <a href="#">政治</a> <a href="#"> 历史</a>  <a href="#">地理</a> <br />
+                             <span>初一 |</span><a href="#">语文</a> <a href="#"> 数学</a>  <a href="#">英语</a>  <a href="#">物理</a> <a href="#"> 化学</a>  <a href="#">生物</a> <a href="#">政治</a> <a href="#"> 历史</a>  <a href="#">地理</a> 
+                            
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>高中、高考</span>
+						<span><h3><a href="#">数学</a><a href="#">语文</a><a href="#">英语</a><a href="#">化学</a></h3></span>
+						<div class="i-mc" style="top: 140px;">
+                        
+                        
+                        <span>高中 |</span><a href="#">语文</a> <a href="#"> 数学</a>  <a href="#">英语</a>  <a href="#">物理</a> <a href="#"> 化学</a>  <a href="#">生物</a> <a href="#">政治</a> <a href="#"> 历史</a>  <a href="#">地理</a> <br />
+                             <span>高考 |</span><a href="#">语文</a> <a href="#"> 数学</a>  <a href="#">英语</a>  <a href="#">物理</a> <a href="#"> 化学</a>  <a href="#">生物</a> <a href="#">政治</a> <a href="#"> 历史</a>  <a href="#">地理</a> <br />
+                             <span>高三 |</span><a href="#">语文</a> <a href="#"> 数学</a>  <a href="#">英语</a>  <a href="#">物理</a> <a href="#"> 化学</a>  <a href="#">生物</a> <a href="#">政治</a> <a href="#"> 历史</a>  <a href="#">地理</a> <br />
+                             <span>高二 |</span><a href="#">语文</a> <a href="#"> 数学</a>  <a href="#">英语</a>  <a href="#">物理</a> <a href="#"> 化学</a>  <a href="#">生物</a> <a href="#">政治</a> <a href="#"> 历史</a>  <a href="#">地理</a> <br />
+                             <span>高一 |</span><a href="#">语文</a> <a href="#"> 数学</a>  <a href="#">英语</a>  <a href="#">物理</a> <a href="#"> 化学</a>  <a href="#">生物</a> <a href="#">政治</a> <a href="#"> 历史</a>  <a href="#">地理</a> 
+                        
+                        
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                         <span>特色课程</span>
+						<span><h3><a href="#">计算机</a><a href="#">心理辅导</a><a href="#">舞蹈</a><a href="#">书法</a></h3></span>
+						<div class="i-mc" style="top: 215px;">
+                        
+                      
+                        
+                         <span>特色课程 |</span><a href="#"> 心理辅导</a> <a href="#"> 舞蹈</a>  <a href="#"> 计算机</a>  <a href="#"> 书法</a> <a href="#"> 钢琴</a><br />
+                            
+                          
+                        
+                        
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>咨询电话<br />
+                        0917-2668022</span>
+						
+						
+					</div>
+					
+					
+				</div>
+		  </div>
+			<div id="navitems-2015">
+				<li class="cur"><a href="/index.php" target="_self">首页</a></li>
+                <li><a href="/a/newfile6.html">老师入驻</a></li>
+                <li><a href="/a/newfile10.html">学生帮助</a></li>
+                <li><a href="/a/newfile1.html">关于我们</a></li>
+                <li><a href="/plus/list.php?tid=8">帮助中心</a></li>
+			
+			</div>
+		</div>
+	</div>
+
+<!--代码部分end-->
+</div>

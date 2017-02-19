@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>"/>
+<title>查看城市</title>
+<link href="css/base.css" rel="stylesheet" type="text/css"/>
+<script language="javascript" type="text/javascript" src="./js/My97DatePicker/WdatePicker.js"></script>
+<script language='javascript'src='../data/enums/area.js'></script>
+<script>
+function checkSubmit()
+{
+  if(document.form2.city_name.value=="")
+  {
+    document.form2.city_name.focus();
+    alert("城市名称不能为空！");
+    return false;
+  }
+  if(document.form2.city_code.value=="")
+  {
+    document.form2.city_code.focus();
+    alert("城市代码不能为空！");
+    return false;
+  }
+  if(document.form2.city_pre.value=="")
+  {
+    document.form2.city_pre.focus();
+    alert("城市前缀不能为空！");
+    return false;
+  }
+}
+</script>
+</head>
+<body background='images/allbg.gif' leftmargin='8' topmargin='8'>
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#D6D6D6">
+  <tr>
+    <td height="19" background="images/tbg.gif" style="padding-left:10px;"><a href='<?php echo $ENV_GOBACK_URL; ?>'><b>城市信息管理</b></a> &gt;&gt; 查看城市信息</td>
+</tr>
+<tr>
+<td height="200" bgcolor="#FFFFFF" align='center'>
+	
+	<table width="98%" border="0" cellspacing="0" cellpadding="6" >
+        <tr> 
+          <td colspan="2" height="10" ></td>
+        </tr>
+        <form name="form2" action="city_do.php" method="post" onSubmit="return checkSubmit();">
+          <input type="hidden" name="dopost" value="editInfo" />
+          <input type="hidden" name="id" value="<?php echo $id?>" />
+          <tr> 
+            <td width="17%" align="right" class='bline'>编号：</td>
+            <td width="83%" class='bline' style="text-align:left;"> 
+              <?php
+			  echo "<b>".$row['mid']."</b>";
+			  ?>
+             </td>
+          </tr>
+          <tr> 
+            <td align="right" class='bline'>城市名称：</td>
+            <td class='bline'  style="text-align:left;">
+            <input type="text" name="city_name" id="city_name" value="<?php echo $row['city_name']?>"/>
+            </td>
+          </tr>
+          
+           <tr> 
+            <td align="right" class='bline'>城市编号：</td>
+            <td class='bline'  style="text-align:left;">
+            <input type="text" name="city_code" id="city_code" value="<?php echo $row['city_code']?>"/>
+            </td>
+          </tr>
+          <tr> 
+            <td align="right" class='bline'>城市前缀：</td>
+            <td class='bline'  style="text-align:left;">
+            <input type="text" name="city_pre" id="city_pre" value="<?php echo $row['city_pre']?>"/>
+            </td>
+          </tr>
+		  <tr> 
+            <td align="right" class='bline'>预约QQ，多个QQ用逗号隔开：</td>
+            <td class='bline'  style="text-align:left;">
+            <input type="text" name="city_intro_pic" id="city_intro_pic" value="<?php echo $row['city_intro_pic']?>"/>
+            </td>
+          </tr>
+          
+           <tr> 
+            <td align="right" class='bline'>城市公告：</td>
+            <td class='bline'  style="text-align:left;">
+            <textarea type="text" name="city_fee_pic" id="city_fee_pic" rows=10 style="width:300px"><?php echo $row['city_fee_pic']?></textarea>
+
+            <input type="radio" name="noticeall" value="0" checked/>只应用于本城市<input type="radio" name="noticeall" value="1"/>应用于其他城市
+            </td>
+          </tr>
+ 
+          <tr> 
+            <td height="67" align="right" >&nbsp;</td>
+            <td height="67" align="left">
+            <input type="submit" name="Submit" value="确定修改" class='coolbg' /> 
+            </td>
+          </tr>
+        </form>
+    </table>
+    </td>
+</tr>
+</table>
+</body>
+</html>

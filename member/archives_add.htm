@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
+<title>发表<?php echo $cInfos['typename']; ?> - 会员中心 - <?php echo $cfg_webname; ?></title>
+
+
+<link href="templets/style/base.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="templets/js/j.js"></script>
+<script language='javascript' src="templets/js/main.js"></script>
+<script type="text/javascript" src="templets/js/inputAutoClear.js"></script>
+<script type="text/javascript" src="templets/js/load.js"></script>
+<script type="text/javascript" src="templets/js/leftmenu.js"></script>
+<script type="text/javascript" src="templets/js/checkSubmit.js"></script>
+
+
+<link href="templets/style/div.css" rel="stylesheet" type="text/css" />
+<link href="templets/style/IN365hls2.9.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="templets/style/header2_9.css"></head>
+
+
+
+</head>
+
+<body>
+
+<div id="content">
+
+  <div id="header">
+    <div id="header-nr">
+     <?php
+//未登录显示的head
+if(!$cfg_ml->IsLogin()) {
+?>
+      <div id="header-nr-l">你好！欢迎光临宝鸡好老师服务平台！ <a title="登录" href="../member/login.php">登录</a>
+       <a href="../member/index_do.php?fmdo=user&dopost=regnew">免费注册</a> </div>
+      <div id="header-nr-r"><a href="../index.php">宝鸡好老师首页</a></div>
+      
+<?php
+}else {
+//登录后显示的head
+
+?>
+ <script type="text/javascript">
+           	var now=(new Date()).getHours();
+			if(now>0&&now<=6){
+				document.write("午夜好，");
+			}else if(now>6&&now<=11){
+				document.write("早上好，");
+			}else if(now>11&&now<=14){
+				document.write("中午好，");
+			}else if(now>14&&now<=18){
+				document.write("下午好，");
+			}else{
+				document.write("晚上好，");
+			}
+			</script>
+  <a href="#" class="userName"><?php echo $cfg_ml->M_UserName?></a> <a href="../member/index_do.php?fmdo=login&dopost=exit#">[退出]</a>
+  <?php
+  
+   $pms = $dsql->GetOne("SELECT COUNT(*) AS nums FROM #@__member_pms WHERE toid='{$cfg_ml->M_ID}' AND `hasview`=0 AND folder = 'inbox'");
+		if($pms['nums'] > 0)
+		{
+			//echo "<a href='/member/pm.php' target='_blank'>短消息 [<font color='#FF0000'>{$pms['nums']}</font>]</a>";
+		}
+		elseif($pms['nums']==0)
+		{
+			//echo "<a href='/member/pm.php' target='_blank'>短消息</a>";
+		}
+  	}
+  ?>  
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div id="top">
+    <div id="top-nr">
+      <div id="logo"><a href="#" title="宝鸡好老师官网" target="_self" ><img src="templets/images/logo.jpg" /></a></div>
+      <div id="top-search">
+         <div id="search"><a href="#" id="search-anniu">搜 索</a></div>
+         <div id="hotsearch">
+        热门搜索：<a href="#">钢琴</a><a href="#">声乐</a><a href="#">绘画</a><a href="#">舞蹈</a><a href="#"> 升初</a> 
+         </div>
+      </div>
+       <ul class="hls_stern">
+         <li><a href="#" class="stern_1">老师认证</a></li>
+         <li><a href="#" class="stern_2">真实评价</a></li>
+       </ul>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+  
+  
+  
+  <div class="lanren-menu">
+<!--代码部分begin-->
+	<div class="lanren">
+		<div id="nav-2015">
+			<div id="category-2015" onMouseOver="this.className='on'" onmouseleave="this.className=''">
+				<div class="ld">
+					<h2>全部课程分类<b></b></h2>
+				</div>
+				<div id="allsort">
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>小学、小升初</span>
+						<span><h3><a href="#">数学</a><a href="#">语文</a><a href="#">英语</a></h3></span>
+						<div class="i-mc">
+                              <span>小 学 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a>   <br />
+                             <span>小升初 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>五年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>四年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>三年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>二年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>一年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a>                  
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>初中、中考</span>
+						<span><h3><a href="#">数学</a><a href="#">数学</a><a href="#">数学</a><a href="#">数学</a></h3></span>
+						<div class="i-mc">
+                        
+                        
+                         <span>小 学 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a>   <br />
+                             <span>小升初 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>五年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>四年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>三年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>二年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                           
+                        
+                        
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>高中、高考</span>
+						<span><h3><a href="#">数学</a><a href="#">数学</a><a href="#">数学</a><a href="#">数学</a></h3></span>
+						<div class="i-mc">
+                        
+                        
+                         <span>小 学 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a>   <br />
+                           
+                             <span>三年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>二年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>一年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a>    
+                        
+                        
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                         <span>特色课程</span>
+						<span><h3><a href="#">计算机</a><a href="#">体育</a><a href="#">音乐</a><a href="#">美术</a></h3></span>
+						<div class="i-mc">
+                        
+                        
+                        
+                         <span>小 学 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a>   <br />
+                            
+                             <span>三年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>二年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>一年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a>    
+                        
+                        
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>免费咨询<br />
+                        400-0000-000</span>
+						
+						
+					</div>
+					
+					
+				</div>
+		  </div>
+			<div id="navitems-2015">
+				<li><a href="#">首页</a></li>
+				<li><a href="#">新闻中心</a></li>
+				<li><a href="#">网站公告</a></li>
+				<li><a href="#">网站规则</a></li>
+				<li><a href="#">入驻机构</a></li>
+				<li><a href="#">教师</a></li>
+			
+			</div>
+		</div>
+	</div>
+
+<!--代码部分end-->
+</div>
+  
+  
+  
+  
+  
+  
+  
+  <div id="ny-main">  
+  <div id="ny-member">
+     <div id="member-left">
+     
+      <div class="member-lm"><li <?php echo ($menutype == 'content')? 'class="thisApp"' : "" ;?>><a href="../member/content_list.php?channelid=1">资料认证</a></li></div>
+       <div class="member-lm"><a href="#">自我介绍</a></div>
+       <div class="member-lm"><a href="#">帐号及密码</a></div>
+       
+       
+     </div>
+     <div id="member-right">
+
+       <div id="member-right-nr">
+         <div class="o0o desc-F60">
+			
+						<div class="warm_tips">宝鸡好老师郑重为您承诺，我们会加密保护您的个人信息。<br>温馨提示：以下带 * 号的是必填项。</div>
+						
+					
+	     </div>
+         
+         
+         
+         <form name="addcontent" action="archives_add.php" method="post" enctype="multipart/form-data" onsubmit="return checkSubmit();">
+          <input type="hidden" name="dopost" value="save" />
+          <input type="hidden" name="channelid" value="<?php echo $channelid; ?>" />
+      <div id="mainCp">
+        
+        <div class="postForm">
+          <p class="cellBg">
+            <label>真实姓名：</label>
+            <?php echo $cfg_ml->M_UserName?>
+            <input name="title" type="hidden" id="title" value="<?php echo $cfg_ml->M_UserName?>" maxlength="100" class="intxt"  readOnly="true"/>
+          </p>
+          <p class="cellBg">
+            <label>个人头像：</label>
+            <input class="file" name="litpic" type="file" id="litpic"  onchange="SeePicNew('divpicview',this);"  />
+         </p>
+     <!--     <p class="cellBg">
+            <label>不显示真实姓名</label>
+             ： <input class="bxsxm" name="bxsxm" type="radio" id="bxsxm" value="1" /> &nbsp;(只显示"姓名 + 老师"，如王老师，刘老师...)
+         </p>
+         
+          <p class="cellBg">
+            <label>不显示我的真实头像</label>
+             ： <input class="bxstx" name="bxstx" type="radio" id="bxstx" value="1" /> &nbsp;(不显示我的真实头像)
+         </p>-->
+         <input type='hidden' name='typeid' value='1' />
+         
+         
+            
+       <div class="ls-sczp-tit"><h2>身份证认证</h2></div>
+       <div class="ls-sczp-nr">
+         <p class="desc">
+         365好老师郑重为您承诺，在您上传的证件中自动添加水印，加密保护您的个人信息。<br />
+
+温馨提示： 以下带号的是必填项；<br />
+
+请认真填写您的真实姓名和身份证号，我们将会与您上传的身份证照片进行比对。<br />
+
+比对结果直接影响到您的审核结果哦～
+           </p>
+          
+           <p class="Upload-img">
+            *上传身份证照片，请点击下方“立即上传”按钮<br />
+            </p>
+            <div class="Upload-container">
+              <div class="upload-container-l">
+              
+                 <div class="upload-container-l-img">
+                 <label>身份证：</label> 
+                 <iframe src="uppic.php?id=sfz" width="330" height="100%" frameborder="1" scrolling="no" style="line-height:35px;">立即上传</iframe>
+                 </div>
+                
+                
+                 <input type="hidden" name="sfz" id="sfz"  value="" style=" width:300px;">
+                 
+           
+
+                
+              </div>
+              <div class="upload-container-r">
+              
+                        <div class="flowtwow">
+                            <p data-notice="1">请上传您的<span>身份证；</span></p>
+                            <p data-notice="2">请务必保证您的<span>身份证</span>对着摄像头;</p>
+                            <p data-notice="3">要求身份证上的<span>照片和文字清晰可辨;</span></p>
+                            <p data-notice="4">要求上传的图片格式必须为<span>Jpeg/jpg。</span></p>
+                        </div>
+              
+              </div>
+              <div class="clear"></div>
+          </div>
+       </div>
+     
+          
+           <p class="cellBg">
+           
+           
+           
+           
+           
+           <div class="ls-sczp-tit"><h2>教师资格证</h2></div>
+       <div class="ls-sczp-nr">
+       
+          
+           
+           <p class="Upload-img">
+            *上传教师资格证照片，请点击下方“立即上传”按钮<br />
+            </p>
+            <div class="Upload-container">
+              <div class="upload-container-l">
+              
+                <div class="upload-container-l-img"></div>
+                
+                <label>教师资格证：</label>
+           <input type="hidden" name="zgz" id="zgz"  value="" style=" width:300px;">
+           
+<iframe src="uppic.php?id=zgz" width="330" height="100%" frameborder="0" scrolling="no" style="line-height:35px;"></iframe>
+                
+              </div>
+              <div class="upload-container-r">
+              
+                         <div class="flowtwow">
+                            <p data-notice="1">请上传您的<span>教师资格证或是教师职称证</span></p>
+                            <p data-notice="2">请务必保证您的<span>教师资格证／教师职称证正面</span>对着摄像头;</p>
+                            <p data-notice="3">要求教师资格证或是教师职称证上的<span>照片和文字清晰可辨;</span></p>
+                            <p data-notice="4">要求上传的图片格式必须为<span>Jpeg/jpg。</span></p>
+                        </div>
+              
+              </div>
+              <div class="clear"></div>
+          </div>
+       </div>
+           
+           
+           
+           
+           
+           
+          
+          </p>
+          
+          <p class="cellBg">
+          <div class="ls-sczp-tit"><h2>其他证件</h2></div>
+          <div class="ls-sczp-nr">
+             <p class="desc">
+     温馨提示：最多可上传8张照片<br>你可以上传证明教师资格的其它证件照片，例如教师职称证、专业证明等；<br>其它证件通过审核后，可展示在你的个人主页，以证明你的教学实力，从而吸引学生或家长向你约课。
+              
+           </p>
+            
+            
+            <div class="upload-container-l-img"></div>
+            
+          
+           
+       </div>
+            <label>其他证件：</label>
+           <input type="hidden" name="qtzj" id="qtzj"  value="" style=" width:300px;">
+           
+<iframe src="uppic.php?id=qtzj" width="660" height="auto" frameborder="0" scrolling="no" style="margin-top:20px; line-height:35px;margin-left:100px;"></iframe>
+          </p>
+       
+           
+        
+          <?php
+             
+              if($cInfos['needpic']==1) {
+          ?> 
+        
+          <?php
+            }
+            //自定义字段
+     		 PrintAutoFieldsAdd($cInfos['fieldset'],'autofield');
+ 				 if($safe_faq_send == 1){
+                $faqkey = array_rand($safefaqs);
+                
+          ?>
+      	 <p class="cellBg">
+            <label>验证问题：</label>
+            <?php echo $safefaqs[$faqkey]['question'];?> (答案:<?php echo $safefaqs[$faqkey]['answer'];?>)<input class="intxt" name="safeanswer" type="text" id="safeanswer" size="25" style='width:200px;'/> 
+                <input type="hidden" name="faqkey" value="<?php echo $faqkey;?>" />
+         </p>
+          
+     		<?php 
+     		}
+      		if(preg_match("/3/",$safe_gdopen)){
+      	   ?>
+         <p class="cellBg">
+            <label>验证码：</label>
+            <input class="text" name="vdcode" type="text" id="vdcode" size="10" style='width:50px;text-transform:uppercase;' />
+           <img src="../include/vdimgck.php" width="70" height="25" align="absmiddle" alt="看不清？点击更换" style="cursor:pointer" onclick="this.src=this.src+'?'" />
+         </p> 
+          <?php }?> 
+         <p>
+          	<button class="button2" type="submit">提交</button>
+            <button class="button2 ml10" type="reset" onclick="location.reload();">重置</button>
+         </p>
+    </div>
+      </div>
+  </form>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+         </div>
+     </div>
+     <div class="clear"></div> 
+  </div>
+</div>  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+ <div id="foot">
+    <div id="foot-nr">
+      <div id="foot-nr-top">
+        <div class="tel"><i class="icon icon-phone"><img src="/templets/images/tel-icon.jpg" /></i><h4>4000-910-910</h4><span>周一至周日&nbsp;8:00-23:00</span></div>
+        <div class="foot-list">
+        <h3>关于宝鸡好老师</h3>
+        <a href="/a/newfile1.html">了解我们</a><br />
+        <a href="/a/newfile3.html">特色与优势</a> <br />       
+        <a href="/a/newfile2.html">网站条款</a> <br />
+        <a href="/a/newfile4.html">加入我们 </a><br />
+         <a href="/a/newfile5.html">联系我们 </a> 
+        </div>
+        <div class="foot-list">
+        <h3>老师指南</h3>
+        <a href="/a/newfile6.html">为什么入驻我们</a><br />
+        <a href="/a/newfile7.html">入驻流程</a> <br />       
+        <a href="/a/newfile8.html">收入保障</a> <br />
+        <a href="/a/newfile9.html">淘汰机制</a><br />
+        
+        </div>
+        <div class="foot-list">
+        <h3>家长帮助</h3>
+        <a href="/a/newfile10.html">为什么选择我们</a><br />
+        <a href="/a/newfile11.html">免费试听</a> <br />       
+        <a href="/a/newfile12.html">师资保证</a> <br />
+        <a href="/a/newfile13.html">支付方式</a><br />
+         <a href="/a/newfile14.html">资金保障 </a> 
+        </div>
+        <div class="foot-list">
+        <h3>信息中心</h3>
+        <a href="/a/wenzhang/wangzhangonggao">网站公告</a><br />
+        <a href="/a/wangzhangonggao/jiaoyuxinwen">教育新闻</a> <br />       
+        <a href="/a/wangzhangonggao/shishenghudong">师生互动</a> <br />
+		 <a href="/a/wenzhang/changjianwenti">使用帮助</a> <br />
+
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div id="foot-nr-foot">
+      
+<span class="STYLE1">Copyright &copy; 2014 - 2016 宝鸡好老师网 版权所有. 陕ICP备000000000000号</span><br />
+         
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+</body>
+</html>

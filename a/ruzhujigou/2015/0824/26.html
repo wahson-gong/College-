@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>宝鸡金台学大教育中心_宝鸡好老师</title>
+<meta name="keywords" content="宝鸡,金台,学大,教育中心,学大,教育,创立于,2001年," />
+<meta name="description" content="学大教育创立于2001年9月，一直以来专注于利用优质的教育资源和先进的信息技术，服务于中国教育服务领域，是目前国内个性化教育的领导者，总部设在北京，已在60多个城市开设300余家学习中心，在全国拥有17000多名员工，专职教师逾万人。 学大教育专注于学生" />
+<link href="/templets/default/style/div.css" rel="stylesheet" type="text/css" />
+<link href="/templets/default/style/IN365hls2.9.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="/templets/default/style/header2_9.css">
+
+<meta http-equiv="mobile-agent" content="format=xhtml;url=/m/view.php?aid=26">
+<script type="text/javascript">if(window.location.toString().indexOf('pref=padindex') != -1){}else{if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){if(window.location.href.indexOf("?mobile")<0){try{if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){window.location.href="/m/view.php?aid=26";}else if(/iPad/i.test(navigator.userAgent)){}else{}}catch(e){}}}}</script>
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+
+<script language="javascript" type="text/javascript">
+<!--
+function CheckLogin(){
+	  var taget_obj = document.getElementById('_ajax_feedback');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_feedback.php");
+	  DedeXHTTP = null;
+}
+function postBadGood(ftype,fid)
+{
+	var taget_obj = document.getElementById(ftype+fid);
+	var saveid = GetCookie('badgoodid');
+	if(saveid != null)
+	{
+		var saveids = saveid.split(',');
+		var hasid = false;
+		saveid = '';
+		j = 1;
+		for(i=saveids.length-1;i>=0;i--)
+		{
+			if(saveids[i]==fid && hasid) continue;
+			else {
+				if(saveids[i]==fid && !hasid) hasid = true;
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+				j++;
+				if(j==10 && hasid) break;
+				if(j==9 && !hasid) break;
+			}
+		}
+		if(hasid) { alert('您刚才已表决过了喔！'); return false;}
+		else saveid += ','+fid;
+		SetCookie('badgoodid',saveid,1);
+	}
+	else
+	{
+		SetCookie('badgoodid',fid,1);
+	}
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	myajax.SendGet2("/plus/feedback.php?aid="+fid+"&action="+ftype+"&fid="+fid);
+}
+function postDigg(ftype,aid)
+{
+	var taget_obj = document.getElementById('newdigg');
+	var saveid = GetCookie('diggid');
+	if(saveid != null)
+	{
+		var saveids = saveid.split(',');
+		var hasid = false;
+		saveid = '';
+		j = 1;
+		for(i=saveids.length-1;i>=0;i--)
+		{
+			if(saveids[i]==aid && hasid) continue;
+			else {
+				if(saveids[i]==aid && !hasid) hasid = true;
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+				j++;
+				if(j==20 && hasid) break;
+				if(j==19 && !hasid) break;
+			}
+		}
+		if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+		else saveid += ','+aid;
+		SetCookie('diggid',saveid,1);
+	}
+	else
+	{
+		SetCookie('diggid',aid,1);
+	}
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	var url = "/plus/digg_ajax.php?action="+ftype+"&id="+aid;
+	myajax.SendGet2(url);
+}
+function getDigg(aid)
+{
+	var taget_obj = document.getElementById('newdigg');
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	myajax.SendGet2("/plus/digg_ajax.php?id="+aid);
+	DedeXHTTP = null;
+}
+-->
+</script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+<div id="content">
+
+  <div id="header">
+    <div id="header-nr">
+      <div id="header-nr-l">你好！欢迎光临宝鸡好老师服务平台！ <a href="#">登录</a> <a href="#">免费注册</a> </div>
+      <div id="header-nr-r"><a href="#">宝鸡好老师首页</a> | <a href="#">手机版</a></div>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div id="top">
+    <div id="top-nr">
+      <div id="logo"><a href="#" title="宝鸡好老师官网" target="_self" ><img src="/templets/default/images/logo.jpg" /></a></div>
+      <div id="top-search">
+         <div id="search"><a href="#" id="search-anniu">搜 索</a></div>
+         <div id="hotsearch">
+        热门搜索：<a href="#">钢琴</a><a href="#">声乐</a><a href="#">绘画</a><a href="#">舞蹈</a><a href="#"> 升初</a> 
+         </div>
+      </div>
+       <ul class="hls_stern">
+         <li><a href="#" class="stern_1">老师认证</a></li>
+         <li><a href="#" class="stern_2">真实评价</a></li>
+       </ul>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  <div class="lanren-menu">
+<!--代码部分begin-->
+	<div class="lanren">
+		<div id="nav-2015">
+			<div id="category-2015" onMouseOver="this.className='on'" onmouseleave="this.className=''">
+				<div class="ld">
+					<h2>全部课程分类<b></b></h2>
+				</div>
+				<div id="allsort">
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>小学、小升初</span>
+						<span><h3><a href="#">数学</a><a href="#">语文</a><a href="#">英语</a></h3></span>
+						<div class="i-mc">
+                              <span>小 学 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a>   <br />
+                             <span>小升初 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>五年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>四年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>三年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>二年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>一年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a>                  
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>初中、中考</span>
+						<span><h3><a href="#">数学</a><a href="#">数学</a><a href="#">数学</a><a href="#">数学</a></h3></span>
+						<div class="i-mc">
+                        
+                        
+                         <span>小 学 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a>   <br />
+                             <span>小升初 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>五年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>四年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>三年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>二年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                           
+                        
+                        
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>高中、高考</span>
+						<span><h3><a href="#">数学</a><a href="#">数学</a><a href="#">数学</a><a href="#">数学</a></h3></span>
+						<div class="i-mc">
+                        
+                        
+                         <span>小 学 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a>   <br />
+                           
+                             <span>三年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>二年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>一年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a>    
+                        
+                        
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                         <span>特色课程</span>
+						<span><h3><a href="#">计算机</a><a href="#">体育</a><a href="#">音乐</a><a href="#">美术</a></h3></span>
+						<div class="i-mc">
+                        
+                        
+                        
+                         <span>小 学 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a>   <br />
+                            
+                             <span>三年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>二年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a> <br />
+                             <span>一年级 |</span><a href="#"> 数学</a> <a href="#"> 数学</a>  <a href="#"> 数学</a>    
+                        
+                        
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>免费咨询<br />
+                        400-0000-000</span>
+						
+						
+					</div>
+					
+					
+				</div>
+		  </div>
+			<div id="navitems-2015">
+				<li class="cur"><a href="http://ceshi.bjhaolaoshi.com/index.php" target="_self">首页</a></li>
+
+<li><a href='/plus/list.php?tid=2'  rel='dropmenu2'><span>新闻中心</span></a></li>
+
+<li><a href='/plus/list.php?tid=3'  rel='dropmenu3'><span>信息中心</span></a></li>
+<li class='hover'><a href='/plus/list.php?tid=5' ><span>入驻机构</span></a></li>
+<li><a href='/plus/list.php?tid=1' ><span>教师</span></a></li>
+
+			
+			</div>
+		</div>
+	</div>
+
+<!--代码部分end-->
+</div>
+  
+  
+  
+  
+  
+  <div id="ny-main">
+  <div id="wz"><a href='http://ceshi.bjhaolaoshi.com/'>主页</a> > <a href='/plus/list.php?tid=5'>入驻机构</a> >  </div>
+  <div id="ny-banner"></div>
+  <div class="row-search">
+    
+    <div id="ny-left-nr">
+      <div class="ny-newstit"><a href="#">宝鸡金台学大教育中心</a></div>
+      <div class="newstit-information">发布日期：2015-08-24 17:44 <small>点击:</small>
+   <script src="/plus/count.php?view=yes&aid=26&mid=1" type='text/javascript' language="javascript"></script>
+   次</div>
+      <div class="ny-news-nr">
+      
+     <span style="color: rgb(102, 102, 102); font-family: 微软雅黑; font-size: 13px; line-height: 26px;">&quot;学大教育&quot;创立于2001年9月，一直以来专注于利用优质的教育资源和先进的信息技术，服务于中国教育服务领域，是目前国内个性化教育的领导者，总部设在北京，已在60多个城市开设300余家学习中心，在全国拥有17000多名员工，专职教师逾万人。 &quot;学大教育&quot;专注于学生学习能力的培养和学科知识的辅导，视教学质量为生命，深受学生和家长的认可，口口相传，成就了全国最大规模的个性化教育连锁机构。&quot;人之蕴蓄，由学而大&quot;，&quot;学大教育&quot;秉承爱的教育理念，致力于传播先进教学思想，研究先进教学方法，开发先进教学产品，提供先进教学服务，帮助更多学生和家庭获得更好的教育和发展机会。 作为个性化辅导教育的首倡者，我们致力于帮助学生提高他们的学习成绩，激发他们的潜能。通过发现学生的优势，弥补不足，激发学习兴趣，培养好的学习习惯，树立自信心。学大教育已经制定和实施了一个以结果为导向，以学生为中心的服务匹配模式。相比传统的班级式辅导，我们的服务模式是根据每个学生的需求和喜好量身定制个性化辅导方案，同时匹配全职的专业辅导小组进行一对一的辅导，学大教育通过提高学生的学习成绩、激发学习兴趣和全方面的提高，已经赢得了成千上万的家长和学生的信赖。 学大含义： 人之蕴蓄，由学而大！ 学大使命： 为每个孩子提供最适合的教育！ 学大愿景： 引领教育行业的创新和发展，推动中国教育的进步，成为改变世界的重要力量！ 学大价值观： 1、永远坚守诚信和正直； 2、永远视教育质量为生命； 3、永远以客户的满意为第一要素； 4、尊重制度，勇于行动，敢于担当； 5、与时俱进，积极创新； 6、互相信任，团队为先。 学大精神： 突破自我，追求卓越！ 学大的教育理念： 个性化教育。 学大的服务理念： 关爱成长每一天！ 学大的用人理念： 给想干事的人舞台，给能干事的人机会，给干成事的人地位。 学大教育集团商业行为与道德守则 校区查询 华北 东北 华东 华南 华中 西北 西南 北京 青岛 天津 济南 呼和浩特 唐山 石家庄 太原 包头 保定 东营 烟台 廊坊 晋中 大同 海淀区 北师大学习中心 航天桥学习中心 玉泉路学习中心 人大学习中心 北大学习中心 公主坟学习中心 学院路学习中心 远大路学习中心 上地学习中心 中关村旗舰校区 东城区 东直门学习中心 崇文门学习中心 交道口菁英学堂 夕照寺学习中心 交道口学习中心 朝阳区 亚运村学习中心 朝阳路学习中心 和平里学习中心 劲松学习中心 三元桥学习中心 望京学习中心 团结湖学习中心 西城区 阜成门学习中心 宣武门学习中心 德胜门菁英学堂 四中学习中心 西直门菁英学堂 虎坊路校区 西便门校区 丰台区 方庄学习中心 马家堡校区 通州区 通州学习中心 石景山区 石景山学习中心 大兴区 大兴学习中心 顺义区 顺义国际学习中心 怡馨家园学习中心 昌平区 昌平学习中心 学大产品与服务 产品与服务 服务模式 服务流程 上课时间和收费 为什么选择学大 领先的理念 匹配的师资 完善的服务 可信赖的品牌 关于学大 学大简介 | 招聘信息 社会荣誉 | 联系我们 公益活动 | 商务合作 投资者关系 客服中心 全国免费咨询热线： 400-062-4008 服务时间：周一至周日8：00-23：00 在线咨询 学成世纪(北京)信息技术有限公司 2010京ICP备10045583号-6 京公网安备1101054826 隐私声明 站点地图 增值电信业务经营许可证京B2-20100091 电信与信息服务业务经营许可证京ICP证100956号 在线客服 欢迎您，来自中国江苏省南京市的家长 孩子学习习惯不好？学习方法不对？粗心厌学&hellip;&hellip; 学大教育帮助您 ^_^</span>
+      
+      (责任编辑：admin)
+ 
+ 
+
+
+      
+      </div>
+      <div class="article-last-prev"> 上一篇：<a href='/a/ruzhujigou/2015/0815/15.html'>英创教育</a> 
+                                       下一篇：<a href='/a/ruzhujigou/2015/0824/27.html'>宝鸡新思酷信息技术有限公司</a>  
+      </div>
+    </div>
+    <div id="search-right">
+      <div id="search-r-top">
+        <h3>400-400-0000</h3>
+        <a href="http://ceshi.bjhaolaoshi.com/member/" target="_self" class="btn big">老师登陆</a>
+      </div>
+       <div id="search-r-lm">
+        <div class="news-list-lm"><a href="/a/wenzhang/wangzhangonggao">网站公告</a></div> 
+        <div class="news-list-lm"><a href="/a/wangzhangonggao/jiaoyuxinwen">教育新闻</a></div>  
+        <div class="news-list-lm"><a href="/a/wangzhangonggao/shishenghudong">师生互动</a></div> 
+        <div class="news-list-lm"><a href="/a/wenzhang/changjianwenti">使用帮助</a></div>        
+      </div>
+      <div id="search-r-m">
+        <h4>最新推荐</h4>
+       
+       
+       <div class="r-tjls-query">
+          <div class="r-tjls-pic"><img src="/uploads/lszj/20150825071428.jpg"  width="60" height="75"/></div>
+          <div class="r-tjls-nr">
+          <h5>牛二</h5>
+          <p class="ny-ks">￥260元/小时起</p>
+          <p class="course">高三数学&hellip;</p>
+          <p class="score"><span class="star-score"><i class="icon icon-star star-shine"><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /></i> </span>5.0分</p>
+          </div>
+          <div class="clear"></div>
+        </div>
+<div class="r-tjls-query">
+          <div class="r-tjls-pic"><img src="/uploads/lszj/20150812131711.jpg"  width="60" height="75"/></div>
+          <div class="r-tjls-nr">
+          <h5>陈老师</h5>
+          <p class="ny-ks">￥150元/小时起</p>
+          <p class="course">中考英语&hellip;</p>
+          <p class="score"><span class="star-score"><i class="icon icon-star star-shine"><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /><img src="/templets/default/images/star-icon.png" /></i> </span>5.0分</p>
+          </div>
+          <div class="clear"></div>
+        </div>
+   
+      </div>
+      <div id="search-r-b">
+         <h4>常见问题</h4>
+         <ul>
+          <li>
+          <span>08-24</span>
+<a href='/a/wenzhang/changjianwenti/2015/0824/25.html'>小学教育误区</a></li>
+
+         </ul>
+      </div>
+    </div>
+    
+    <div class="clear"></div>
+  </div>
+
+</div>  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+ <!-- //底部模板 -->
+
+  <div id="foot">
+    <div id="foot-nr">
+      <div id="foot-nr-top">
+        <div class="tel"><i class="icon icon-phone"><img src="/templets/default/images/tel-icon.jpg" /></i><h4>4000-910-910</h4><span>周一至周日&nbsp;8:00-23:00</span></div>
+        <div class="foot-list">
+        <h3>关于宝鸡好老师</h3>
+        <a href="/a/newfile1.html">了解我们</a><br />
+        <a href="/a/newfile3.html">特色与优势</a> <br />       
+        <a href="/a/newfile2.html">网站条款</a> <br />
+        <a href="/a/newfile4.html">加入我们 </a><br />
+         <a href="/a/newfile5.html">联系我们 </a> 
+        </div>
+        <div class="foot-list">
+        <h3>老师指南</h3>
+        <a href="/a/newfile6.html">为什么入驻我们</a><br />
+        <a href="/a/newfile7.html">入驻流程</a> <br />       
+        <a href="/a/newfile8.html">收入保障</a> <br />
+        <a href="/a/newfile9.html">淘汰机制</a><br />
+        
+        </div>
+        <div class="foot-list">
+        <h3>家长帮助</h3>
+        <a href="/a/newfile10.html">为什么选择我们</a><br />
+        <a href="/a/newfile11.html">免费试听</a> <br />       
+        <a href="/a/newfile12.html">师资保证</a> <br />
+        <a href="/a/newfile13.html">支付方式</a><br />
+         <a href="/a/newfile14.html">资金保障 </a> 
+        </div>
+        <div class="foot-list">
+        <h3>信息中心</h3>
+        <a href="/a/wenzhang/wangzhangonggao">网站公告</a><br />
+        <a href="/a/wangzhangonggao/jiaoyuxinwen">教育新闻</a> <br />       
+        <a href="/a/wangzhangonggao/shishenghudong">师生互动</a> <br />
+		 <a href="/a/wenzhang/changjianwenti">使用帮助</a> <br />
+
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div id="foot-nr-foot">
+      
+<span class="STYLE1">Copyright &copy; 2014 - 2016 宝鸡好老师网 版权所有. 陕ICP备000000000000号</span><br />
+      <a href="#"><img src="/templets/default/images/hd01.jpg" /></a>  <a href="#"><img src="/templets/default/images/hd01.jpg" /></a>   <a href="#"><img src="/templets/default/images/hd01.jpg" /></a>     
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<div id="header">
+    <div id="header-nr"> 
+{dede:php}
+require_once(DEDEMEMBER."/config.php");
+$uid = $cfg_ml->M_LoginID;
+$uname=$cfg_ml->M_UserName;
+if(!$uid){
+echo '<div>你好！欢迎光临Cjiajiao大学生家教服务平台！<a class="login-button" href="/member/index.php">登录</a> | <a class="join-button" href="/member/index_do.php?fmdo=user&dopost=regnew">免费注册</a></div>';
+}else{
+echo '<div>你好！欢迎光临Cjiajiao大学生家教服务平台！
+<a class="login-button" href="/member/index.php">'.$uname.'</a> |<a class="join-button" href="/member/index_do.php?fmdo=login&amp;dopost=exit#">退出登录</a></div>';
+}
+{/dede:php}
+      <div class="clear"></div>
+    </div>
+  </div>
+
+
+ <div id="top">
+    <div id="top-nr">
+      <div id="logo"><a href="/" title="Cjiajiao大学生家教官网" target="_self" ><img src="{dede:global.cfg_templets_skin/}/images/logo.jpg" /></a></div>
+      <div id="top-search">
+      
+              <form action="/plus/advancedsearch.php" method="post">
+       <div id="search">
+      <input type="hidden" name="mid" value="6" class="search-keyword"  />
+      <input type="hidden" name="dopost"  value="search" /><img src="{dede:global.cfg_templets_skin/}/images/ss.jpg" /><input type="text" name="q" placeholder="请输入您感兴趣的老师姓名或选择您感兴趣的课程" class="search-keyword" id="search-keyword" /> | 
+      选择课程 : <select name="lx" class="search-option" id="search-option">
+      <option value="">请选择</option>
+      <option value="语文">语文</option>
+      <option value="数学">数学</option>
+      <option value="英语">英语</option>
+      <option value="物理">物理</option>
+      <option value="化学">化学</option>
+      <option value="生物">生物</option>
+      <option value="历史">历史</option>
+      <option value="地理">地理</option>
+      <option value="政治">政治</option>
+      <option value="音乐">音乐</option>
+      <option value="体育">体育</option>
+      <option value="美术">美术</option>
+      <option value="计算机">计算机</option>
+      <option value="心理辅导">心理辅导</option>
+      <option value="舞蹈">舞蹈</option>
+      <option value="瑜伽">瑜伽</option>
+      <option value="书法">书法</option>
+      <option value="钢琴">钢琴</option>
+      </select>
+   
+      <input type="submit" name="submit" value="开始搜索" class="search-submit" />
+      </div>
+      </form>
+        
+         <div class="tags">
+          <h4>热门标签:</h4>
+          <ul>
+          {dede:tag row='10' getall='1' sort='month'}
+            <li><a href='[field:link/]'>[field:tag /]</a></li>
+          {/dede:tag}
+          </ul>
+        </div>
+      </div>
+       <ul class="hls_stern">
+         <li><a href="#" class="stern_1">老师认证</a></li>
+         <li><a href="#" class="stern_2">真实评价</a></li>
+       </ul>
+      <div class="clear"></div>
+    </div>
+  </div>
+<div class="lanren-menu">
+<!--代码部分begin-->
+	<div class="lanren">
+		<div id="nav-2015">
+			<div id="category-2015" onMouseOver="this.className='on'" onmouseleave="this.className=''">
+				<div class="ld">
+				              <h2>全部课程分类<b></b></h2>
+				</div>
+				<div id="allsort">
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                  
+                        <span>小学、小升初</span>
+						<span><h3><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%D0%A1%D1%A7">数学</a><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%D0%A1%D1%A7">语文</a><a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%D0%A1%D1%A7">英语</a></h3></span>
+						<div class="i-mc">
+                              <span>小 &nbsp;&nbsp;&nbsp;学 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%D0%A1%D1%A7"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%D0%A1%D1%A7"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%D0%A1%D1%A7"> 英语</a>   <br />
+                             <span>小升初 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%D0%A1%C9%FD%B3%F5"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%D0%A1%C9%FD%B3%F5"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%D0%A1%C9%FD%B3%F5"> 英语</a>  <br />
+							  <span>六年级 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%C1%F9%C4%EA%BC%B6"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%C1%F9%C4%EA%BC%B6"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%C1%F9%C4%EA%BC%B6"> 英语</a>  <br />
+                             <span>五年级 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%CE%E5%C4%EA%BC%B6"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%CE%E5%C4%EA%BC%B6"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%CE%E5%C4%EA%BC%B6"> 英语</a>  <br />
+                             <span>四年级 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%CB%C4%C4%EA%BC%B6"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%CB%C4%C4%EA%BC%B6"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%CB%C4%C4%EA%BC%B6"> 英语</a> <br />
+                             <span>三年级 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%C8%FD%C4%EA%BC%B6"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%C8%FD%C4%EA%BC%B6"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%C8%FD%C4%EA%BC%B6"> 英语</a> <br />
+                             <span>二年级 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B6%FE%C4%EA%BC%B6"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B6%FE%C4%EA%BC%B6"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B6%FE%C4%EA%BC%B6"> 英语</a> <br />
+                             <span>一年级 |</span><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%D2%BB%C4%EA%BC%B6"> 数学</a> <a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%D2%BB%C4%EA%BC%B6"> 语文</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%D2%BB%C4%EA%BC%B6"> 英语</a></a>                  
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>初中、中考</span>
+						<span><h3><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B3%F5%D6%D0">数学</a><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B3%F5%D6%D0">语文</a><a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B3%F5%D6%D0">英语</a><a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B3%F5%D6%D0">化学</a></h3></span>
+						<div class="i-mc" style="top: 65px;">
+                        
+                        
+                         <span>初中 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B3%F5%D6%D0">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B3%F5%D6%D0"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B3%F5%D6%D0">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B3%F5%D6%D0">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B3%F5%D6%D0"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B3%F5%D6%D0">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B3%F5%D6%D0">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B3%F5%D6%D0"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B3%F5%D6%D0">地理</a> <br />
+                             <span>中考 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%D6%D0%BF%BC">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%D6%D0%BF%BC"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%D6%D0%BF%BC">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%D6%D0%BF%BC">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%D6%D0%BF%BC"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%D6%D0%BF%BC">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%D6%D0%BF%BC">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%D6%D0%BF%BC"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%D6%D0%BF%BC">地理</a> <br />
+                             <span>初三 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B3%F5%C8%FD">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B3%F5%C8%FD"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B3%F5%C8%FD">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B3%F5%C8%FD">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B3%F5%C8%FD"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B3%F5%C8%FD">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B3%F5%C8%FD">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B3%F5%C8%FD"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B3%F5%C8%FD">地理</a> <br />
+                             <span>初二 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B3%F5%B6%FE">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B3%F5%B6%FE"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B3%F5%B6%FE">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B3%F5%B6%FE">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B3%F5%B6%FE"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B3%F5%B6%FE">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B3%F5%B6%FE">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B3%F5%B6%FE"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B3%F5%B6%FE">地理</a> <br />
+                             <span>初一 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B3%F5%D2%BB">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B3%F5%D2%BB"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B3%F5%D2%BB">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B3%F5%D2%BB">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B3%F5%D2%BB"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B3%F5%D2%BB">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B3%F5%D2%BB">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B3%F5%D2%BB"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B3%F5%D2%BB">地理</a> 
+                            
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>高中、高考</span>
+						<span><h3><a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B8%DF%D6%D0">数学</a><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B8%DF%D6%D0">语文</a><a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B8%DF%D6%D0">英语</a><a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B8%DF%D6%D0">化学</a></h3></span>
+						<div class="i-mc" style="top: 140px;">
+                        
+                        
+                        <span>高中 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B8%DF%D6%D0">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B8%DF%D6%D0"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B8%DF%D6%D0">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B8%DF%D6%D0">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B8%DF%D6%D0"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B8%DF%D6%D0">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B8%DF%D6%D0">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B8%DF%D6%D0"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B8%DF%D6%D0">地理</a> <br />
+                             <span>高考 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B8%DF%BF%BC">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B8%DF%BF%BC"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B8%DF%BF%BC">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B8%DF%BF%BC">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B8%DF%BF%BC"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B8%DF%BF%BC">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B8%DF%BF%BC">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B8%DF%BF%BC"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B8%DF%BF%BC">地理</a> <br />
+                             <span>高三 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B8%DF%C8%FD">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B8%DF%C8%FD"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B8%DF%C8%FD">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B8%DF%C8%FD">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B8%DF%C8%FD"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B8%DF%C8%FD">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B8%DF%C8%FD">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B8%DF%C8%FD"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B8%DF%C8%FD">地理</a> <br />
+                             <span>高二 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B8%DF%B6%FE">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B8%DF%B6%FE"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B8%DF%B6%FE">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B8%DF%B6%FE">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B8%DF%B6%FE"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B8%DF%B6%FE">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B8%DF%B6%FE">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B8%DF%B6%FE"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B8%DF%B6%FE">地理</a> <br />
+                             <span>高一 |</span><a href="list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B8%DF%D2%BB">语文</a> <a href="list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B8%DF%D2%BB"> 数学</a>  <a href="list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B8%DF%D2%BB">英语</a>  <a href="list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B8%DF%D2%BB">物理</a> <a href="list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B8%DF%D2%BB"> 化学</a>  <a href="list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B8%DF%D2%BB">生物</a> <a href="list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B8%DF%D2%BB">政治</a> <a href="list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B8%DF%D2%BB"> 历史</a>  <a href="list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B8%DF%D2%BB">地理</a> 
+                        
+                        
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                         <span>特色课程</span>
+						<span><h3><a href="list.php?tid=1&lx=%BC%C6%CB%E3%BB%FA">计算机</a><a href="list.php?tid=1&lx=%D0%C4%C0%ED%B8%A8%B5%BC">心理辅导</a><a href="list.php?tid=1&lx=%CE%E8%B5%B8">舞蹈</a><a href="list.php?tid=1&lx=%CA%E9%B7%A8">书法</a></h3></span>
+						<div class="i-mc" style="top: 210px;">
+                        
+                      
+                        
+                         <span>特色课程 |</span><a href="list.php?tid=1&lx=%D0%C4%C0%ED%B8%A8%B5%BC"> 心理辅导</a> <a href="list.php?tid=1&lx=%CE%E8%B5%B8"> 舞蹈</a>  <a href="list.php?tid=1&lx=%BC%C6%CB%E3%BB%FA"> 计算机</a>  <a href="list.php?tid=1&lx=%CA%E9%B7%A8"> 书法</a> <a href="list.php?tid=1&lx=%B8%D6%C7%D9"> 钢琴</a><a href="plus/list.php?tid=1&lx=%D2%F4%C0%D6"> 音乐</a><br />
+                        
+                        
+                        </div>
+					</div>
+					<div class="item" onMouseOver="this.className='item on'" onmouseleave="this.className='item'">
+                        <span>咨询电话<br />
+                        0917-2668022</span>
+						
+						
+					</div>
+					
+					
+				</div>
+		  </div>
+			<div id="navitems-2015">
+				<li class="cur"><a href="/index.php" target="_self">首页</a></li>
+                <li><a href="/a/newfile6.html">老师入驻</a></li>
+                <li><a href="/plus/list.php?tid=12"">亲子教育</a></li>
+                <li><a href="/a/newfile1.html">关于我们</a></li>
+                <li><a href="/plus/list.php?tid=8">帮助中心</a></li>
+			
+			</div>
+		</div>
+	</div>
+
+<!--代码部分end-->
+</div>
+  
+  
+  
+  
+  

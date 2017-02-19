@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="renderer" content="webkit">
+<meta name="renderer" content="ie-comp">
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:global.cfg_webname/}</title>
+<meta name="description" content="{dede:global.cfg_description/}" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<meta http-equiv="mobile-agent" content="format=xhtml;url={dede:global.cfg_mobileurl/}/index.php">
+<link href="{dede:global.cfg_templets_skin/}/style/div.css" rel="stylesheet" type="text/css" />
+<link href="{dede:global.cfg_templets_skin/}/style/IN365hls2.9.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style/header2_9.css">
+<link href="{dede:global.cfg_templets_skin/}/images/lick.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/images/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/images/lanrentuku.js"></script>
+</head>
+<body>
+<div id="content">
+<!--------------------------------------->
+ {dede:include filename="head-index.htm"/}
+<!--------------------------------------->
+<div id="main-home ">
+<div id="main-nr">
+
+<section class="hlsIn">
+<div class="Banner-and-Notice f">
+<article class="somebanners" id="playbanner" role="banner" style="overflow: hidden;">
+<div id="banner">
+<div id=imgPlay>
+<ul class=imgs id=actor>
+  <li><a href="{#SiteUrl#}" target=_blank><img src="{dede:global.cfg_templets_skin/}/images/banner.jpg" /></a></li>
+  <li><a href="{#SiteUrl#}" target=_blank><img src="{dede:global.cfg_templets_skin/}/images/banner01.jpg" /></a></li>
+  <li><a href="{#SiteUrl#}" target=_blank><img src="{dede:global.cfg_templets_skin/}/images/banner02.jpg" /></a></li>
+  
+</ul>
+<div class=num>
+<P class=lc></P>
+<P class=mc></P>
+<P class=rc></P></div>
+<div class=num id=numInner></div>
+<div class=prev>上一张</div>
+<div class=next>下一张</div></div>
+
+
+</div>
+
+</article>
+
+
+<div id="banner-r">
+  <div id="banner-r-top">
+    <h3>Hi,欢迎来到天天好老师！</h3>
+    <div class="inline">
+    <a href="/member/index_do.php?fmdo=user&dopost=regnew" target="_self" class="btn big">老师入驻</a>
+    <a href="/member/" target="_self" class="btn">老师登录</a></div>
+    </div>
+  <div id="banner-r-m">
+ <!-- tab代码begin --> 
+  <script>
+<!--
+function setTab(name,cursel,n){
+for(i=1;i<=n;i++){
+var menu=document.getElementById(name+i);
+var con=document.getElementById("con_"+name+"_"+i);
+menu.className=i==cursel?"hover":"";
+con.style.display=i==cursel?"block":"none";
+}
+}
+//-->
+</script>
+  
+  <div id="Tab">
+  <div class="Menubox">
+    <ul>
+      <li id="menu1" onmouseover="setTab('menu',1,3)" class="hover">网站公告</li>
+      <li id="menu2" onmouseover="setTab('menu',2,3)" >教育新闻</li>
+      <li id="menu3" onmouseover="setTab('menu',3,3)" >常见问题</li>
+    </ul>
+  </div>
+  <div class="Contentbox"> 
+    <div id="con_menu_1" class="hover">
+      <ul>
+        {dede:arclist row='5' titlelen='24' orderby='pubdate' typeid='7' idlist=''}
+            <li>·<a href="[field:arcurl/]">[field:title/]</a></li>
+        {/dede:arclist}
+      </ul>
+    </div>
+    <div id="con_menu_2" style="display:none">
+      <ul>
+        {dede:arclist row='5' titlelen='24' orderby='pubdate' typeid='9' idlist=''}
+            <li>·<a href="[field:arcurl/]">[field:title/]</a></li>
+        {/dede:arclist}
+
+      </ul>
+    </div>
+    <div id="con_menu_3" style="display:none">
+      <ul>
+        {dede:arclist row='5' titlelen='24' orderby='pubdate' typeid='8' idlist=''}
+            <li>·<a href="[field:arcurl/]">[field:title/]</a></li>
+        {/dede:arclist}
+      </ul>
+    </div>
+  </div>
+</div>
+ <!-- tab代码begin --> 
+  
+  </div>
+  <div id="banner-r-pic"><a href="plus/view.php?aid=33"><img src="{dede:global.cfg_templets_skin/}/images/banner-r-pic.jpg" border="0" /></a></div>
+</div>
+
+
+</div>
+</section>
+     
+     
+     
+     
+     
+     
+     
+      <div id="sy-tjls">
+        <div class="sy-tit"><span><a href="plus/list.php?tid=1">更多>></a></span>推荐老师</div>
+        <div id="sy-tjls-nr">
+        
+  
+
+        
+        {dede:arclist  row='5' addfields='sknj,jage,lx,ysxx,sex,area' channelid='6'  orderby='pubdate' flag='c'}
+        <DIV class="pic-nr">       
+        <span class="custom-frame aligncenter"><a href="plus/view.php?aid=[field:id/]">
+        [field:array  runphp='yes']
+        $ys=@me['ysxx'];
+        $pic=@me['litpic'];
+        if(@me['ysxx']=='不显示真实姓名真实照片')  
+        {     
+       		if(@me['sex']=="男"){    
+                    @me="<img src='/templets/default/images/avatar_teacher_1_male_200.jpg'  width='218' height='200'/>";
+                    }
+                    
+                    if(@me['sex']=="女"){    
+                    @me="<img src='/templets/default/images/avatar_teacher_1_female_200.jpg'  width='218' height='200'/>";
+                    }
+                    
+         
+        }
+         if(@me['ysxx']=='显示真实姓名真实照片')  
+                {  
+                	
+                 @me ="<img src='$pic'  width='218' height='200'/>";
+                }      
+         [/field:array] 
+        </a></span>
+        <a class="title01" href="plus/view.php?aid=[field:id/]">
+        <h3>
+        [field:array  runphp='yes'] 
+            	$tit=@me['title'];
+                if(@me['ysxx']=='不显示真实姓名真实照片')  
+                {  
+                   @me=cn_substr($tit,2)."老师";
+                }
+                
+                if(@me['ysxx']=='显示真实姓名真实照片')  
+                {  
+                	
+                 @me =$tit;
+                }           
+            [/field:array] 
+            
+            
+        </h3>
+        <span>[field:sknj/][field:lx/]</span>     <span>[field:jage/]教龄</span>
+            <h4><img src="/templets/default/images/icon-wz.png" />&nbsp;
+            [field:area function="cn_substr('@me',6)" /]区域
+                &nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF921E"><script type="text/javascript" src="/plus/feedcount.php?aid=[field:id/]&type=c"></script>条评论</font></h4>
+        </a>    
+        
+        </DIV>
+        {/dede:arclist} 
+
+        
+        </div>
+      </div>
+      
+      
+      
+      <div id="sy-lsrz">
+        <div id="sy-lsrz-l">
+          <div class="sy-tit">老师入驻</div>
+          <div id="sy-lsrz-pic"><img src="{dede:global.cfg_templets_skin/}/images/lsrz-pic.jpg"  width="224" height="304"/></div>
+        </div>
+        <div id="sy-lsrz-m">
+          <div class="sy-ptys-tit"><a href="a/newfile3.html">平台优势</a></div>
+          <div id="sy-ptys-nr">
+            <div class="sy-ptys-list">
+              <div class="sy-ptys-iocn"><img src="{dede:global.cfg_templets_skin/}/images/icon01.jpg" /></div>
+              <h3>1.搜索老师</h3>
+              <p>
+              根据自身需要按照多条
+件筛选（如课程、地理
+位置、学习阶段），找
+到心仪的老师。众多本
+地名师，总有一位适合
+您
+              </p>
+            </div>
+            <div class="sy-ptys-list">
+              <div class="sy-ptys-iocn"><img src="{dede:global.cfg_templets_skin/}/images/icon02.jpg" /></div>
+              <h3>2.平台认证</h3>
+              <p>
+              天天好老师网严格筛选每位老师，通过实名认证，当面确认等方式保证每位老师的信息真实有效。保证高质量的服务，让您放心
+              </p>
+            </div>
+            <div class="sy-ptys-list">
+              <div class="sy-ptys-iocn"><img src="{dede:global.cfg_templets_skin/}/images/icon03.jpg" /></div>
+              <h3>3.课程丰富</h3>
+              <p>
+              我们的入驻老师涉及学校内教育的所有课程，并且吸纳了丰富多彩的课外特色课程类老师，让您足不出户找到适合您的老师。
+              </p>
+            </div>
+            <div class="sy-ptys-list">
+              <div class="sy-ptys-iocn"><img src="{dede:global.cfg_templets_skin/}/images/icon04.jpg" /></div>
+              <h3>4.课程评价</h3>
+              <p>
+              授课中或授课后，学生对老师和课程进行真实评价，帮助老师发现其优势与不足，提升自己的教学质量。同时为正在寻找老师的学生和家长提供参考。
+              </p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div id="sy-lsrz-r">
+          <div class="sy-ptys-tit"><a href="a/newfile7.html">入驻流程</a></div>
+          <div id="sy-rzlc-nr">
+            <div id="sy-rzlc-tit"><font style="font-size: 1.3em;color: #3f3f3f;">老师入驻</font><a href="/member/index_do.php?fmdo=user&dopost=regnew" class="btn" target="_self">立即加入</a></div>
+            <div class="sy-rzlc-list">
+               <h4>实名认证</h4>
+               <p>真实姓名、身份证号、身份证扫描件</p>
+            </div>
+            <div class="sy-rzlc-list">
+               <h4>资格认证</h4>
+               <p>教师资格证或职称证扫描件</p>
+            </div>
+            <div class="sy-rzlc-list">
+               <h4>教龄认证</h4>
+               <p>教龄需1年以上</p>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      
+      
+      
+      <div class="sy-ls-query">
+        <div class="sy-ls-tit"><span><a href="plus/list.php?tid=1&sknj=%D0%A1%D1%A7">更多>></a><!-- - <a href="plus/list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%D0%A1%D1%A7">语文</a> - <a href="plus/list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%D0%A1%D1%A7">英语</a> - <a href="plus/list.php?tid=1&sknj=%D0%A1%C9%FD%B3%F5">小升初</a>--></span>   <a href="plus/list.php?tid=1&sknj=%D0%A1%D1%A7">小学</a> &middot; <a href="plus/list.php?tid=1&amp;sknj=%D0%A1%C9%FD%B3%F5">小升初</a> </div>
+        <div class="sy-ls-nr">
+     
+
+
+
+
+{dede:sql sql="SELECT a.id,a.title,a.litpic,a.goodpost,b.aid,b.area,b.jage,b.lx,b.sknj,b.ysxx,b.sex FROM dede_archives AS a,dede_addonshop AS b where a.id=b.aid  and b.aid in (SELECT aid from dede_addonshop WHERE   sknj  like '%小学%' or sknj like '%小升初%' or sknj like '%六年级%' or sknj like '%五年级%' or sknj like '%四年级%' or sknj like '%三年级%' or sknj like '%二年级%' or sknj like '%一年级%') limit 0,5" appname='default'}
+
+            <DIV class="pic-nr">
+            <span class="custom-frame aligncenter"><a href="plus/view.php?aid=[field:aid/]">
+            [field:array  runphp='yes']
+            $pic=@me['litpic'];
+            if(@me['ysxx']=='不显示真实姓名真实照片')  
+            {
+            		if(@me['sex']=="男"){
+                    @me="<img src='/templets/default/images/avatar_teacher_1_male_200.jpg'  width='218' height='200'/>";
+                    }
+                    if(@me['sex']=="女"){    
+                    @me="<img src='/templets/default/images/avatar_teacher_1_female_200.jpg'  width='218' height='200'/>";
+                    }
+            }
+         	
+            if(@me['ysxx']=='显示真实姓名真实照片')  
+                {  
+                	
+                 @me ="<img src='$pic'  width='218' height='200'/>";
+                }   
+                
+            [/field:array] 
+            </a></span>
+            <a class="title01" href="plus/view.php?aid=[field:aid/]">
+            
+            <h3>
+            [field:array  runphp='yes'] 
+            	$tit=@me['title'];
+                if(@me['ysxx']=='不显示真实姓名真实照片')  
+                {  
+                   @me=cn_substr($tit,2)."老师";
+                }
+                
+                if(@me['ysxx']=='显示真实姓名真实照片')  
+                {  
+                	
+                 @me =$tit;
+                }           
+            [/field:array] 
+            </h3>
+            <span>[field:sknj/][field:lx/]</span>     <span>[field:jage/]教龄</span>
+            <h4><img src="/templets/default/images/icon-wz.png" />&nbsp;
+            [field:area function="cn_substr('@me',6)" /]区域
+                &nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF921E"><script type="text/javascript" src="/plus/feedcount.php?aid=[field:id/]&type=c"></script>条评论</font></h4>
+            
+            </a>      
+            </DIV>
+           
+           {/dede:sql} 
+            
+            
+           
+            <div class="clear"></div>
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      
+      <div class="sy-ls-query">
+        <div class="sy-ls-tit"><span><a href="plus/list.php?tid=1&sknj=%B3%F5%D6%D0">更多>></a><!--<a href="plus/list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B3%F5%D6%D0">数学</a> - <a href="plus/list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B3%F5%D6%D0">语文</a> - <a href="plus/list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B3%F5%D6%D0">英语</a> - <a href="plus/list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B3%F5%D6%D0">物理</a> - <a href="plus/list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B3%F5%D6%D0">化学</a> - <a href="plus/list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B3%F5%D6%D0">生物</a> - <a href="plus/list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B3%F5%D6%D0">政治</a> - <a href="plus/list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B3%F5%D6%D0">历史</a> - <a href="plus/list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B3%F5%D6%D0">地理</a> - <a href="plus/list.php?tid=1&amp;sknj=%D6%D0%BF%BC">中考</a>--></span>   <a href="plus/list.php?tid=1&amp;sknj=%B3%F5%D6%D0">初中</a> · <a href="plus/list.php?tid=1&amp;sknj=%D6%D0%BF%BC">中考</a> </div>
+        <div class="sy-ls-nr">
+        
+         
+             {dede:sql sql="SELECT a.id,a.title,a.litpic,a.goodpost,b.aid,b.area,b.jage,b.lx,b.sknj,b.ysxx,b.sex FROM dede_archives AS a,dede_addonshop AS b where a.id=b.aid  and b.aid in (SELECT aid from dede_addonshop WHERE   sknj  like '%初一%' or sknj like '%中考%' or sknj like '%初中%' or sknj like '%初三%' or sknj like '%初二%' or sknj like '%初一%') limit 0,5" appname='default'}
+
+            <DIV class="pic-nr">
+            <span class="custom-frame aligncenter"><a href="plus/view.php?aid=[field:aid/]">
+           [field:array  runphp='yes']
+            $pic=@me['litpic'];
+            if(@me['ysxx']=='不显示真实姓名真实照片')  
+            {
+            		if(@me['sex']=="男"){
+                    @me="<img src='/templets/default/images/avatar_teacher_1_male_200.jpg'  width='218' height='200'/>";
+                    }
+                    if(@me['sex']=="女"){    
+                    @me="<img src='/templets/default/images/avatar_teacher_1_female_200.jpg'  width='218' height='200'/>";
+                    }
+            }
+         	
+            if(@me['ysxx']=='显示真实姓名真实照片')  
+                {  
+                	
+                @me ="<img src='$pic'  width='218' height='200'/>";
+                }   
+                
+            [/field:array] 
+            </a></span>
+            <a class="title01" href="plus/view.php?aid=[field:aid/]">
+            
+            <h3>
+            [field:array  runphp='yes'] 
+            	$tit=@me['title'];
+                if(@me['ysxx']=='不显示真实姓名真实照片')  
+                {  
+                   @me=cn_substr($tit,2)."老师";
+                }
+                
+                if(@me['ysxx']=='显示真实姓名真实照片')  
+                {  
+                	
+                 @me =$tit;
+                }           
+            [/field:array] 
+            </h3>
+            <span>[field:sknj/][field:lx/]</span>     <span>[field:jage/]教龄</span>
+            <h4><img src="/templets/default/images/icon-wz.png" />&nbsp; [field:area function="cn_substr('@me',6)" /]区域    &nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF921E">
+            <script type="text/javascript" src="/plus/feedcount.php?aid=[field:id/]&type=c"></script>条评论</font></h4>
+            
+            </a>      
+            </DIV>
+           
+           {/dede:sql} 
+            <div class="clear"></div>
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      <div class="sy-ls-query">
+        <div class="sy-ls-tit"><span><a href="plus/list.php?tid=1&sknj=%B8%DF%D6%D0">更多>></a><!--<a href="plus/list.php?tid=1&lx=%CA%FD%D1%A7&sknj=%B8%DF%D6%D0">数学</a> - <a href="plus/list.php?tid=1&lx=%D3%EF%CE%C4&sknj=%B8%DF%D6%D0">语文</a> - <a href="plus/list.php?tid=1&lx=%D3%A2%D3%EF&sknj=%B8%DF%D6%D0">英语</a> - <a href="plus/list.php?tid=1&lx=%CE%EF%C0%ED&sknj=%B8%DF%D6%D0">物理</a> - <a href="plus/list.php?tid=1&lx=%BB%AF%D1%A7&sknj=%B8%DF%D6%D0">化学</a> - <a href="plus/list.php?tid=1&lx=%C9%FA%CE%EF&sknj=%B8%DF%D6%D0">生物</a> - <a href="plus/list.php?tid=1&lx=%C0%FA%CA%B7&sknj=%B8%DF%D6%D0">历史</a> - <a href="plus/list.php?tid=1&lx=%B5%D8%C0%ED&sknj=%B8%DF%D6%D0">地理</a> - <a href="plus/list.php?tid=1&lx=%D5%FE%D6%CE&sknj=%B8%DF%D6%D0">政治</a> - <a href="plus/list.php?tid=1&sknj=%B8%DF%BF%BC">高考</a>--></span>   <a href="plus/list.php?tid=1&amp;sknj=%B8%DF%D6%D0">高中</a> &middot; <a href="plus/list.php?tid=1&amp;sknj=%B8%DF%BF%BC">高考</a> </div>
+        <div class="sy-ls-nr">
+        
+         {dede:sql sql="SELECT a.id,a.title,a.litpic,a.goodpost,b.aid,b.area,b.jage,b.lx,b.sknj,b.ysxx,b.sex FROM dede_archives AS a,dede_addonshop AS b where a.id=b.aid  and b.aid in (SELECT aid from dede_addonshop WHERE   sknj  like '%高中%' or sknj like '%高考%' or sknj like '%高三%' or sknj like '%高二%' or sknj like '%高一%' ) limit 0,5" appname='default'} 
+
+            <DIV class="pic-nr">
+            <span class="custom-frame aligncenter"><a href="plus/view.php?aid=[field:aid/]"><img src="[field:litpic/]"  width="218" height="200"/></a></span>
+            <a class="title01" href="plus/view.php?aid=[field:aid/]">
+            
+            <h3>
+            [field:array  runphp='yes'] 
+            	$tit=@me['title'];
+                if(@me['ysxx']=='不显示真实姓名真实照片')  
+                {  
+                   @me=cn_substr($tit,2)."老师";
+                }
+                
+                if(@me['ysxx']=='显示真实姓名真实照片')  
+                {  
+                	
+                 @me =$tit;
+                }           
+            [/field:array] 
+            </h3>
+            <span>[field:sknj/][field:lx/]</span>     <span>[field:jage/]教龄</span>
+            <h4><img src="/templets/default/images/icon-wz.png" />&nbsp; [field:area function="cn_substr('@me',6)" /]区域 &nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF921E"><script type="text/javascript" src="/plus/feedcount.php?aid=[field:id/]&type=c"></script>条评论</font></h4>
+            
+            </a>      
+            </DIV>
+           
+           {/dede:sql} 
+           
+            
+            
+            <div class="clear"></div>
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="sy-ls-query">
+        <div class="sy-ls-tit"><span><a href="plus/list.php?tid=1&lx=%CE%E8%B5%B8">舞蹈</a> - <a href="plus/list.php?tid=1&lx=%BC%C6%CB%E3%BB%FA">计算机</a> - <a href="plus/list.php?tid=1&lx=%CA%E9%B7%A8">书法</a> - <a href="plus/list.php?tid=1&lx=%B8%D6%C7%D9">钢琴</a></span>   特色课程 </div>
+        <div class="sy-ls-nr">
+        
+         
+          {dede:sql sql="SELECT a.id,a.title,a.litpic,a.goodpost,b.aid,b.area,b.jage,b.lx,b.sknj,b.ysxx,b.sex FROM dede_archives AS a,dede_addonshop AS b where a.id=b.aid  and b.aid in (SELECT aid from dede_addonshop WHERE   lx  like '%舞蹈%' or lx like '%计算机%' or lx like '%书法%' or lx like '%钢琴%' or lx like '%心理辅导%' ) limit 0,5" appname='default'} 
+          
+             <DIV class="pic-nr">
+            <span class="custom-frame aligncenter"><a href="plus/view.php?aid=[field:aid/]">
+            [field:array  runphp='yes']
+            $pic=@me['litpic'];
+            if(@me['ysxx']=='不显示真实姓名真实照片')  
+            {
+            		if(@me['sex']=="男"){
+                    @me="<img src='/templets/default/images/avatar_teacher_1_male_200.jpg'  width='218' height='200'/>";
+                    }
+                    if(@me['sex']=="女"){    
+                    @me="<img src='/templets/default/images/avatar_teacher_1_female_200.jpg'  width='218' height='200'/>";
+                    }
+            }
+         	
+            if(@me['ysxx']=='显示真实姓名真实照片')  
+                {  
+                	
+                 @me ="<img src='$pic'  width='218' height='200'/>";
+                }   
+                
+            [/field:array] 
+            
+            </a></span>
+            <a class="title01" href="plus/view.php?aid=[field:aid/]">
+            
+            <h3>
+             [field:array  runphp='yes'] 
+            	$tit=@me['title'];
+                if(@me['ysxx']=='不显示真实姓名真实照片')  
+                {  
+                   @me=cn_substr($tit,2)."老师";
+                }
+                
+                if(@me['ysxx']=='显示真实姓名真实照片')  
+                {  
+                	
+                 @me =$tit;
+                }           
+            [/field:array] 
+            </h3>
+            <span>[field:lx/]</span>     <span>[field:jage/]教龄</span>
+            <h4><img src="/templets/default/images/icon-wz.png" />&nbsp; [field:area function="cn_substr('@me',6)" /]区域&nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF921E"><script type="text/javascript" src="/plus/feedcount.php?aid=[field:id/]&type=c"></script>条评论</font></h4>
+            
+            </a>      
+            </DIV>
+           {/dede:sql}
+            <div class="clear"></div>
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      <div id="sy-rzjg">
+        <div id="sy-rzjg-tit"><a href="/plus/list.php?tid=5">入驻机构</a></div>
+        <div id="sy-rzjg-nr">
+          
+<div id="demo">
+        <div id="indemo">
+          <div id="demo1">
+          {dede:arclist row='15' titlelen='24' orderby='pubdate' typeid='5'  type='image.'}
+            <div class="pic-nr02">
+                     <span class="custom-frame aligncenter"><a href="[field:arcurl/]"><img src="[field:litpic/]"  width="180" height="120"/></a></span>
+                     <a class="title03" href="[field:arcurl/]">[field:title/]</a>       
+            </div>
+          {/dede:arclist}  
+  
+            <div class="clear"></div>
+            </div>
+               <div id="demo2"></div>
+              <div class="clear"></div>
+             </div>
+            </div>
+             <script>
+<!--
+var speed=10; //数字越大速度越慢
+var tab=document.getElementById("demo");
+var tab1=document.getElementById("demo1");
+var tab2=document.getElementById("demo2");
+tab2.innerHTML=tab1.innerHTML;
+function Marquee(){
+if(tab2.offsetWidth-tab.scrollLeft<=0)
+tab.scrollLeft-=tab1.offsetWidth
+else{
+tab.scrollLeft++;
+}
+}
+var MyMar=setInterval(Marquee,speed);
+tab.onmouseover=function() {clearInterval(MyMar)};
+tab.onmouseout=function() {MyMar=setInterval(Marquee,speed)};
+-->
+</script>
+
+
+        </div>
+        <div class="clear"></div>
+      </div>
+       
+    </div>
+  </div>
+
+ {dede:include filename="footer.htm"/}
+
+</div>
+
+</body>
+</html>
