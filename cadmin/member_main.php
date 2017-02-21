@@ -1,8 +1,8 @@
 <?php
 /**
- * »áÔ±¹ÜÀí
+ * ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½
  *
- * @version        $Id: member_main.php 1 10:49 2010Äê7ÔÂ20ÈÕZ tianya $
+ * @version        $Id: member_main.php 1 10:49 2010ï¿½ï¿½7ï¿½ï¿½20ï¿½ï¿½Z tianya $
  * @package        DedeCMS.Administrator
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -19,21 +19,21 @@ if($dopost == 'set_status'){
 	$id = intval($_GET['mid']);
 	$status = trim($_GET['status']);
 	if($status===''){
-		echo '¸üÐÂÊ§°Ü';
+		echo 'ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½';
 		exit;
 	}
 	$record = $dsql->getOne("SELECT * FROM `#@__member` WHERE mid = " . $id);
 	if(!empty($record)){
 		$query = "UPDATE `#@__member` SET spacesta = " . $status . " where mid = " .$id;		
 		$rs = $dsql->ExecuteNoneQuery2($query);
-		echo '¸üÐÂ×´Ì¬³É¹¦';
+		echo 'ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½É¹ï¿½';
 		exit;
 	}	
 }else if($dopost=='set_shunxu'){
 	$id = intval($_GET['mid']);
 	$shunxu = trim($_GET['shunxu']);
 	if($shunxu===''){
-		echo '¸üÐÂÊ§°Ü';
+		echo 'ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½';
 		exit;
 	}
 	$record = $dsql->getOne("SELECT * FROM `#@__member` WHERE mid = " . $id);
@@ -41,27 +41,27 @@ if($dopost == 'set_status'){
 		$query = "UPDATE `#@__member` SET shunxu = " . $shunxu . " where mid = " .$id;		
 		$rs = $dsql->ExecuteNoneQuery2($query);
 
-		echo '¸üÐÂ×´Ì¬³É¹¦';
+		echo 'ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½É¹ï¿½';
 		exit;
 	}	
 }
 
 if(!isset($sex)) $sex = '';
-if(!isset($mtype)) $mtype = '';//»áÔ±ÀàÐÍ
-if(!isset($spacesta)) $spacesta = -10;//»áÔ±×´Ì¬
+if(!isset($mtype)) $mtype = '';//ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½
+if(!isset($spacesta)) $spacesta = -10;//ï¿½ï¿½Ô±×´Ì¬
 if(!isset($matt)) $matt = 10;
-if(!isset($city)) $city = '';//³ÇÊÐ
+if(!isset($city)) $city = '';//ï¿½ï¿½ï¿½ï¿½
 
 
 
 if(!isset($keyword)) $keyword = '';
 else $keyword = trim(FilterSearch($keyword));
 
-$mtypeform = empty($mtype) ? "<option value=''>ÀàÐÍ</option>\r\n" : "<option value='$mtype'>$mtype</option>\r\n";
-$sexform = empty($sex) ? "<option value=''>ÐÔ±ð</option>\r\n" : "<option value='$sex'>$sex</option>\r\n";
+$mtypeform = empty($mtype) ? "<option value=''>ï¿½ï¿½ï¿½ï¿½</option>\r\n" : "<option value='$mtype'>$mtype</option>\r\n";
+$sexform = empty($sex) ? "<option value=''>ï¿½Ô±ï¿½</option>\r\n" : "<option value='$sex'>$sex</option>\r\n";
 $sortkey = empty($sortkey) ? 'm.mid' : preg_replace("#[^a-z]#i",'',$sortkey);
 
-//¹ÜÀíÔ±¹ÜÀíµÄ³ÇÊÐ
+//ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½
 $cityArr = array();
 $user_id = $GLOBALS['cuserLogin']->getUserID();
 $User =  $dsql->GetOne("Select * from `#@__admin` where id = " . $user_id);
@@ -75,14 +75,14 @@ while($row = $dsql->GetObject())
 }else{
 	$cityArr = explode(',',$User['admin_city']);
 }
-//Èç¹ûÊÇ³ÇÊÐ¹ÜÀíÔ±£¬matt=0£¬¼´²»¿´¹ÜÀíÔ±ÐÅÏ¢£¬Ö»¿´½ÌÔ±ÐÅÏ¢
+//ï¿½ï¿½ï¿½ï¿½Ç³ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½Ô±ï¿½ï¿½matt=0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Ï¢ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Ï¢
 if($User['usertype']==1){
 	$matt = 0;
 }
 
-//$staArr = array(-2=>'ÏÞÖÆÓÃ»§(½ûÑÔ)', -1=>'Î´Í¨¹ýÉóºË', 0=>'×¢²á½ÌÔ±', 1=>'Ã»ÌîÐ´ÏêÏ¸×ÊÁÏ', 2=>'Õý³£Ê¹ÓÃ×´Ì¬');
-$staArr = array( 0=>'×¢²á½ÌÔ±', 1=>'ÉóºË½ÌÔ±', 2=>'ÍÆ¼ö½ÌÔ±', 3=>'Ã÷ÐÇ½ÌÔ±');
-$staArrmatt = array(1=>'±»ÍÆ¼ö', 0=>'·ÇÆÕÍ¨ ' );
+//$staArr = array(-2=>'ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½(ï¿½ï¿½ï¿½ï¿½)', -1=>'Î´Í¨ï¿½ï¿½ï¿½ï¿½ï¿½', 0=>'×¢ï¿½ï¿½ï¿½Ô±', 1=>'Ã»ï¿½ï¿½Ð´ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½', 2=>'ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½×´Ì¬');
+$staArr = array( 0=>'×¢ï¿½ï¿½ï¿½Ô±', 1=>'ï¿½ï¿½Ë½ï¿½Ô±', 2=>'ï¿½Æ¼ï¿½ï¿½ï¿½Ô±', 3=>'ï¿½ï¿½ï¿½Ç½ï¿½Ô±');
+$staArrmatt = array(1=>'ï¿½ï¿½ï¿½Æ¼ï¿½', 0=>'ï¿½ï¿½ï¿½ï¿½Í¨ ' );
 $MemberTypes = array();
 $dsql->SetQuery("Select rank,membername From `#@__arcrank` where rank>0 ");
 $dsql->Execute();
@@ -93,30 +93,30 @@ while($row = $dsql->GetObject())
 
 if($sortkey=='m.mid')
 {
-    $sortform = "<option value='mid'>mid/×¢²áÊ±¼ä</option>\r\n";
+    $sortform = "<option value='mid'>mid/×¢ï¿½ï¿½Ê±ï¿½ï¿½</option>\r\n";
 }
 else if($sortkey=='rank')
 {
-    $sortform = "<option value='rank'>»áÔ±µÈ¼¶</option>\r\n";
+    $sortform = "<option value='rank'>ï¿½ï¿½Ô±ï¿½È¼ï¿½</option>\r\n";
 }
 else if($sortkey=='money')
 {
-    $sortform = "<option value='money'>»áÔ±½ð±Ò</option>\r\n";
+    $sortform = "<option value='money'>ï¿½ï¿½Ô±ï¿½ï¿½ï¿½</option>\r\n";
 }
 else if($sortkey=='scores')
 {
-    $sortform = "<option value='scores'>»áÔ±»ý·Ö</option>\r\n";
+    $sortform = "<option value='scores'>ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½</option>\r\n";
 }
 else
 {
-    $sortform = "<option value='logintime'>µÇÂ¼Ê±¼ä</option>\r\n";
+    $sortform = "<option value='logintime'>ï¿½ï¿½Â¼Ê±ï¿½ï¿½</option>\r\n";
 }
 if($keyword!='')
 	$wheres[] = " (m.userid LIKE '%$keyword%' OR m.uname LIKE '%$keyword%' OR m.email LIKE '%$keyword%' OR m.qq LIKE '%$keyword%' OR mobile LIKE '%$keyword%' OR m.mid=$keyword) ";
 
 if($sex   != '')
 {
-	if($sex == 'ÄÐ' || $sex=='Å®')
+	if($sex == 'ï¿½ï¿½' || $sex=='Å®')
     	$wheres[] = " sex LIKE '$sex' ";
 }
 
@@ -161,13 +161,14 @@ while($row = $dsql->GetArray())
 
 $sql  = "SELECT m.*,a.id as aid FROM `#@__member` as m left join `#@__archives` as a on m.mid = a.mid $whereSql ORDER BY m.shunxu asc";
 
-$dlist = new DataListCP();//·ÖÒ³ÓÃ
+$dlist = new DataListCP();//ï¿½ï¿½Ò³ï¿½ï¿½
 $dlist->SetParameter('sex',$sex);
 $dlist->SetParameter('spacesta',$spacesta);
 $dlist->SetParameter('matt',$matt);
 $dlist->SetParameter('mtype',$mtype);
 $dlist->SetParameter('sortkey',$sortkey);
 $dlist->SetParameter('keyword',$keyword);
+$dlist->SetParameter('city',$city);
 if(!empty($User)&&$User['usertype']<10)
 	$dlist->SetTemplet(DEDEADMIN."/templets/member_main1.htm");
 else
@@ -180,7 +181,7 @@ function GetMemberName($rank,$mt)
     global $MemberTypes;
     if(isset($MemberTypes[$rank]))
     {
-        if($mt=='ut') return " <font color='red'>´ýÉý¼¶£º".$MemberTypes[$rank]."</font>";
+        if($mt=='ut') return " <font color='red'>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½".$MemberTypes[$rank]."</font>";
         else return $MemberTypes[$rank];
     } else {
         if($mt=='ut') return '';
@@ -191,15 +192,15 @@ function GetMemberName($rank,$mt)
 function GetMAtt($m)
 {
     if($m<1) return '';
-    else if($m==10) return "&nbsp;<font color='red'>[¹ÜÀíÔ±]</font>";
-    else return "&nbsp;<img src='images/adminuserico.gif' wmidth='16' height='15'><font color='red'>[¼ö]</font>";
+    else if($m==10) return "&nbsp;<font color='red'>[ï¿½ï¿½ï¿½ï¿½Ô±]</font>";
+    else return "&nbsp;<img src='images/adminuserico.gif' wmidth='16' height='15'><font color='red'>[ï¿½ï¿½]</font>";
 }
 
-//»áÔ±×´Ì¬
+//ï¿½ï¿½Ô±×´Ì¬
 function Status($status)
 {
-	//»áÔ±×´Ì¬
-	$spaceSta = array(0=>'×¢²á½ÌÔ±', 1=>'ÉóºË½ÌÔ±', 2=>'ÍÆ¼ö½ÌÔ±',3=>'Ã÷ÐÇ½ÌÔ±');
+	//ï¿½ï¿½Ô±×´Ì¬
+	$spaceSta = array(0=>'×¢ï¿½ï¿½ï¿½Ô±', 1=>'ï¿½ï¿½Ë½ï¿½Ô±', 2=>'ï¿½Æ¼ï¿½ï¿½ï¿½Ô±',3=>'ï¿½ï¿½ï¿½Ç½ï¿½Ô±');
 	$html = "<select class='spacesta' name='spacesta' style='width:80px'>";
            
     foreach($spaceSta as $k=>$v)
