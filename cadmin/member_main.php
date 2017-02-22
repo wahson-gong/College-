@@ -1,8 +1,8 @@
 <?php
 /**
- * ä¼šå‘˜ç®¡ç†
+ * »áÔ±¹ÜÀí
  *
- * @version        $Id: member_main.php 1 10:49 2010å¹´7æœˆ20æ—¥Z tianya $
+ * @version        $Id: member_main.php 1 10:49 2010Äê7ÔÂ20ÈÕZ tianya $
  * @package        DedeCMS.Administrator
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -16,73 +16,73 @@ setcookie("ENV_GOBACK_URL",$dedeNowurl,time()+3600,"/");
 if(empty($dopost)) $dopost = '';
 
 if($dopost == 'set_status'){
-    $id = intval($_GET['mid']);
-    $status = trim($_GET['status']);
-    if($status===''){
-        echo 'æ›´æ–°å¤±è´¥';
-        exit;
-    }
-    $record = $dsql->getOne("SELECT * FROM `#@__member` WHERE mid = " . $id);
-    if(!empty($record)){
-        $query = "UPDATE `#@__member` SET spacesta = " . $status . " where mid = " .$id;
-        $rs = $dsql->ExecuteNoneQuery2($query);
-        echo 'æ›´æ–°çŠ¶æ€æˆåŠŸ';
-        exit;
-    }
+	$id = intval($_GET['mid']);
+	$status = trim($_GET['status']);
+	if($status===''){
+		echo '¸üĞÂÊ§°Ü';
+		exit;
+	}
+	$record = $dsql->getOne("SELECT * FROM `#@__member` WHERE mid = " . $id);
+	if(!empty($record)){
+		$query = "UPDATE `#@__member` SET spacesta = " . $status . " where mid = " .$id;		
+		$rs = $dsql->ExecuteNoneQuery2($query);
+		echo '¸üĞÂ×´Ì¬³É¹¦';
+		exit;
+	}	
 }else if($dopost=='set_shunxu'){
-    $id = intval($_GET['mid']);
-    $shunxu = trim($_GET['shunxu']);
-    if($shunxu===''){
-        echo 'æ›´æ–°å¤±è´¥';
-        exit;
-    }
-    $record = $dsql->getOne("SELECT * FROM `#@__member` WHERE mid = " . $id);
-    if(!empty($record)){
-        $query = "UPDATE `#@__member` SET shunxu = " . $shunxu . " where mid = " .$id;
-        $rs = $dsql->ExecuteNoneQuery2($query);
+	$id = intval($_GET['mid']);
+	$shunxu = trim($_GET['shunxu']);
+	if($shunxu===''){
+		echo '¸üĞÂÊ§°Ü';
+		exit;
+	}
+	$record = $dsql->getOne("SELECT * FROM `#@__member` WHERE mid = " . $id);
+	if(!empty($record)){
+		$query = "UPDATE `#@__member` SET shunxu = " . $shunxu . " where mid = " .$id;		
+		$rs = $dsql->ExecuteNoneQuery2($query);
 
-        echo 'æ›´æ–°çŠ¶æ€æˆåŠŸ';
-        exit;
-    }
+		echo '¸üĞÂ×´Ì¬³É¹¦';
+		exit;
+	}	
 }
 
 if(!isset($sex)) $sex = '';
-if(!isset($mtype)) $mtype = '';//ä¼šå‘˜ç±»å‹
-if(!isset($spacesta)) $spacesta = -10;//ä¼šå‘˜çŠ¶æ€
+if(!isset($mtype)) $mtype = '';//»áÔ±ÀàĞÍ
+if(!isset($spacesta)) $spacesta = -10;//»áÔ±×´Ì¬
 if(!isset($matt)) $matt = 10;
-if(!isset($city)) $city = '';//åŸå¸‚
+if(!isset($city)) $city = '';//³ÇÊĞ
 
 
 
 if(!isset($keyword)) $keyword = '';
 else $keyword = trim(FilterSearch($keyword));
 
-$mtypeform = empty($mtype) ? "<option value=''>ç±»å‹</option>\r\n" : "<option value='$mtype'>$mtype</option>\r\n";
-$sexform = empty($sex) ? "<option value=''>æ€§åˆ«</option>\r\n" : "<option value='$sex'>$sex</option>\r\n";
+$mtypeform = empty($mtype) ? "<option value=''>ÀàĞÍ</option>\r\n" : "<option value='$mtype'>$mtype</option>\r\n";
+$sexform = empty($sex) ? "<option value=''>ĞÔ±ğ</option>\r\n" : "<option value='$sex'>$sex</option>\r\n";
 $sortkey = empty($sortkey) ? 'm.mid' : preg_replace("#[^a-z]#i",'',$sortkey);
 
-//ç®¡ç†å‘˜ç®¡ç†çš„åŸå¸‚
+//¹ÜÀíÔ±¹ÜÀíµÄ³ÇÊĞ
 $cityArr = array();
 $user_id = $GLOBALS['cuserLogin']->getUserID();
 $User =  $dsql->GetOne("Select * from `#@__admin` where id = " . $user_id);
 if(empty($User)||empty($User['admin_city'])){
-    $dsql->SetQuery("Select mid,city_name From `#@__city` where mid>0");
-    $dsql->Execute();
-    while($row = $dsql->GetObject())
-    {
-        $cityArr[$row->mid] = $row->city_name;
-    }
-}else{
-    $cityArr = explode(',',$User['admin_city']);
+$dsql->SetQuery("Select mid,city_name From `#@__city` where mid>0");
+$dsql->Execute();
+while($row = $dsql->GetObject())
+{
+	$cityArr[$row->mid] = $row->city_name;
 }
-//å¦‚æœæ˜¯åŸå¸‚ç®¡ç†å‘˜ï¼Œmatt=0ï¼Œå³ä¸çœ‹ç®¡ç†å‘˜ä¿¡æ¯ï¼Œåªçœ‹æ•™å‘˜ä¿¡æ¯
+}else{
+	$cityArr = explode(',',$User['admin_city']);
+}
+//Èç¹ûÊÇ³ÇÊĞ¹ÜÀíÔ±£¬matt=0£¬¼´²»¿´¹ÜÀíÔ±ĞÅÏ¢£¬Ö»¿´½ÌÔ±ĞÅÏ¢
 if($User['usertype']==1){
-    $matt = 0;
+	$matt = 0;
 }
 
-//$staArr = array(-2=>'é™åˆ¶ç”¨æˆ·(ç¦è¨€)', -1=>'æœªé€šè¿‡å®¡æ ¸', 0=>'æ³¨å†Œæ•™å‘˜', 1=>'æ²¡å¡«å†™è¯¦ç»†èµ„æ–™', 2=>'æ­£å¸¸ä½¿ç”¨çŠ¶æ€');
-$staArr = array( 0=>'æ³¨å†Œæ•™å‘˜', 1=>'å®¡æ ¸æ•™å‘˜', 2=>'æ¨èæ•™å‘˜', 3=>'æ˜æ˜Ÿæ•™å‘˜');
-$staArrmatt = array(1=>'è¢«æ¨è', 0=>'éæ™®é€š ' );
+//$staArr = array(-2=>'ÏŞÖÆÓÃ»§(½ûÑÔ)', -1=>'Î´Í¨¹ıÉóºË', 0=>'×¢²á½ÌÔ±', 1=>'Ã»ÌîĞ´ÏêÏ¸×ÊÁÏ', 2=>'Õı³£Ê¹ÓÃ×´Ì¬');
+$staArr = array( 0=>'×¢²á½ÌÔ±', 1=>'ÉóºË½ÌÔ±', 2=>'ÍÆ¼ö½ÌÔ±', 3=>'Ã÷ĞÇ½ÌÔ±');
+$staArrmatt = array(1=>'±»ÍÆ¼ö', 0=>'·ÇÆÕÍ¨ ' );
 $MemberTypes = array();
 $dsql->SetQuery("Select rank,membername From `#@__arcrank` where rank>0 ");
 $dsql->Execute();
@@ -93,31 +93,31 @@ while($row = $dsql->GetObject())
 
 if($sortkey=='m.mid')
 {
-    $sortform = "<option value='mid'>mid/æ³¨å†Œæ—¶é—´</option>\r\n";
+    $sortform = "<option value='mid'>mid/×¢²áÊ±¼ä</option>\r\n";
 }
 else if($sortkey=='rank')
 {
-    $sortform = "<option value='rank'>ä¼šå‘˜ç­‰çº§</option>\r\n";
+    $sortform = "<option value='rank'>»áÔ±µÈ¼¶</option>\r\n";
 }
 else if($sortkey=='money')
 {
-    $sortform = "<option value='money'>ä¼šå‘˜é‡‘å¸</option>\r\n";
+    $sortform = "<option value='money'>»áÔ±½ğ±Ò</option>\r\n";
 }
 else if($sortkey=='scores')
 {
-    $sortform = "<option value='scores'>ä¼šå‘˜ç§¯åˆ†</option>\r\n";
+    $sortform = "<option value='scores'>»áÔ±»ı·Ö</option>\r\n";
 }
 else
 {
-    $sortform = "<option value='logintime'>ç™»å½•æ—¶é—´</option>\r\n";
+    $sortform = "<option value='logintime'>µÇÂ¼Ê±¼ä</option>\r\n";
 }
 if($keyword!='')
-    $wheres[] = " (m.userid LIKE '%$keyword%' OR m.uname LIKE '%$keyword%' OR m.email LIKE '%$keyword%' OR m.qq LIKE '%$keyword%' OR mobile LIKE '%$keyword%' OR m.mid=$keyword) ";
+	$wheres[] = " (m.userid LIKE '%$keyword%' OR m.uname LIKE '%$keyword%' OR m.email LIKE '%$keyword%' OR m.qq LIKE '%$keyword%' OR mobile LIKE '%$keyword%' OR m.mid=$keyword) ";
 
 if($sex   != '')
 {
-    if($sex == 'ç”·' || $sex=='å¥³')
-        $wheres[] = " sex LIKE '$sex' ";
+	if($sex == 'ÄĞ' || $sex=='Å®')
+    	$wheres[] = " sex LIKE '$sex' ";
 }
 
 if($mtype != '')
@@ -138,12 +138,12 @@ if($matt != 10)
 
 if($city != '')
 {
-    $wheres[] = " city LIKE '$city' ";
+	$wheres[] = " city LIKE '$city' ";
 }else{
-    $cities = array();
-    foreach($cityArr as $ocity)
-        $cities[] = ("'" . $ocity . "'");
-    $wheres[] =  "city in (" . implode(",",$cities) . ")";
+	$cities = array();
+	foreach($cityArr as $ocity)
+		$cities[] = ("'" . $ocity . "'");
+	$wheres[] =  "city in (" . implode(",",$cities) . ")";
 }
 
 $whereSql = join(' AND ',$wheres);
@@ -161,7 +161,7 @@ while($row = $dsql->GetArray())
 
 $sql  = "SELECT m.*,a.id as aid FROM `#@__member` as m left join `#@__archives` as a on m.mid = a.mid $whereSql ORDER BY m.shunxu asc";
 
-$dlist = new DataListCP();//åˆ†é¡µç”¨
+$dlist = new DataListCP();//·ÖÒ³ÓÃ
 $dlist->SetParameter('sex',$sex);
 $dlist->SetParameter('spacesta',$spacesta);
 $dlist->SetParameter('matt',$matt);
@@ -171,9 +171,9 @@ $dlist->SetParameter('keyword',$keyword);
 $dlist->SetParameter('city',$city);
 
 if(!empty($User)&&$User['usertype']<10)
-    $dlist->SetTemplet(DEDEADMIN."/templets/member_main1.htm");
+	$dlist->SetTemplet(DEDEADMIN."/templets/member_main1.htm");
 else
-    $dlist->SetTemplet(DEDEADMIN."/templets/member_main.htm");
+	$dlist->SetTemplet(DEDEADMIN."/templets/member_main.htm");
 $dlist->SetSource($sql);
 $dlist->display();
 
@@ -182,7 +182,7 @@ function GetMemberName($rank,$mt)
     global $MemberTypes;
     if(isset($MemberTypes[$rank]))
     {
-        if($mt=='ut') return " <font color='red'>å¾…å‡çº§ï¼š".$MemberTypes[$rank]."</font>";
+        if($mt=='ut') return " <font color='red'>´ıÉı¼¶£º".$MemberTypes[$rank]."</font>";
         else return $MemberTypes[$rank];
     } else {
         if($mt=='ut') return '';
@@ -193,23 +193,23 @@ function GetMemberName($rank,$mt)
 function GetMAtt($m)
 {
     if($m<1) return '';
-    else if($m==10) return "&nbsp;<font color='red'>[ç®¡ç†å‘˜]</font>";
-    else return "&nbsp;<img src='images/adminuserico.gif' wmidth='16' height='15'><font color='red'>[è]</font>";
+    else if($m==10) return "&nbsp;<font color='red'>[¹ÜÀíÔ±]</font>";
+    else return "&nbsp;<img src='images/adminuserico.gif' wmidth='16' height='15'><font color='red'>[¼ö]</font>";
 }
 
-//ä¼šå‘˜çŠ¶æ€
+//»áÔ±×´Ì¬
 function Status($status)
 {
-    //ä¼šå‘˜çŠ¶æ€
-    $spaceSta = array(0=>'æ³¨å†Œæ•™å‘˜', 1=>'å®¡æ ¸æ•™å‘˜', 2=>'æ¨èæ•™å‘˜',3=>'æ˜æ˜Ÿæ•™å‘˜');
-    $html = "<select class='spacesta' name='spacesta' style='width:80px'>";
-
+	//»áÔ±×´Ì¬
+	$spaceSta = array(0=>'×¢²á½ÌÔ±', 1=>'ÉóºË½ÌÔ±', 2=>'ÍÆ¼ö½ÌÔ±',3=>'Ã÷ĞÇ½ÌÔ±');
+	$html = "<select class='spacesta' name='spacesta' style='width:80px'>";
+           
     foreach($spaceSta as $k=>$v)
     {
-        if($status==$k) $html.="<option value='$k' selected>$v</option>\r\n";
-        else $html.="<option value='$k'>$v</option>\r\n";
+         if($status==$k) $html.="<option value='$k' selected>$v</option>\r\n";
+         else $html.="<option value='$k'>$v</option>\r\n";
     }
 
     $html.='</select>';
-    return $html;
+	return $html;
 }
