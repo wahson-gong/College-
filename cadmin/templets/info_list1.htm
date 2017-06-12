@@ -27,21 +27,21 @@
 <body background='images/allbg.gif' leftmargin='8' topmargin='8'>
 <ul class="nav nav-pills" role="tablist">
   <li role="presentation" class="active"><a href="info_list.php">信息列表</a></li>
-  <li role="presentation"><a href="info_add.php">信息增加</a></li>
-  <li role="presentation"><a href="fee_back.php">退款处理</a></li>
-  <li role="presentation"><a href="member_main.php">教员信息</a></li>
+  <!--<li role="presentation"><a href="info_add.php">信息增加</a></li>-->
+  <!--<li role="presentation"><a href="fee_back.php">退款处理</a></li>-->
+  <!--<li role="presentation"><a href="member_main.php">教员信息</a></li>-->
   <li role="presentation"><a href="exit.php">退出登录</a></li>
 </ul>
 <table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#D6D6D6" style="margin-bottom:6px">
   <tr>
-    <td height="30" align="center" bgcolor="#F9FCEF"> 
+    <td height="30" align="center" bgcolor="#F9FCEF">
   <form action="info_list.php" name="form1" method="get" id="condForm">
 	  <table border="0" cellspacing="0" cellpadding="3">
       <tr>
           <td>关键字：</td>
           <td><input name="keyword" type="text" id="keyword" size="12" style="width:120px" value="{dede:global name='keyword'/}" /></td>
           <!--<td>&nbsp;排序：</td>
-		  
+
           <td>
 		        <select name="sortkey" id="sortkey" style="width:120px" onchange="changeCond()">
               {dede:global name='sort_form'/}
@@ -97,7 +97,7 @@
               <option value="text" <?php if($show_mode=='text') echo 'selected';?>>复制</option>
              </select>
           </td>
-         
+
          <td>
            <input name="imageField" class="np" type="image" src="images/button_search.gif" width="60" height="22" border="0" />
           </td>
@@ -109,7 +109,7 @@
 </table>
 <form name="form2">
 <table class="table table-bordered" width="98%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#cfcfcf">
-  <tr> 
+  <tr>
   <td height="28" colspan="16" background="images/tbg.gif">
    <table width="99%" border="0" cellspacing="0" cellpadding="0">
      <tr>
@@ -118,24 +118,24 @@
   </table>
  </td>
 </tr>
-  <tr bgcolor="#FEFCEF" height="30" align="center"> 
+  <tr bgcolor="#FEFCEF" height="30" align="center">
     <!-- <td width="2%">选择</td> -->
     <!--<td width="3%">mid</td>-->
     <td width="5%">编号</td>
     <td width="6%">创建日期</td>
 	<td width="5%">城市</td>
     <td width="34%">信息</td>
-    <td width="14%">联系方式</td>
+    <!--<td width="14%">联系方式</td>-->
     <td width="5%">信息费</td>
     <td width="5%">状态</td>
-    
+
   </tr>
-{dede:datalist} 
-<?php 
+{dede:datalist}
+<?php
 	if($show_mode == 'table'){
 ?>
 <tr height="26" align="center" bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';"
-  	 onMouseOut="javascript:this.bgColor='#FFFFFF';"> 
+  	 onMouseOut="javascript:this.bgColor='#FFFFFF';">
   <!-- <td><input name="mid" type="checkbox" id="mid" value="{dede:field.mid/}" class="np" /></td> -->
   <!--<td>{dede:field.mid/}</td>-->
   <td>{dede:field.bianhao/}</td>
@@ -144,11 +144,11 @@
   <td style="text-align:left"><span style="color:red">信息:</span>{dede:field.requirement/}
   <br/><span style="color:red">站点:</span>{dede:field.bus_stop/}
   <br/><span style="color:red">要求:</span>{dede:field.info_cond/}</td>
-  <td>{dede:field.contact_name1/}:{dede:field.tel1/}<br/>
-	{dede:if $fields['contact_name2']!=""}
-  	  {dede:field.contact_name2/}:{dede:field.tel2/}
-	  {/dede:if}
-  </td>
+  <!--<td>{dede:field.contact_name1/}:{dede:field.tel1/}<br/>-->
+	<!--{dede:if $fields['contact_name2']!=""}-->
+  	  <!--{dede:field.contact_name2/}:{dede:field.tel2/}-->
+	  <!--{/dede:if}-->
+  <!--</td>-->
   <td>{dede:field.info_fee/}</td>
   <!-- 状态 -->
   <td>
@@ -168,9 +168,9 @@
 <?php
 }
 ?>
-{/dede:datalist} 
-<!-- 
-<tr bgcolor="#ffffff"> 
+{/dede:datalist}
+<!--
+<tr bgcolor="#ffffff">
  <td height="36" colspan="9">
 	&nbsp;
 	<a href="javascript:selAll()" class="coolbg">全选</a>
@@ -179,7 +179,7 @@
 </td>
 </tr>
  -->
-<tr bgcolor="#F9FCEF"> 
+<tr bgcolor="#F9FCEF">
  <td height="36" colspan="16" align="center">
 	{dede:pagelist listsize='6' /}
  </td>
@@ -205,7 +205,7 @@ function update_field(id, field){
 }
 //直接修改状态
 function change_status(id){
-	 
+
 }
 $(document).ready(function(){
 	$(".info_status").change(function(){
