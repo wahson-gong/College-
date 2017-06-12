@@ -27,13 +27,9 @@
 <body background='images/allbg.gif' leftmargin='8' topmargin='8'>
 <ul class="nav nav-pills" role="tablist">
   <li role="presentation" class="active"><a href="info_list.php">��Ϣ�б�</a></li>
-  <?php
-  if($user['id']==1){
-  echo '<li role="presentation"><a href="info_add.php">��Ϣ����</a></li>';
-  echo '<li role="presentation"><a href="fee_back.php">�˿��</a></li>';
-  echo '<li role="presentation"><a href="member_main.php">��Ա��Ϣ</a></li>';
-  }
-  ?>
+  <!--<li role="presentation"><a href="info_add.php">��Ϣ����</a></li>-->
+  <!--<li role="presentation"><a href="fee_back.php">�˿��</a></li>-->
+  <!--<li role="presentation"><a href="member_main.php">��Ա��Ϣ</a></li>-->
   <li role="presentation"><a href="exit.php">�˳���¼</a></li>
 </ul>
 <table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#D6D6D6" style="margin-bottom:6px">
@@ -128,11 +124,7 @@
     <td width="5%">���</td>
     <td width="6%">��������</td>
 	<td width="5%">����</td>
-    <?php
-    if($user['id']==1){
-    echo '<td width="34%">��Ϣ</td>';
-    }
-    ?>
+    <!--<td width="34%">��Ϣ</td>-->
     <td width="14%">��ϵ��ʽ</td>
     <td width="5%">��Ϣ��</td>
     <td width="5%">״̬</td>
@@ -152,11 +144,11 @@
   <td style="text-align:left"><span style="color:red">��Ϣ:</span>{dede:field.requirement/}
   <br/><span style="color:red">վ��:</span>{dede:field.bus_stop/}
   <br/><span style="color:red">Ҫ��:</span>{dede:field.info_cond/}</td>
-  <?php
-  if($user['id']==1){
-  echo '<td>{dede:field.contact_name1/}:{dede:field.tel1/}<br/>{dede:if $fields['contact_name2']!=""}{dede:field.contact_name2/}:{dede:field.tel2/}{/dede:if}</td>';
-  }
-  ?>
+  <!--<td>{dede:field.contact_name1/}:{dede:field.tel1/}<br/>-->
+	<!--{dede:if $fields['contact_name2']!=""}-->
+  	  <!--{dede:field.contact_name2/}:{dede:field.tel2/}-->
+	  <!--{/dede:if}-->
+  <!--</td>-->
   <td>{dede:field.info_fee/}</td>
   <!-- ״̬ -->
   <td>
