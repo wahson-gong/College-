@@ -13,7 +13,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
-    <title>学员信息管理</title>
+    <title>ѧԱ��Ϣ����</title>
     <link href="/cadmin/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet" type="text/css">
     <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
@@ -26,11 +26,11 @@
 </head>
 <body background='images/allbg.gif' leftmargin='8' topmargin='8'>
 <ul class="nav nav-pills" role="tablist">
-    <li role="presentation" class="active"><a href="info_list.php">信息列表</a></li>
-    <!--<li role="presentation"><a href="info_add.php">信息增加</a></li>-->
-    <!--<li role="presentation"><a href="fee_back.php">退款处理</a></li>-->
-    <!--<li role="presentation"><a href="member_main.php">教员信息</a></li>-->
-    <li role="presentation"><a href="exit.php">退出登录</a></li>
+    <li role="presentation" class="active"><a href="info_list.php">��Ϣ�б�</a></li>
+    <li role="presentation"><a href="info_add.php">��Ϣ����</a></li>
+    <li role="presentation"><a href="fee_back.php">�˿��</a></li>
+    <li role="presentation"><a href="member_main.php">��Ա��Ϣ</a></li>
+    <li role="presentation"><a href="exit.php">�˳���¼</a></li>
 </ul>
 <table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#D6D6D6" style="margin-bottom:6px">
     <tr>
@@ -38,23 +38,23 @@
             <form action="info_list.php" name="form1" method="get" id="condForm">
                 <table border="0" cellspacing="0" cellpadding="3">
                     <tr>
-                        <td>关键字：</td>
+                        <td>�ؼ��֣�</td>
                         <td><input name="keyword" type="text" id="keyword" size="12" style="width:120px" value="{dede:global name='keyword'/}" /></td>
-                        <!--<td>&nbsp;排序：</td>
+                        <!--<td>&nbsp;����</td>
 
                         <td>
                               <select name="sortkey" id="sortkey" style="width:120px" onchange="changeCond()">
                             {dede:global name='sort_form'/}
-                            <option value="mid">mid/创建时间</option>
-                            <option value="try_time">试讲时间</option>
-                            <option value="huifang_time">回访时间</option>
+                            <option value="mid">mid/����ʱ��</option>
+                            <option value="try_time">�Խ�ʱ��</option>
+                            <option value="huifang_time">�ط�ʱ��</option>
                           </select>
                         </td>-->
-                        <!-- 状态 -->
+                        <!-- ״̬ -->
                         <!--
                         <td>
                            <select name="info_sta" id="info_sta" style="width:150px" onchange="changeCond()">
-                           <option value=''>--需求状态--</option>
+                           <option value=''>--����״̬--</option>
                            <?php
                                 /*foreach($staArr as $k=>$v)
                                 {
@@ -63,10 +63,10 @@
                                 }*/
                               ?>
                          </select></td>-->
-                        <!-- 城市 -->
+                        <!-- ���� -->
                         <td>
                             <select name="city" id="city" style="width:150px" onchange="changeCond()">
-                                <option value=''>--城市--</option>
+                                <option value=''>--����--</option>
                                 <?php
            		foreach($cityArr as $k=>$v)
                                 {
@@ -75,11 +75,11 @@
                                 }
                                 ?>
                             </select></td>
-                        <!-- 来源 -->
+                        <!-- ��Դ -->
                         <!--
                         <td>
                             <select name="info_from" id="info_from" style="width:100px" onchange="changeCond()">
-                             <option value=''>--信息来源--</option>
+                             <option value=''>--��Ϣ��Դ--</option>
                              <?php
                                  /*foreach($InfoSourceModel as $k=>$v)
                                  {
@@ -89,12 +89,12 @@
                                 ?>
                            </select>
                         </td>-->
-                        <!-- 显示方式 -->
+                        <!-- ��ʾ��ʽ -->
                         <td>
                             <?php echo $show_mode;?>
                             <select name="show_mode" id="show_mode" style="width:100px" onchange="changeCond()">
-                                <option value="table" <?php if($show_mode=='table') echo 'selected';?>>表格</option>
-                                <option value="text" <?php if($show_mode=='text') echo 'selected';?>>复制</option>
+                                <option value="table" <?php if($show_mode=='table') echo 'selected';?>>���</option>
+                                <option value="text" <?php if($show_mode=='text') echo 'selected';?>>����</option>
                             </select>
                         </td>
 
@@ -113,21 +113,21 @@
             <td height="28" colspan="16" background="images/tbg.gif">
                 <table width="99%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td width="29%" style="padding-left:10px;"><strong>学员信息列表</strong></td>
+                        <td width="29%" style="padding-left:10px;"><strong>ѧԱ��Ϣ�б�</strong></td>
                     </tr>
                 </table>
             </td>
         </tr>
         <tr bgcolor="#FEFCEF" height="30" align="center">
-            <!-- <td width="2%">选择</td> -->
+            <!-- <td width="2%">ѡ��</td> -->
             <!--<td width="3%">mid</td>-->
-            <td width="5%">编号</td>
-            <td width="6%">创建日期</td>
-            <td width="5%">城市</td>
-            <td width="34%">信息</td>
-            <!--<td width="14%">联系方式</td>-->
-            <td width="5%">信息费</td>
-            <td width="5%">状态</td>
+            <td width="5%">���</td>
+            <td width="6%">��������</td>
+            <td width="5%">����</td>
+            <td width="34%">��Ϣ</td>
+            <td width="14%">��ϵ��ʽ</td>
+            <td width="5%">��Ϣ��</td>
+            <td width="5%">״̬</td>
 
         </tr>
         {dede:datalist}
@@ -141,16 +141,16 @@
             <td>{dede:field.bianhao/}</td>
             <td>{dede:field.createtime function="MyDate('y-m-d H:i',@me)"/}</td>
             <td>{dede:field.city/}</td>
-            <td style="text-align:left"><span style="color:red">信息:</span>{dede:field.requirement/}
-                <br/><span style="color:red">站点:</span>{dede:field.bus_stop/}
-                <br/><span style="color:red">要求:</span>{dede:field.info_cond/}</td>
-            <!--<td>{dede:field.contact_name1/}:{dede:field.tel1/}<br/>-->
-            <!--{dede:if $fields['contact_name2']!=""}-->
-            <!--{dede:field.contact_name2/}:{dede:field.tel2/}-->
-            <!--{/dede:if}-->
-            <!--</td>-->
+            <td style="text-align:left"><span style="color:red">��Ϣ:</span>{dede:field.requirement/}
+                <br/><span style="color:red">վ��:</span>{dede:field.bus_stop/}
+                <br/><span style="color:red">Ҫ��:</span>{dede:field.info_cond/}</td>
+            <td>{dede:field.contact_name1/}:{dede:field.tel1/}<br/>
+                {dede:if $fields['contact_name2']!=""}
+                {dede:field.contact_name2/}:{dede:field.tel2/}
+                {/dede:if}
+            </td>
             <td>{dede:field.info_fee/}</td>
-            <!-- 状态 -->
+            <!-- ״̬ -->
             <td>
                 {dede:field.status function="Status(@me)"/}
                 <input type="hidden" id="{dede:field.mid/}" value="{dede:field.mid/}"/>
@@ -159,11 +159,11 @@
         <?php }else{
 ?>
         <p>
-            编号:{dede:field.bianhao/}<br/>
-            信息:{dede:field.requirement/}<br/>
-            地点:{dede:field.bus_stop/}<br/>
-            要求:{dede:field.info_cond/}<br/>
-            信息费:{dede:field.info_fee/}<br/>
+            ���:{dede:field.bianhao/}<br/>
+            ��Ϣ:{dede:field.requirement/}<br/>
+            �ص�:{dede:field.bus_stop/}<br/>
+            Ҫ��:{dede:field.info_cond/}<br/>
+            ��Ϣ��:{dede:field.info_fee/}<br/>
         </p>
         <?php
 }
@@ -173,9 +173,9 @@
         <tr bgcolor="#ffffff">
          <td height="36" colspan="9">
             &nbsp;
-            <a href="javascript:selAll()" class="coolbg">全选</a>
-            <a href="javascript:noSelAll()" class="coolbg">取消</a>
-            <a href="javascript:delArc(0)" class="coolbg">&nbsp;删除&nbsp;</a>
+            <a href="javascript:selAll()" class="coolbg">ȫѡ</a>
+            <a href="javascript:noSelAll()" class="coolbg">ȡ��</a>
+            <a href="javascript:delArc(0)" class="coolbg">&nbsp;ɾ��&nbsp;</a>
         </td>
         </tr>
          -->
@@ -191,7 +191,7 @@
     function changeCond(){
         document.getElementById('condForm').submit();
     }
-    //更新一些字段
+    //����һЩ�ֶ�
     function update_field(id, field){
         var value = document.getElementById(field + "_" + id).value;
         $.ajax({
@@ -203,7 +203,7 @@
             }
         });
     }
-    //直接修改状态
+    //ֱ���޸�״̬
     function change_status(id){
 
     }

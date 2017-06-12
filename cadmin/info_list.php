@@ -138,7 +138,6 @@ $dlist->SetParameter('info_from',$info_form);
 $dlist->SetParameter('sort_form',$sort_form);
 $dlist->SetParameter('sortkey',$sortkey);
 $dlist->SetParameter('keyword',$keyword);
-
 if(!empty($User)&&$User['usertype']<10)
     $dlist->SetTemplet(DEDEADMIN."/templets/info_list1.htm");
 else
