@@ -5,39 +5,39 @@ require_once(dirname(__FILE__)."/config.php");
 require_once(DEDEINC."/datalistcp.class.php");
 setcookie("ENV_GOBACK_URL",$dedeNowurl,time()+3600,"/");
 
-if(!isset($info_sta)) $info_sta = '°²ÅÅÖÐ';//ÐÅÏ¢×´Ì¬£¬0ÎªËùÓÐ×´Ì¬
-if(!isset($city)) $city = '';//³ÇÊÐ£¬0ÎªËùÓÐ³ÇÊÐ
-if(!isset($info_from)) $info_from = '';//0ËùÓÐÀ´Ô´
+if(!isset($info_sta)) $info_sta = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';//ï¿½ï¿½Ï¢×´Ì¬ï¿½ï¿½0Îªï¿½ï¿½ï¿½ï¿½×´Ì¬
+if(!isset($city)) $city = '';//ï¿½ï¿½ï¿½Ð£ï¿½0Îªï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½
+if(!isset($info_from)) $info_from = '';//0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´
 if(!isset($show_mode)) $show_mode = 'table';
 
-//Ìí¼ÓÍêºóÖ±½ÓÌø×ªµ½¸´ÖÆÐÅÏ¢
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 if(isset($_GET['act'])){
 	$city = $_GET['city'];
 	$show_mode = 'text';
-	$info_sta = '°²ÅÅÖÐ';
+	$info_sta = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 }
 
-//ÐÞ¸ÄÍêºóÌø×ªµ½¸Ã³ÇÊÐÏÂµÄÐÅÏ¢
+//ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½Ï¢
 if(isset($_GET['act'])&&$_GET['act']='modify_direct'){
 	$city = $_GET['city'];
 	$show_mode = 'table';
-	$info_sta = '°²ÅÅÖÐ';
+	$info_sta = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 }
-//¸´ÖÆÍêºóÌø×ªµ½¸Ã³ÇÊÐÏÂµÄÁÐ±íÖÐ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½Ð±ï¿½ï¿½ï¿½
 if(isset($_GET['act'])&&$_GET['act']='copyok'){
 	$city = $_GET['city'];
 	$show_mode = 'table';
-	$info_sta = '°²ÅÅÖÐ';
+	$info_sta = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 }
 
 if(!isset($keyword)) $keyword = '';
 else $keyword = trim(FilterSearch($keyword));
 
-$info_state_form = empty($info_sta) ? "<option value=''>ÐÅÏ¢×´Ì¬</option>\r\n" : "<option value='$info_sta'>$info_sta</option>\r\n";
-$city_form = empty($city) ? "<option value=''>ËùÊô³ÇÊÐ</option>\r\n" : "<option value='$city'>$city</option>\r\n";
-$source_form = empty($info_from) ? "<option value=''>ÐÅÏ¢À´Ô´</option>\r\n" : "<option value='$info_from'>$info_from</option>\r\n";
+$info_state_form = empty($info_sta) ? "<option value=''>ï¿½ï¿½Ï¢×´Ì¬</option>\r\n" : "<option value='$info_sta'>$info_sta</option>\r\n";
+$city_form = empty($city) ? "<option value=''>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</option>\r\n" : "<option value='$city'>$city</option>\r\n";
+$source_form = empty($info_from) ? "<option value=''>ï¿½ï¿½Ï¢ï¿½ï¿½Ô´</option>\r\n" : "<option value='$info_from'>$info_from</option>\r\n";
 
-//¹ÜÀíÔ±¹ÜÀíµÄ³ÇÊÐ
+//ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½
 $cityArr = array();
 $user_id = $GLOBALS['cuserLogin']->getUserID();
 $User =  $dsql->GetOne("Select * from `#@__admin` where id = " . $user_id);
@@ -52,10 +52,10 @@ while($row = $dsql->GetObject())
 	$cityArr = explode(',',$User['admin_city']);
 }
 
-//ÐÅÏ¢×´Ì¬
-$staArr = array(1=>'°²ÅÅÖÐ', 2=>'ÊÔ½²ÖÐ', 3=>'ÊÔ½²³É¹¦', 4=>'ÒÑ»Ø·Ã', 5=>'»µµ¥', 6=>"´ý´¦Àí");
+//ï¿½ï¿½Ï¢×´Ì¬
+$staArr = array(1=>'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 2=>'ï¿½Ô½ï¿½ï¿½ï¿½', 3=>'ï¿½Ô½ï¿½ï¿½É¹ï¿½', 4=>'ï¿½Ñ»Ø·ï¿½', 5=>'ï¿½ï¿½ï¿½ï¿½', 6=>"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
-//$staArrmatt = array(1=>'±»ÍÆ¼ö', 0=>'·ÇÆÕÍ¨ ' );
+//$staArrmatt = array(1=>'ï¿½ï¿½ï¿½Æ¼ï¿½', 0=>'ï¿½ï¿½ï¿½ï¿½Í¨ ' );
 $InfoSourceModel = array();
 
 $dsql->SetQuery("Select mid,source_name From `#@__from_source` where mid>0 ");
@@ -67,25 +67,25 @@ while($row = $dsql->GetObject())
 
 if($sortkey=='mid')
 {
-	$sortform = "<option value='mid'>mid/´´½¨Ê±¼ä</option>\r\n";
+	$sortform = "<option value='mid'>mid/ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½</option>\r\n";
 }
 else if($sortkey=='try_time')
 {
-	$sortform = "<option value='try_time'>ÊÔ½²Ê±¼ä</option>\r\n";
+	$sortform = "<option value='try_time'>ï¿½Ô½ï¿½Ê±ï¿½ï¿½</option>\r\n";
 }
 else if($sortkey=='huifang_time')
 {
-	$sortform = "<option value='huifang_time'>»Ø·ÃÊ±¼ä</option>\r\n";
+	$sortform = "<option value='huifang_time'>ï¿½Ø·ï¿½Ê±ï¿½ï¿½</option>\r\n";
 }
 else if($sortkey=='updatetime')
 {
-	$sortform = "<option value='updatetime'>¸üÐÂÊ±¼ä</option>\r\n";
+	$sortform = "<option value='updatetime'>ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½</option>\r\n";
 }
 else
 	$sortkey = "mid";
-//¹Ø¼ü×Ö
+//ï¿½Ø¼ï¿½ï¿½ï¿½
 
-//¸´ÖÆÄ£Ê½ÏÂ£¬ÅÅÐò°´¸üÐÂÊ±¼ä
+//ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½Â£ï¿½ï¿½ï¿½ï¿½ò°´¸ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 if($mode=="text")
 	$sortkey = 'updatetime';
 
@@ -93,7 +93,7 @@ $wheres[] = " (bianhao LIKE '%$keyword%' or city LIKE '%$keyword%' or bus_stop L
 
 if($info_sta!= '')
 {
-	$info_sta = ($show_mode=="text")?'°²ÅÅÖÐ':$info_sta;
+	$info_sta = ($show_mode=="text")?'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½':$info_sta;
 	$wheres[] = " status LIKE '$info_sta' ";
 }
 
@@ -128,7 +128,7 @@ while($row = $dsql->GetObject())
 
 $sql  = "SELECT * FROM `#@__member_xueyuan` $whereSql ORDER BY $sortkey DESC ";
 
-$dlist = new DataListCP();//·ÖÒ³ÓÃ
+$dlist = new DataListCP();//ï¿½ï¿½Ò³ï¿½ï¿½
 //echo $sql;
 
 $dlist->SetParameter('info_sta',$info_sta);
@@ -138,6 +138,8 @@ $dlist->SetParameter('info_from',$info_form);
 $dlist->SetParameter('sort_form',$sort_form);
 $dlist->SetParameter('sortkey',$sortkey);
 $dlist->SetParameter('keyword',$keyword);
+$dlist->SetParameter('user',$User);
+
 if(!empty($User)&&$User['usertype']<10)
 	$dlist->SetTemplet(DEDEADMIN."/templets/info_list1.htm");
 else
@@ -150,7 +152,7 @@ function GetMemberName($rank,$mt)
 	global $MemberTypes;
 	if(isset($MemberTypes[$rank]))
 	{
-		if($mt=='ut') return " <font color='red'>´ýÉý¼¶£º".$MemberTypes[$rank]."</font>";
+		if($mt=='ut') return " <font color='red'>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½".$MemberTypes[$rank]."</font>";
 		else return $MemberTypes[$rank];
 	} else {
 		if($mt=='ut') return '';
@@ -161,14 +163,14 @@ function GetMemberName($rank,$mt)
 function GetMAtt($m)
 {
 	if($m<1) return '';
-	else if($m==10) return "&nbsp;<font color='red'>[¹ÜÀíÔ±]</font>";
-	else return "&nbsp;<img src='images/adminuserico.gif' wmidth='16' height='15'><font color='red'>[¼ö]</font>";
+	else if($m==10) return "&nbsp;<font color='red'>[ï¿½ï¿½ï¿½ï¿½Ô±]</font>";
+	else return "&nbsp;<img src='images/adminuserico.gif' wmidth='16' height='15'><font color='red'>[ï¿½ï¿½]</font>";
 }
 
 function Status($status,$id)
 {
-	//ÐÅÏ¢×´Ì¬
-	$staArr = array(1=>'°²ÅÅÖÐ', 2=>'ÊÔ½²ÖÐ', 3=>'ÊÔ½²³É¹¦', 4=>'ÒÑ»Ø·Ã', 5=>'»µµ¥', 6=>"´ý´¦Àí");
+	//ï¿½ï¿½Ï¢×´Ì¬
+	$staArr = array(1=>'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 2=>'ï¿½Ô½ï¿½ï¿½ï¿½', 3=>'ï¿½Ô½ï¿½ï¿½É¹ï¿½', 4=>'ï¿½Ñ»Ø·ï¿½', 5=>'ï¿½ï¿½ï¿½ï¿½', 6=>"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	$html = "<select class='info_status' name='info_sta' style='width:80px'>";
            
     foreach($staArr as $k=>$v)
